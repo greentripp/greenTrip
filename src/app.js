@@ -1,0 +1,34 @@
+const express = require('express');
+const cookieParser = require('cookie-parser');
+const xss = require('xss-clean');
+const dataSanitize = require('express-mongo-sanitize');
+const hpp = require('hpp');
+const cors = require('cors');
+const userRoutes = require('./routes/userRoutes');
+
+const AppError = require('./utils/appError');
+const globalErrorHandler = require('./controllers/errorControllers');
+const { imageErrorHandler } = require('./controllers/imageController');
+const app = express();
+
+app.use(express.json());
+
+if (process.env.NODE_ENV === 'development') app.use(morgan('dev'));
+
+app.use(cors());
+app.use(cookieParser());
+app.use(express.static(`${__dirname}/public`));
+app.use(dataSanitize());
+app.use(xss());
+app.use(hpp());
+
+app.use('/api/v1/users', userRoutes);
+app.use(imageErrorHandler);
+
+app.all('*', (req, res, next) => {
+  next(new AppError(`Cannot find ${req.originalUrl} in server`, 404));
+});
+
+app.use(globalErrorHandler);
+
+module.exports = app;
