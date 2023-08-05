@@ -40,6 +40,10 @@ const pointSchema = new mongoose.Schema(
       required: [true, 'Please provide agent to your Point'],
     },
     slug: String,
+    qrcode: {
+      type: String,
+      required: [true, 'Please provide qrcode to your Point'],
+    },
   },
   { toJSON: { virtuals: true }, toObject: { virtuals: true } }
 );
