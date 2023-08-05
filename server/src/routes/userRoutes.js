@@ -9,6 +9,7 @@ const {
   logout,
   updatePassword,
   adminLogin,
+  loginUser,
 } = require('../controllers/authControllers');
 
 const {
@@ -28,7 +29,7 @@ router.delete('/all', deleteAllUsers);
 router.route('/').get(getAllUsers);
 
 router.post('/signup', signup);
-router.post('/login', login);
+router.post('/login', loginUser);
 router.post('/adminLogin', adminLogin);
 router.get('/logout', logout);
 router.post('/forgotPassword', forgotPassword);

@@ -58,41 +58,30 @@ exports.signup = catchAsync(async (req, res, next) => {
   createSendToken(newUser, 201, res);
 });
 
-exports.login = catchAsync(async (req, res, next) => {
-  const { email, password } = req.body;
+const login = (...role) => {
+  return catchAsync(async (req, res, next) => {
+    const { email, password } = req.body;
 
-  if (!email || !password)
-    return next(new AppError('Please provide email and passoword', 400));
+    if (!email || !password)
+      return next(new AppError('Please provide email and passoword', 400));
 
-  // 1) Find user by email
-  const user = await User.findOne({ email }).select('+password');
+    // 1) Find user by email
+    const user = await User.findOne({ email }).select('+password');
 
-  // 2) Verify if user exists and input passsword is correct.
-  if (!user || !(await user.correctPassword(password, user.password)))
-    return next(new AppError('Icorrect email or password', 401));
+    // Check if the user is adimn
+    if (!role.includes(user.role))
+      return next(new AppError(`You cannot login here as ${user.role}`, 401));
 
-  createSendToken(user, 200, res);
-});
+    // 2) Verify if user exists and input passsword is correct.
+    if (!user || !(await user.correctPassword(password, user.password)))
+      return next(new AppError('Icorrect email or password', 401));
 
-exports.adminLogin = catchAsync(async (req, res, next) => {
-  const { email, password } = req.body;
+    createSendToken(user, 200, res);
+  });
+};
+exports.loginUser = login('user', 'agent');
 
-  if (!email || !password)
-    return next(new AppError('Please provide email and passoword', 400));
-
-  // 1) Find user by email
-  const user = await User.findOne({ email }).select('+password');
-
-  // Check if the user is adimn
-  if (user.role !== 'admin')
-    return next(new AppError('This route for admins only', 401));
-
-  // 2) Verify if user exists and input passsword is correct.
-  if (!user || !(await user.correctPassword(password, user.password)))
-    return next(new AppError('Icorrect email or password', 401));
-
-  createSendToken(user, 200, res);
-});
+exports.adminLogin = login('admin');
 
 exports.updatePassword = catchAsync(async (req, res, next) => {
   console.log('HI');
