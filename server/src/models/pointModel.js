@@ -41,7 +41,7 @@ const pointSchema = new mongoose.Schema(
       ref: 'User',
       required: [true, 'Please provide agent to your Point'],
     },
-    slug: String,
+    slug: { type: String, unique: true },
     qrcode: {
       type: String,
       required: [true, 'Please provide qrcode to your Point'],

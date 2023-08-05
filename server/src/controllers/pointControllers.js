@@ -1,4 +1,6 @@
 const Point = require('../models/pointModel');
+const User = require('../models/userModel');
+const AppError = require('../utils/appError');
 const catchAsync = require('../utils/catchAsync');
 const {
   createOne,
@@ -15,9 +17,12 @@ exports.getOnePoint = catchAsync(
 exports.createOnePoint = catchAsync(createOne(Point));
 exports.deleteOnePoint = catchAsync(deleteOne(Point));
 exports.updateOnePoint = catchAsync(updateOne(Point));
+exports.isAgent = catchAsync(async (req, res, next) => {
+  const agentId = req.body.agent;
+  console.log(agentId);
+  const agent = await User.findById(agentId);
+  console.log(agent);
 
-/*
-active": false,
-"__v": 0,
-"id": "64cb63913678aaeaf97a2653"
-                */
+  if (agent.role !== 'agent')
+    return next(new AppError('Please insert vaild agent ID', 404));
+});
