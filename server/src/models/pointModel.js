@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const slugify = require('slugify');
 
 const pointSchema = new mongoose.Schema(
   {
@@ -26,6 +27,7 @@ const pointSchema = new mongoose.Schema(
     },
     category: {
       type: String,
+      // required: [true, 'Please provide category to the Point of Interest'],
       enum: ['hotels', 'restruent'],
     },
     activites: [
@@ -51,7 +53,7 @@ const pointSchema = new mongoose.Schema(
 pointSchema.index({ slug: 1 });
 
 pointSchema.pre('save', function (next) {
-  this.slug = slugify(this.title, { lower: true });
+  this.slug = slugify(this.name, { lower: true });
   next();
 });
 
