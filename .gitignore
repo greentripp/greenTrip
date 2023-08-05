@@ -2,6 +2,7 @@
 
 # dotenv environment variables file
 src/.env
+.env
 .env.test
 
 # parcel-bundler cache (https://parceljs.org/)
