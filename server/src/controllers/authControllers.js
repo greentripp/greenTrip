@@ -38,11 +38,16 @@ const createSendToken = (user, statusCode, res) => {
 };
 
 exports.signup = catchAsync(async (req, res, next) => {
+  const role = req.body.role;
+
+  if (role === 'admin') return next(new AppError('You cannot signup as admin'));
+
   const newUser = await User.create({
     name: req.body.name,
     email: req.body.email,
     password: req.body.password,
     passwordConfirm: req.body.passwordConfirm,
+    role,
   });
 
   // Remove passowrd from output

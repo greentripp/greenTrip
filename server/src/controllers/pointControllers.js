@@ -19,10 +19,8 @@ exports.deleteOnePoint = catchAsync(deleteOne(Point));
 exports.updateOnePoint = catchAsync(updateOne(Point));
 exports.isAgent = catchAsync(async (req, res, next) => {
   const agentId = req.body.agent;
-  console.log(agentId);
   const agent = await User.findById(agentId);
-  console.log(agent);
-
   if (agent.role !== 'agent')
     return next(new AppError('Please insert vaild agent ID', 404));
+  next();
 });
