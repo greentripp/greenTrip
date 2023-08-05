@@ -6,9 +6,9 @@ const {
   forgotPassword,
   resetPassword,
   protect,
-  restrictTo,
   logout,
   updatePassword,
+  adminLogin,
 } = require('../controllers/authControllers');
 
 const {
@@ -18,10 +18,7 @@ const {
   getMe,
   deleteMe,
   updateUserData,
-  // updateUserAvatar,
 } = require('../controllers/userControllers');
-
-const { upload } = require('../controllers/imageController');
 
 // Auth
 
@@ -32,6 +29,7 @@ router.route('/').get(getAllUsers);
 
 router.post('/signup', signup);
 router.post('/login', login);
+router.post('/adminLogin', adminLogin);
 router.get('/logout', logout);
 router.post('/forgotPassword', forgotPassword);
 router.patch('/resetPassword/:token', resetPassword);
