@@ -84,7 +84,6 @@ exports.loginUser = login('user', 'agent');
 exports.adminLogin = login('admin');
 
 exports.updatePassword = catchAsync(async (req, res, next) => {
-  console.log('HI');
   // 1) Get User from collection.
   const user = await User.findById(req.user.id).select('+password');
 
@@ -197,8 +196,6 @@ exports.forgotPassword = catchAsync(async (req, res, next) => {
 
   try {
     new Email(user, resetToken).sendPasswordResetProd();
-
-    console.log(resetToken);
 
     res.status(200).json({
       status: 'success',

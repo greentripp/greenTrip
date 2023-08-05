@@ -14,7 +14,7 @@ const pointSchema = new mongoose.Schema(
       required: [true, 'Please provide address to the Point of Interest'],
     },
     region: String,
-    photo: {
+    pointPhoto: {
       type: String,
       required: [true, 'Please provide photo to the Point of Interest'],
     },

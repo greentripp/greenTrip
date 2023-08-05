@@ -5,13 +5,12 @@ const { getAll, getOne, deleteAll } = require('./handleOps');
 
 exports.getAllUsers = getAll(User);
 exports.deleteAllUsers = deleteAll(User);
+exports.getUser = getOne(User);
 
 exports.getMe = (req, res, next) => {
   req.params.id = req.user.id;
   next();
 };
-
-exports.getUser = getOne(User);
 
 exports.deleteMe = catchAsync(async (req, res) => {
   await User.findByIdAndUpdate(req.user.id, { active: false });

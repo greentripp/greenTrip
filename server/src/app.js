@@ -18,7 +18,7 @@ if (process.env.NODE_ENV === 'development') app.use(morgan('dev'));
 
 app.use(cors());
 app.use(cookieParser());
-app.use(express.static(`${__dirname}/public`));
+app.use(express.static(`${__dirname}/../../public`));
 app.use(dataSanitize());
 app.use(xss());
 app.use(hpp());
@@ -34,3 +34,14 @@ app.all('*', (req, res, next) => {
 app.use(globalErrorHandler);
 
 module.exports = app;
+
+`
+{
+  "name": "TEST POINT",
+  "address": "test address",
+  "photo": "TEST STRING",
+  "availableTickets": 15,
+  "agent": "64ce50d0cc60fcb1092437b3",
+  "qrcode": "qrcode"
+}
+`;

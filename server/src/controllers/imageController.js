@@ -1,12 +1,6 @@
 const multer = require('multer');
-
 const AppError = require('../utils/appError');
-
-// exports.upload = multer({
-//   storage,
-//   fileFilter,
-//   limits: { fileSize: 1000000000, files: 2 },
-// });
+const path = require('path');
 
 exports.imageErrorHandler = (error, req, res, next) => {
   if (error instanceof multer.MulterError) {
@@ -30,3 +24,52 @@ exports.imageErrorHandler = (error, req, res, next) => {
   }
   next(error);
 };
+
+const multerStorage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    let uploadDir = '';
+
+    if (file.fieldname === 'pointPhoto') {
+      uploadDir = 'pointImg';
+    } else if (file.fieldname === 'qrcode') {
+      uploadDir = 'qr';
+    } else if (file.fieldname === 'avatar') {
+      uploadDir = 'avatars';
+    } else {
+      return cb(new AppError('Invalid fieldname for file upload', 400));
+    }
+
+    cb(
+      null,
+      path.join(__dirname, '..', '..', '..', 'public', 'img', uploadDir)
+    );
+  },
+
+  filename: (req, file, cb) => {
+    const ext = file.mimetype.split('/')[1];
+    const filename = `${file.fieldname}-${Date.now()}.${ext}`;
+
+    if (file.fieldname === 'pointPhoto') {
+      req.body.pointPhoto = filename;
+    } else if (file.fieldname === 'qrcode') {
+      req.body.qrcode = filename;
+    } else if (file.fieldname === 'avatar') {
+      req.body.avatar = filename;
+    }
+
+    cb(null, filename);
+  },
+});
+
+const multerFilter = (req, file, cb) => {
+  if (file.mimetype.startsWith('image')) {
+    cb(null, true);
+  } else {
+    cb(new AppError('Please insert an image', 400), false);
+  }
+};
+
+exports.upload = multer({
+  storage: multerStorage,
+  fileFilter: multerFilter,
+});
