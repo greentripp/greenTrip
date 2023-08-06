@@ -7,6 +7,7 @@ const {
   getOneActivity,
   updateOneActivity,
   deleteAllActivities,
+  getActivitiesByPoint,
 } = require('../controllers/activityController');
 
 router.delete('/all', deleteAllActivities);
@@ -14,9 +15,10 @@ router.delete('/all', deleteAllActivities);
 router
   .route('/')
   .get(getAllActivites)
-  .post(protect, restrictTo('admin'), createOneActivity);
+  .post(protect, restrictTo('admin', 'user'), createOneActivity);
 
 router.use(protect);
+router.get('/points/:pointId', getActivitiesByPoint);
 router
   .route('/:id')
   .get(getOneActivity)
