@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { protect } = require('../controllers/authControllers');
+const { protect, restrictTo } = require('../controllers/authControllers');
 const {
   createOneActivity,
   deleteOneActivity,
@@ -11,11 +11,15 @@ const {
 
 router.delete('/all', deleteAllActivities);
 
-router.route('/').get(getAllActivites).post(createOneActivity);
+router
+  .route('/')
+  .get(getAllActivites)
+  .post(restrictTo('admin'), createOneActivity);
 
+router.use(protect);
 router
   .route('/:id')
   .get(getOneActivity)
-  .patch(updateOneActivity)
-  .delete(deleteOneActivity);
+  .patch(restrictTo('admin'), updateOneActivity)
+  .delete(restrictTo('admin'), deleteOneActivity);
 module.exports = router;

@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { protect } = require('../controllers/authControllers');
+const { protect, restrictTo } = require('../controllers/authControllers');
 const { uploadPointFiles } = require('../controllers/pointControllers');
 const {
   getAllPoints,
@@ -12,11 +12,19 @@ const {
   setImagesInDB,
 } = require('../controllers/pointControllers');
 router.route('/all').delete(deleteAllPoints);
+
 router
   .route('/')
   .get(getAllPoints)
-  .post(uploadPointFiles, setImagesInDB, isAgent, createOnePoint);
+  .post(
+    restrictTo('admin'),
+    uploadPointFiles,
+    setImagesInDB,
+    isAgent,
+    createOnePoint
+  );
 
+router.use(protect);
 router
   .route('/:id')
   .get(getOnePoint)
