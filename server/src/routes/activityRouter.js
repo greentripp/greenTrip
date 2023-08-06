@@ -14,7 +14,7 @@ router.delete('/all', deleteAllActivities);
 router
   .route('/')
   .get(getAllActivites)
-  .post(restrictTo('admin'), createOneActivity);
+  .post(protect, restrictTo('admin'), createOneActivity);
 
 router.use(protect);
 router

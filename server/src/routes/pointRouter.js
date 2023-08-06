@@ -17,6 +17,7 @@ router
   .route('/')
   .get(getAllPoints)
   .post(
+    protect,
     restrictTo('admin'),
     uploadPointFiles,
     setImagesInDB,
