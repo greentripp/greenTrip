@@ -7,6 +7,7 @@ const cors = require('cors');
 
 const userRouter = require('./routes/userRoutes');
 const pointRouter = require('./routes/pointRouter');
+const activityRouter = require('./routes/activityRouter');
 const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorControllers');
 const { imageErrorHandler } = require('./controllers/imageController');
@@ -25,6 +26,8 @@ app.use(hpp());
 
 app.use('/api/v1/users', userRouter);
 app.use('/api/v1/points', pointRouter);
+app.use('/api/v1/actvities', activityRouter);
+
 app.use(imageErrorHandler);
 
 app.all('*', (req, res, next) => {

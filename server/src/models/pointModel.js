@@ -14,7 +14,7 @@ const pointSchema = new mongoose.Schema(
       required: [true, 'Please provide address to the Point of Interest'],
     },
     region: String,
-    pointPhoto: {
+    photo: {
       type: String,
       required: [true, 'Please provide photo to the Point of Interest'],
     },
@@ -30,12 +30,6 @@ const pointSchema = new mongoose.Schema(
       // required: [true, 'Please provide category to the Point of Interest'],
       enum: ['hotels', 'restruent'],
     },
-    activites: [
-      {
-        type: mongoose.Schema.ObjectId,
-        ref: 'Activity',
-      },
-    ],
     agent: {
       type: mongoose.Schema.ObjectId,
       ref: 'User',
@@ -47,13 +41,29 @@ const pointSchema = new mongoose.Schema(
       required: [true, 'Please provide qrcode to your Point'],
     },
   },
-  { toJSON: { virtuals: true }, toObject: { virtuals: true } }
+  {
+    toJSON: { virtuals: true },
+    toObject: { virtuals: true },
+  }
 );
 
 pointSchema.index({ slug: 1 });
 
 pointSchema.pre('save', function (next) {
   this.slug = slugify(this.name, { lower: true });
+  next();
+});
+pointSchema.virtual('activities', {
+  ref: 'Activity',
+  localField: '_id',
+  foreignField: 'pointOfInterest',
+});
+
+pointSchema.pre(/^find/, function (next) {
+  this.populate({
+    path: 'agent',
+    select: 'name phone email',
+  });
   next();
 });
 

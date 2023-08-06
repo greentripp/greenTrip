@@ -12,18 +12,15 @@ const {
 } = require('./handleOps');
 const { upload } = require('./imageController');
 
-exports.getAllPoints = catchAsync(getAll(Point));
-exports.getOnePoint = catchAsync(
-  getOne(Point, { path: 'agent', select: 'name phone email' })
-);
-exports.createOnePoint = catchAsync(createOne(Point));
-exports.deleteOnePoint = catchAsync(deleteOne(Point));
-exports.updateOnePoint = catchAsync(updateOne(Point));
+exports.getAllPoints = getAll(Point);
+exports.getOnePoint = getOne(Point, 'activities');
+exports.createOnePoint = createOne(Point);
+exports.deleteOnePoint = deleteOne(Point);
+exports.updateOnePoint = updateOne(Point);
 exports.deleteAllPoints = deleteAll(Point);
 
 exports.isAgent = catchAsync(async (req, res, next) => {
   const agentId = req.body.agent;
-  console.log(req.body);
   const agent = await User.findById(agentId);
   if (agent.role !== 'agent')
     return next(new AppError('Please insert vaild agent ID', 404));
@@ -32,12 +29,12 @@ exports.isAgent = catchAsync(async (req, res, next) => {
 
 exports.setImagesInDB = catchAsync(async (req, res, next) => {
   if (req.file) {
-    req.body.pointPhoto = req.file.filename;
+    req.body.photo = req.file.filename;
     req.body.qrcode = req.file.filename;
   }
   next();
 });
 exports.uploadPointFiles = upload.fields([
-  { name: 'pointPhoto', maxCount: 1 },
+  { name: 'photo', maxCount: 1 },
   { name: 'qrcode', maxCount: 1 },
 ]);

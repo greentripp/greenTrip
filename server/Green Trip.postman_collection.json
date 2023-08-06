@@ -65,17 +65,11 @@
 											}
 										},
 										"url": {
-											"raw": "http://127.0.0.1:8080/api/v1/users/signup",
-											"protocol": "http",
+											"raw": "{{URL}}api/v1/users/signup",
 											"host": [
-												"127",
-												"0",
-												"0",
-												"1"
+												"{{URL}}api"
 											],
-											"port": "8080",
 											"path": [
-												"api",
 												"v1",
 												"users",
 												"signup"
@@ -1920,14 +1914,248 @@
 			]
 		},
 		{
+			"name": "Activities",
+			"item": [
+				{
+					"name": "Get All  Activities",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local}}api/v1/actvities/",
+							"host": [
+								"{{local}}api"
+							],
+							"path": [
+								"v1",
+								"actvities",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Activity",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Pool Party\",\n    \"pointOfInterest\": \"64cf810cb8844bba277430d1\",\n    \"reservationLimit\": 50,\n    \"startAt\": \"1691315635345\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}api/v1/actvities/",
+							"host": [
+								"{{local}}api"
+							],
+							"path": [
+								"v1",
+								"actvities",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Activity",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local}}api/v1/actvities/:id",
+							"host": [
+								"{{local}}api"
+							],
+							"path": [
+								"v1",
+								"actvities",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "64cf73b9244ba8e09c22bf8a"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Points",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{local}}api/v1/actvities/:id",
+									"host": [
+										"{{local}}api"
+									],
+									"path": [
+										"v1",
+										"actvities",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "64cf727a083c4e0cb8268a66"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1171"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"493-c8dtugABZ/hccbKOVq6Nvzy5hgM\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 06 Aug 2023 10:15:04 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"data\": {\n            \"_id\": \"64cf727a083c4e0cb8268a66\",\n            \"name\": \"pool party\",\n            \"pointOfInterest\": {\n                \"_id\": \"64ce978af6c36dbf17948fd1\",\n                \"name\": \"test\",\n                \"address\": \"test add\",\n                \"photo\": \"mostafa-1691260810648.jpeg\",\n                \"availableTickets\": 50,\n                \"activites\": [],\n                \"agent\": {\n                    \"_id\": \"64ce50d0cc60fcb1092437b3\",\n                    \"name\": \"agent holland\",\n                    \"email\": \"agent@mailsac.com\",\n                    \"id\": \"64ce50d0cc60fcb1092437b3\"\n                },\n                \"qrcode\": \"mostafa-1691260810650.jpeg\",\n                \"slug\": \"test\",\n                \"__v\": 0,\n                \"id\": \"64ce978af6c36dbf17948fd1\"\n            },\n            \"reservationLimit\": 50,\n            \"description\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas at dolor et quam hendrerit ultrices. In laoreet dignissim nisi, eu porttitor ipsum pellentesque ut. Nullam dui nibh, auctor eu sapien sed, aliquet consectetur dui. Donec maximus feugiat tellus, porta imperdiet magna. Sed massa magna, semper nec lobortis quis, consectetur in ex. Praesent venenatis feugiat consequat. Nam imperdiet eget nibh ut imperdiet. In aliquam ante dui, et vestibulum nunc ullamcorper a. Vestibulum bibendum et nisl in convallis. Nullam sit amet mauris semper, volutpat elit vel, scelerisque leo.\",\n            \"startAt\": \"2023-08-06T09:53:55.345Z\",\n            \"__v\": 0,\n            \"id\": \"64cf727a083c4e0cb8268a66\"\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Activity",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Swimming Party\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}api/v1/actvities/:id",
+							"host": [
+								"{{local}}api"
+							],
+							"path": [
+								"v1",
+								"actvities",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "64cf727a083c4e0cb8268a66"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE Activity",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{local}}api/v1/actvities/:id",
+							"host": [
+								"{{local}}api"
+							],
+							"path": [
+								"v1",
+								"actvities",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete All actvities",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{local}}api/v1/actvities/all",
+							"host": [
+								"{{local}}api"
+							],
+							"path": [
+								"v1",
+								"actvities",
+								"all"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "Points",
 			"item": [
 				{
-					"name": "CRUD",
-					"item": [
+					"name": "Get All  Points",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local}}api/v1/points/",
+							"host": [
+								"{{local}}api"
+							],
+							"path": [
+								"v1",
+								"points",
+								""
+							]
+						}
+					},
+					"response": [
 						{
 							"name": "Get All  Points",
-							"request": {
+							"originalRequest": {
 								"method": "GET",
 								"header": [],
 								"url": {
@@ -1942,230 +2170,104 @@
 									]
 								}
 							},
-							"response": [
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
 								{
-									"name": "Get All  Users || Err JWT",
-									"originalRequest": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{URL}}api/v1/users/",
-											"host": [
-												"{{URL}}api"
-											],
-											"path": [
-												"v1",
-												"users",
-												""
-											]
-										}
-									},
-									"status": "Internal Server Error",
-									"code": 500,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "Date",
-											"value": "Sat, 01 Jul 2023 11:58:44 GMT"
-										},
-										{
-											"key": "Content-Type",
-											"value": "application/json; charset=utf-8"
-										},
-										{
-											"key": "Content-Length",
-											"value": "854"
-										},
-										{
-											"key": "Connection",
-											"value": "keep-alive"
-										},
-										{
-											"key": "Set-Cookie",
-											"value": "AWSALBTG=Pz8/FQf3z2RaI1y7wcUZDJ8hBbzgm7vnNL0x9WGPirco+R0HnukLiko9zVKjk7x5At0UXuQW4BvKMSJb6jQYxkTE5CESYlhJZs6NrPl1Byw0Nd7Ikgyp5pQB3pF5bU0HBoYlVzbC+5cyuGCfqq7Xy1IqDr2WvCe8CBho/zb1FIdU7dbW6/0=; Expires=Sat, 08 Jul 2023 11:58:44 GMT; Path=/"
-										},
-										{
-											"key": "Set-Cookie",
-											"value": "AWSALBTGCORS=Pz8/FQf3z2RaI1y7wcUZDJ8hBbzgm7vnNL0x9WGPirco+R0HnukLiko9zVKjk7x5At0UXuQW4BvKMSJb6jQYxkTE5CESYlhJZs6NrPl1Byw0Nd7Ikgyp5pQB3pF5bU0HBoYlVzbC+5cyuGCfqq7Xy1IqDr2WvCe8CBho/zb1FIdU7dbW6/0=; Expires=Sat, 08 Jul 2023 11:58:44 GMT; Path=/; SameSite=None"
-										},
-										{
-											"key": "Server",
-											"value": "nginx"
-										},
-										{
-											"key": "Access-Control-Allow-Origin",
-											"value": "*"
-										},
-										{
-											"key": "Content-Security-Policy",
-											"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
-										},
-										{
-											"key": "Cross-Origin-Resource-Policy",
-											"value": "same-origin"
-										},
-										{
-											"key": "Origin-Agent-Cluster",
-											"value": "?1"
-										},
-										{
-											"key": "Referrer-Policy",
-											"value": "no-referrer"
-										},
-										{
-											"key": "Strict-Transport-Security",
-											"value": "max-age=15552000; includeSubDomains"
-										},
-										{
-											"key": "X-Content-Type-Options",
-											"value": "nosniff"
-										},
-										{
-											"key": "X-DNS-Prefetch-Control",
-											"value": "off"
-										},
-										{
-											"key": "X-Download-Options",
-											"value": "noopen"
-										},
-										{
-											"key": "X-Frame-Options",
-											"value": "SAMEORIGIN"
-										},
-										{
-											"key": "X-Permitted-Cross-Domain-Policies",
-											"value": "none"
-										},
-										{
-											"key": "X-XSS-Protection",
-											"value": "0"
-										},
-										{
-											"key": "Access-Control-Allow-Credentials",
-											"value": "true"
-										},
-										{
-											"key": "ETag",
-											"value": "W/\"356-Rhu3W650+ZroQEUnRi40UzPYWY0\""
-										}
-									],
-									"cookie": [],
-									"body": "{\n    \"status\": \"error\",\n    \"error\": {\n        \"name\": \"JsonWebTokenError\",\n        \"message\": \"jwt malformed\",\n        \"statusCode\": 500,\n        \"status\": \"error\"\n    },\n    \"message\": \"jwt malformed\",\n    \"stack\": \"JsonWebTokenError: jwt malformed\\n    at module.exports (/var/app/current/node_modules/jsonwebtoken/verify.js:63:17)\\n    at node:internal/util:375:7\\n    at new Promise (<anonymous>)\\n    at node:internal/util:361:12\\n    at /var/app/current/src/controllers/authControllers.js:127:46\\n    at /var/app/current/src/utils/catchAsync.js:3:12\\n    at Layer.handle [as handle_request] (/var/app/current/node_modules/express/lib/router/layer.js:95:5)\\n    at trim_prefix (/var/app/current/node_modules/express/lib/router/index.js:328:13)\\n    at /var/app/current/node_modules/express/lib/router/index.js:286:9\\n    at Function.process_params (/var/app/current/node_modules/express/lib/router/index.js:346:12)\"\n}"
+									"key": "X-Powered-By",
+									"value": "Express"
 								},
 								{
-									"name": "Get All  Users || Authrentication",
-									"originalRequest": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{URL}}api/v1/users/",
-											"host": [
-												"{{URL}}api"
-											],
-											"path": [
-												"v1",
-												"users",
-												""
-											]
-										}
-									},
-									"status": "Forbidden",
-									"code": 403,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "Date",
-											"value": "Sat, 01 Jul 2023 11:59:11 GMT"
-										},
-										{
-											"key": "Content-Type",
-											"value": "application/json; charset=utf-8"
-										},
-										{
-											"key": "Content-Length",
-											"value": "1024"
-										},
-										{
-											"key": "Connection",
-											"value": "keep-alive"
-										},
-										{
-											"key": "Set-Cookie",
-											"value": "AWSALBTG=qjbtnNGtI3KiKBrssMygfdP+o4Nt9qbX1cAcaf9n9YgDBU+DsG7lHHD9mgC34aZga+tsLyfqPKUOcRya7wxvnQd4mOHVHIvGX3xBHmAZ3cGegQRYoLk/1D8nMKIvpM9DZ1wcEfhmV/6W+FBSEkWbSnmPH9hGC4NT0DZwQ+Rri1AGQkD8kuc=; Expires=Sat, 08 Jul 2023 11:59:11 GMT; Path=/"
-										},
-										{
-											"key": "Set-Cookie",
-											"value": "AWSALBTGCORS=qjbtnNGtI3KiKBrssMygfdP+o4Nt9qbX1cAcaf9n9YgDBU+DsG7lHHD9mgC34aZga+tsLyfqPKUOcRya7wxvnQd4mOHVHIvGX3xBHmAZ3cGegQRYoLk/1D8nMKIvpM9DZ1wcEfhmV/6W+FBSEkWbSnmPH9hGC4NT0DZwQ+Rri1AGQkD8kuc=; Expires=Sat, 08 Jul 2023 11:59:11 GMT; Path=/; SameSite=None"
-										},
-										{
-											"key": "Server",
-											"value": "nginx"
-										},
-										{
-											"key": "Access-Control-Allow-Origin",
-											"value": "*"
-										},
-										{
-											"key": "Content-Security-Policy",
-											"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
-										},
-										{
-											"key": "Cross-Origin-Resource-Policy",
-											"value": "same-origin"
-										},
-										{
-											"key": "Origin-Agent-Cluster",
-											"value": "?1"
-										},
-										{
-											"key": "Referrer-Policy",
-											"value": "no-referrer"
-										},
-										{
-											"key": "Strict-Transport-Security",
-											"value": "max-age=15552000; includeSubDomains"
-										},
-										{
-											"key": "X-Content-Type-Options",
-											"value": "nosniff"
-										},
-										{
-											"key": "X-DNS-Prefetch-Control",
-											"value": "off"
-										},
-										{
-											"key": "X-Download-Options",
-											"value": "noopen"
-										},
-										{
-											"key": "X-Frame-Options",
-											"value": "SAMEORIGIN"
-										},
-										{
-											"key": "X-Permitted-Cross-Domain-Policies",
-											"value": "none"
-										},
-										{
-											"key": "X-XSS-Protection",
-											"value": "0"
-										},
-										{
-											"key": "Access-Control-Allow-Credentials",
-											"value": "true"
-										},
-										{
-											"key": "ETag",
-											"value": "W/\"400-BuqgDuUjLu671psGubiIUXn3z2U\""
-										}
-									],
-									"cookie": [],
-									"body": "{\n    \"status\": \"fail\",\n    \"error\": {\n        \"statusCode\": 403,\n        \"status\": \"fail\",\n        \"isOperational\": true\n    },\n    \"message\": \"You can't do this action as user\",\n    \"stack\": \"Error: You can't do this action as user\\n    at /var/app/current/src/controllers/authControllers.js:157:9\\n    at Layer.handle [as handle_request] (/var/app/current/node_modules/express/lib/router/layer.js:95:5)\\n    at next (/var/app/current/node_modules/express/lib/router/route.js:144:13)\\n    at Route.dispatch (/var/app/current/node_modules/express/lib/router/route.js:114:3)\\n    at Layer.handle [as handle_request] (/var/app/current/node_modules/express/lib/router/layer.js:95:5)\\n    at /var/app/current/node_modules/express/lib/router/index.js:284:15\\n    at Function.process_params (/var/app/current/node_modules/express/lib/router/index.js:346:12)\\n    at next (/var/app/current/node_modules/express/lib/router/index.js:280:10)\\n    at /var/app/current/src/controllers/authControllers.js:146:3\\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\"\n}"
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "382"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"17e-TFseVRpr7P6swlbidS1FF1lEMOc\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 06 Aug 2023 11:26:28 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"result\": 1,\n    \"data\": [\n        {\n            \"_id\": \"64cf810cb8844bba277430d1\",\n            \"name\": \"test 15\",\n            \"address\": \"test add\",\n            \"photo\": \"photo-1691320588752.jpeg\",\n            \"availableTickets\": 50,\n            \"agent\": {\n                \"_id\": \"64ce50d0cc60fcb1092437b3\",\n                \"name\": \"agent holland\",\n                \"email\": \"agent@mailsac.com\",\n                \"id\": \"64ce50d0cc60fcb1092437b3\"\n            },\n            \"qrcode\": \"qrcode-1691320588753.jpeg\",\n            \"slug\": \"test-15\",\n            \"id\": \"64cf810cb8844bba277430d1\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Create Point",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "test 15",
+									"type": "text"
+								},
+								{
+									"key": "address",
+									"value": "test add",
+									"type": "text"
+								},
+								{
+									"key": "photo",
+									"type": "file",
+									"src": "/home/mostafa/Downloads/Img/tomClown.jpg"
+								},
+								{
+									"key": "availableTickets",
+									"value": "50",
+									"type": "text"
+								},
+								{
+									"key": "agent",
+									"value": "64ce50d0cc60fcb1092437b3",
+									"type": "text"
+								},
+								{
+									"key": "qrcode",
+									"type": "file",
+									"src": "/home/mostafa/Downloads/Img/sleeping_monkey.jpg"
 								}
 							]
 						},
+						"url": {
+							"raw": "{{local}}api/v1/points/",
+							"host": [
+								"{{local}}api"
+							],
+							"path": [
+								"v1",
+								"points",
+								""
+							]
+						}
+					},
+					"response": [
 						{
 							"name": "Create Point",
-							"request": {
+							"originalRequest": {
 								"method": "POST",
 								"header": [],
 								"body": {
@@ -2182,7 +2284,7 @@
 											"type": "text"
 										},
 										{
-											"key": "pointPhoto",
+											"key": "photo",
 											"type": "file",
 											"src": "/home/mostafa/Downloads/Img/tomClown.jpg"
 										},
@@ -2215,11 +2317,75 @@
 									]
 								}
 							},
-							"response": []
-						},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "286"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"11e-7uCwxo2CFgCLOn2PY/O8bP39JMA\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 06 Aug 2023 11:26:37 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"name\": \"test 15\",\n        \"address\": \"test add\",\n        \"photo\": \"photo-1691321197176.jpeg\",\n        \"availableTickets\": 50,\n        \"agent\": \"64ce50d0cc60fcb1092437b3\",\n        \"qrcode\": \"qrcode-1691321197177.jpeg\",\n        \"_id\": \"64cf836d76e8f8ce43b954da\",\n        \"slug\": \"test-15\",\n        \"__v\": 0,\n        \"id\": \"64cf836d76e8f8ce43b954da\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Points",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local}}api/v1/points/:id",
+							"host": [
+								"{{local}}api"
+							],
+							"path": [
+								"v1",
+								"points",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "64cf810cb8844bba277430d1"
+								}
+							]
+						}
+					},
+					"response": [
 						{
 							"name": "Get Points",
-							"request": {
+							"originalRequest": {
 								"method": "GET",
 								"header": [],
 								"url": {
@@ -2235,339 +2401,141 @@
 									"variable": [
 										{
 											"key": "id",
-											"value": "64ce510abe236c84da6cc7d8"
+											"value": "64cf810cb8844bba277430d1"
 										}
 									]
 								}
 							},
-							"response": [
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
 								{
-									"name": "Get User",
-									"originalRequest": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{URL}}api/v1/users/:id",
-											"host": [
-												"{{URL}}api"
-											],
-											"path": [
-												"v1",
-												"users",
-												":id"
-											],
-											"variable": [
-												{
-													"key": "id",
-													"value": "64550abc3f550fd75c7d938a",
-													"description": "userId"
-												}
-											]
-										}
-									},
-									"status": "Not Found",
-									"code": 404,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "Date",
-											"value": "Sat, 01 Jul 2023 11:58:36 GMT"
-										},
-										{
-											"key": "Content-Type",
-											"value": "application/json; charset=utf-8"
-										},
-										{
-											"key": "Content-Length",
-											"value": "325"
-										},
-										{
-											"key": "Connection",
-											"value": "keep-alive"
-										},
-										{
-											"key": "Set-Cookie",
-											"value": "AWSALBTG=ztKb6e91Qt9gqmgblsgQ6JMW0xNGDwEDJum5h11u46whyPcqWb0p34GxN3B0i7xUkbIXbn/BjLjZDM988N3KPrU50WEGqaem07+q9mrtam4wnB/e8kqzKaTToaEuiBpv7EEG169RasY5pQVMrLIvghKQXzXV7/MCVDxubNFY97yxYjRIBeA=; Expires=Sat, 08 Jul 2023 11:58:36 GMT; Path=/"
-										},
-										{
-											"key": "Set-Cookie",
-											"value": "AWSALBTGCORS=ztKb6e91Qt9gqmgblsgQ6JMW0xNGDwEDJum5h11u46whyPcqWb0p34GxN3B0i7xUkbIXbn/BjLjZDM988N3KPrU50WEGqaem07+q9mrtam4wnB/e8kqzKaTToaEuiBpv7EEG169RasY5pQVMrLIvghKQXzXV7/MCVDxubNFY97yxYjRIBeA=; Expires=Sat, 08 Jul 2023 11:58:36 GMT; Path=/; SameSite=None"
-										},
-										{
-											"key": "Server",
-											"value": "nginx"
-										},
-										{
-											"key": "Access-Control-Allow-Origin",
-											"value": "*"
-										},
-										{
-											"key": "Content-Security-Policy",
-											"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
-										},
-										{
-											"key": "Cross-Origin-Resource-Policy",
-											"value": "same-origin"
-										},
-										{
-											"key": "Origin-Agent-Cluster",
-											"value": "?1"
-										},
-										{
-											"key": "Referrer-Policy",
-											"value": "no-referrer"
-										},
-										{
-											"key": "Strict-Transport-Security",
-											"value": "max-age=15552000; includeSubDomains"
-										},
-										{
-											"key": "X-Content-Type-Options",
-											"value": "nosniff"
-										},
-										{
-											"key": "X-DNS-Prefetch-Control",
-											"value": "off"
-										},
-										{
-											"key": "X-Download-Options",
-											"value": "noopen"
-										},
-										{
-											"key": "X-Frame-Options",
-											"value": "SAMEORIGIN"
-										},
-										{
-											"key": "X-Permitted-Cross-Domain-Policies",
-											"value": "none"
-										},
-										{
-											"key": "X-XSS-Protection",
-											"value": "0"
-										},
-										{
-											"key": "Access-Control-Allow-Credentials",
-											"value": "true"
-										},
-										{
-											"key": "ETag",
-											"value": "W/\"145-qtBahffC0L4Yo/3syX3rJeNOxMA\""
-										}
-									],
-									"cookie": [],
-									"body": "{\n    \"status\": \"fail\",\n    \"error\": {\n        \"statusCode\": 404,\n        \"status\": \"fail\",\n        \"isOperational\": true\n    },\n    \"message\": \"Cannot find any result with this ID\",\n    \"stack\": \"Error: Cannot find any result with this ID\\n    at /var/app/current/src/controllers/handleOps.js:37:19\\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\"\n}"
-								}
-							]
-						},
-						{
-							"name": "Update Points",
-							"request": {
-								"method": "PATCH",
-								"header": [],
-								"body": {
-									"mode": "formdata",
-									"formdata": [
-										{
-											"key": "name",
-											"value": "test 36",
-											"type": "text"
-										},
-										{
-											"key": "pointPhoto",
-											"type": "file",
-											"src": "/home/mostafa/Downloads/Img/tomClown.jpg"
-										},
-										{
-											"key": "qrcode",
-											"type": "file",
-											"src": "/home/mostafa/Downloads/Img/tomClown.jpg"
-										}
-									]
+									"key": "X-Powered-By",
+									"value": "Express"
 								},
-								"url": {
-									"raw": "{{local}}api/v1/points/:id",
-									"host": [
-										"{{local}}api"
-									],
-									"path": [
-										"v1",
-										"points",
-										":id"
-									],
-									"variable": [
-										{
-											"key": "id",
-											"value": "64ce9cc3ce3b9c755633f163"
-										}
-									]
-								}
-							},
-							"response": [
 								{
-									"name": "Update User Data",
-									"originalRequest": {
-										"method": "PATCH",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"name\": \"Mostafa        \"    \n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{URL}}api/v1/users/updateUserData",
-											"host": [
-												"{{URL}}api"
-											],
-											"path": [
-												"v1",
-												"users",
-												"updateUserData"
-											]
-										}
-									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "Date",
-											"value": "Sat, 01 Jul 2023 12:00:45 GMT"
-										},
-										{
-											"key": "Content-Type",
-											"value": "application/json; charset=utf-8"
-										},
-										{
-											"key": "Content-Length",
-											"value": "427"
-										},
-										{
-											"key": "Connection",
-											"value": "keep-alive"
-										},
-										{
-											"key": "Set-Cookie",
-											"value": "AWSALBTG=vmTg/+z5o4RgItxLXAd6Pl1PtTfmF8VcGijcTNAlZ9GIGRHfms1U6vS7V6UJooY27kBUVmzBM5duKY5idQH7qlLaqF8b8TwyLRDgco59L9+DLzktH+d1yDC1qGwEatbVU/NfZyulwsXsT2NznsfeCckL83TUm1fZ8e/DjKF86u7w8o6hRwo=; Expires=Sat, 08 Jul 2023 12:00:45 GMT; Path=/"
-										},
-										{
-											"key": "Set-Cookie",
-											"value": "AWSALBTGCORS=vmTg/+z5o4RgItxLXAd6Pl1PtTfmF8VcGijcTNAlZ9GIGRHfms1U6vS7V6UJooY27kBUVmzBM5duKY5idQH7qlLaqF8b8TwyLRDgco59L9+DLzktH+d1yDC1qGwEatbVU/NfZyulwsXsT2NznsfeCckL83TUm1fZ8e/DjKF86u7w8o6hRwo=; Expires=Sat, 08 Jul 2023 12:00:45 GMT; Path=/; SameSite=None"
-										},
-										{
-											"key": "Server",
-											"value": "nginx"
-										},
-										{
-											"key": "Access-Control-Allow-Origin",
-											"value": "*"
-										},
-										{
-											"key": "Content-Security-Policy",
-											"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
-										},
-										{
-											"key": "Cross-Origin-Resource-Policy",
-											"value": "same-origin"
-										},
-										{
-											"key": "Origin-Agent-Cluster",
-											"value": "?1"
-										},
-										{
-											"key": "Referrer-Policy",
-											"value": "no-referrer"
-										},
-										{
-											"key": "Strict-Transport-Security",
-											"value": "max-age=15552000; includeSubDomains"
-										},
-										{
-											"key": "X-Content-Type-Options",
-											"value": "nosniff"
-										},
-										{
-											"key": "X-DNS-Prefetch-Control",
-											"value": "off"
-										},
-										{
-											"key": "X-Download-Options",
-											"value": "noopen"
-										},
-										{
-											"key": "X-Frame-Options",
-											"value": "SAMEORIGIN"
-										},
-										{
-											"key": "X-Permitted-Cross-Domain-Policies",
-											"value": "none"
-										},
-										{
-											"key": "X-XSS-Protection",
-											"value": "0"
-										},
-										{
-											"key": "Access-Control-Allow-Credentials",
-											"value": "true"
-										},
-										{
-											"key": "ETag",
-											"value": "W/\"1ab-QTWXYHp3bKBTAiOJKTNRjE/a6uM\""
-										}
-									],
-									"cookie": [],
-									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"user\": {\n            \"_id\": \"64a0114a5f2959a1e0011d3e\",\n            \"name\": \"mostafa\",\n            \"email\": \"mostafa@mailsac.com\",\n            \"photo\": \"https://mostafa-dev-gp.s3.amazonaws.com/avatars/default.jpg\",\n            \"role\": \"user\",\n            \"__v\": 0,\n            \"passwordResetExpires\": \"2023-07-01T11:54:36.110Z\",\n            \"passwordResetToken\": \"a626d7e23ae7ddc94fb002e8ae0495d5248416d5518c34668cc95d86f70573bf\",\n            \"passwordChangedAt\": \"2023-07-01T11:57:14.087Z\",\n            \"id\": \"64a0114a5f2959a1e0011d3e\"\n        }\n    }\n}"
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1334"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"536-oDcG7Dz8Ty6ABg4cjBLtck9HtZM\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 06 Aug 2023 11:23:29 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
 								}
-							]
-						},
-						{
-							"name": "DELETE Points",
-							"request": {
-								"method": "DELETE",
-								"header": [],
-								"url": {
-									"raw": "{{local}}api/v1/points/:id",
-									"host": [
-										"{{local}}api"
-									],
-									"path": [
-										"v1",
-										"points",
-										":id"
-									],
-									"variable": [
-										{
-											"key": "id",
-											"value": null
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Delete All points",
-							"request": {
-								"method": "DELETE",
-								"header": [],
-								"url": {
-									"raw": "{{local}}api/v1/points/all",
-									"host": [
-										"{{local}}api"
-									],
-									"path": [
-										"v1",
-										"points",
-										"all"
-									]
-								}
-							},
-							"response": []
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"data\": {\n            \"_id\": \"64cf810cb8844bba277430d1\",\n            \"name\": \"test 15\",\n            \"address\": \"test add\",\n            \"photo\": \"photo-1691320588752.jpeg\",\n            \"availableTickets\": 50,\n            \"agent\": \"64ce50d0cc60fcb1092437b3\",\n            \"qrcode\": \"qrcode-1691320588753.jpeg\",\n            \"slug\": \"test-15\",\n            \"__v\": 0,\n            \"activities\": [\n                {\n                    \"_id\": \"64cf811ab8844bba277430d5\",\n                    \"name\": \"pool party\",\n                    \"pointOfInterest\": {\n                        \"_id\": \"64cf810cb8844bba277430d1\",\n                        \"name\": \"test 15\",\n                        \"address\": \"test add\",\n                        \"photo\": \"photo-1691320588752.jpeg\",\n                        \"availableTickets\": 50,\n                        \"agent\": \"64ce50d0cc60fcb1092437b3\",\n                        \"qrcode\": \"qrcode-1691320588753.jpeg\",\n                        \"slug\": \"test-15\",\n                        \"id\": \"64cf810cb8844bba277430d1\"\n                    },\n                    \"reservationLimit\": 50,\n                    \"description\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas at dolor et quam hendrerit ultrices. In laoreet dignissim nisi, eu porttitor ipsum pellentesque ut. Nullam dui nibh, auctor eu sapien sed, aliquet consectetur dui. Donec maximus feugiat tellus, porta imperdiet magna. Sed massa magna, semper nec lobortis quis, consectetur in ex. Praesent venenatis feugiat consequat. Nam imperdiet eget nibh ut imperdiet. In aliquam ante dui, et vestibulum nunc ullamcorper a. Vestibulum bibendum et nisl in convallis. Nullam sit amet mauris semper, volutpat elit vel, scelerisque leo.\",\n                    \"startAt\": \"2023-08-06T09:53:55.345Z\",\n                    \"__v\": 0,\n                    \"id\": \"64cf811ab8844bba277430d5\"\n                }\n            ],\n            \"id\": \"64cf810cb8844bba277430d1\"\n        }\n    }\n}"
 						}
 					]
+				},
+				{
+					"name": "Update Point",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "test 36",
+									"type": "text"
+								},
+								{
+									"key": "phtoto",
+									"type": "file",
+									"src": "/home/mostafa/Downloads/Img/tomClown.jpg"
+								},
+								{
+									"key": "qrcode",
+									"type": "file",
+									"src": "/home/mostafa/Downloads/Img/tomClown.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{local}}api/v1/points/:id",
+							"host": [
+								"{{local}}api"
+							],
+							"path": [
+								"v1",
+								"points",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "64ce9cc3ce3b9c755633f163"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE Point",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{local}}api/v1/points/:id",
+							"host": [
+								"{{local}}api"
+							],
+							"path": [
+								"v1",
+								"points",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete All points",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{local}}api/v1/points/all",
+							"host": [
+								"{{local}}api"
+							],
+							"path": [
+								"v1",
+								"points",
+								"all"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		}

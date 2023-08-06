@@ -29,7 +29,7 @@ const multerStorage = multer.diskStorage({
   destination: (req, file, cb) => {
     let uploadDir = '';
 
-    if (file.fieldname === 'pointPhoto') {
+    if (file.fieldname === 'photo') {
       uploadDir = 'pointImg';
     } else if (file.fieldname === 'qrcode') {
       uploadDir = 'qr';
@@ -49,8 +49,8 @@ const multerStorage = multer.diskStorage({
     const ext = file.mimetype.split('/')[1];
     const filename = `${file.fieldname}-${Date.now()}.${ext}`;
 
-    if (file.fieldname === 'pointPhoto') {
-      req.body.pointPhoto = filename;
+    if (file.fieldname === 'photo') {
+      req.body.photo = filename;
     } else if (file.fieldname === 'qrcode') {
       req.body.qrcode = filename;
     } else if (file.fieldname === 'avatar') {
