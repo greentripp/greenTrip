@@ -7,6 +7,7 @@ const {
   updateOneReward,
 } = require('../controllers/rewardController');
 
+const { protect, restrictTo } = require('../controllers/authControllers');
 const { upload, setQrInDB } = require('../controllers/imageController');
 
 const router = require('express').Router();
@@ -15,14 +16,21 @@ const router = require('express').Router();
 router.delete('/all', deleteAllReward);
 
 // TODO: Add auth here
+router.use(protect);
+
 router
   .route('/')
   .get(getAllReward)
-  .post(upload.single('qrcode'), setQrInDB, createOneReward);
+  .post(
+    restrictTo('admin'),
+    upload.single('qrcode'),
+    setQrInDB,
+    createOneReward
+  );
 router
   .route('/:id')
   .get(getOneReward)
-  .patch(updateOneReward)
-  .delete(deleteOneReward);
+  .patch(restrictTo('admin'), updateOneReward)
+  .delete(restrictTo('admin'), deleteOneReward);
 
 module.exports = router;
