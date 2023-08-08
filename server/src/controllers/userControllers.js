@@ -6,7 +6,7 @@ const { getAll, getOne, deleteAll } = require('./handleOps');
 
 exports.getAllUsers = getAll(User);
 exports.deleteAllUsers = deleteAll(User);
-exports.getUser = getOne(User);
+exports.getUser = getOne(User, 'vouchers');
 
 exports.getMe = (req, res, next) => {
   req.params.id = req.user.id;

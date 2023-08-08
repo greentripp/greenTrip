@@ -63,6 +63,11 @@ const userSchema = new mongoose.Schema(
     toObject: { virtuals: true },
   }
 );
+userSchema.virtual('vouchers', {
+  ref: 'Voucher',
+  foreignField: 'user',
+  localField: '_id',
+});
 
 userSchema.pre('save', async function (next) {
   // Check if user doesn't modify his password.
