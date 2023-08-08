@@ -22,6 +22,7 @@ voucherSchema.pre(/^find/, function (next) {
   });
   next();
 });
+voucherSchema.index({ reward: 1, user: 1 }, { unique: true });
 
 const Voucher = mongoose.model('Voucher', voucherSchema);
 module.exports = Voucher;

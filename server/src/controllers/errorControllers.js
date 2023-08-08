@@ -6,10 +6,14 @@ const handleCastErrorDB = (err) => {
 };
 
 const handleDuplicateFieldsDB = (err) => {
-  const value = err.errmsg.match(/(["'])(\\?.)*?\1/)[0];
+  let keys = [];
+  if (err.keyPattern && err.keyValue) {
+    for (const key in err.keyPattern) keys.push(key);
+    const message = `Duplicate field value.\nYou make this action before with same values ${keys}.\nPlease use another value!`;
+    return new AppError(message, 400);
+  }
 
-  const message = `Duplicate field value: ${value}. Please use another value!`;
-  return new AppError(message, 400);
+  return new AppError('Duplicate field value. Please use another value!', 400);
 };
 
 const handleValidationErrorDB = (err) => {
