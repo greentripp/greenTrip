@@ -11,6 +11,8 @@ const userRouter = require('./routes/userRoutes');
 const pointRouter = require('./routes/pointRouter');
 const activityRouter = require('./routes/activityRouter');
 const rewardRouter = require('./routes/rewardRouter');
+const regionRouter = require('./routes/regionRouter');
+
 const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorControllers');
 const { imageErrorHandler } = require('./controllers/imageController');
@@ -33,6 +35,7 @@ app.use('/api/v1/users', userRouter);
 app.use('/api/v1/points', pointRouter);
 app.use('/api/v1/actvities', activityRouter);
 app.use('/api/v1/rewards', rewardRouter);
+app.use('/api/v1/regions', regionRouter);
 
 app.use(imageErrorHandler);
 
