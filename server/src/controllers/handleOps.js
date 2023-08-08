@@ -92,3 +92,8 @@ exports.deleteAll = (Model) =>
       status: 'success',
     });
   });
+
+exports.setUserId = (req, res, next) => {
+  if (!req.body.user) req.body.user = req.user._id;
+  next();
+};

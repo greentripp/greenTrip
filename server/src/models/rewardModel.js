@@ -24,14 +24,18 @@ const rewardSchema = mongoose.Schema({
     type: Date,
     required: [true, 'Please provide to expire date the reward'],
   },
-  region: {
+  qrcode: {
     type: String,
-    required: [true, 'Please provide region to  the reward'],
+    required: [true, 'Please provide to QrCode the reward'],
   },
-  address: {
-    type: String,
-    required: [true, 'Please provide address to the reward'],
-  },
+});
+
+rewardSchema.pre(/^findO/, function (next) {
+  this.populate({
+    path: 'pointOfInterest',
+    select: '-category -agent -slug -__v',
+  });
+  next();
 });
 
 const Reward = mongoose.model('Reward', rewardSchema);

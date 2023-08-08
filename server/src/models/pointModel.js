@@ -53,6 +53,7 @@ pointSchema.pre('save', function (next) {
   this.slug = slugify(this.name, { lower: true });
   next();
 });
+
 pointSchema.virtual('activities', {
   ref: 'Activity',
   localField: '_id',
