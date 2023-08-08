@@ -27,13 +27,14 @@ exports.isAgent = catchAsync(async (req, res, next) => {
   next();
 });
 
-exports.setImagesInDB = catchAsync(async (req, res, next) => {
+exports.setImagesInDB = (req, res, next) => {
   if (req.file) {
     req.body.photo = req.file.filename;
     req.body.qrcode = req.file.filename;
   }
   next();
-});
+};
+
 exports.uploadPointFiles = upload.fields([
   { name: 'photo', maxCount: 1 },
   { name: 'qrcode', maxCount: 1 },

@@ -4,13 +4,18 @@ const xss = require('xss-clean');
 const dataSanitize = require('express-mongo-sanitize');
 const hpp = require('hpp');
 const cors = require('cors');
+const dotenv = require('dotenv');
+const morgan = require('morgan');
 
 const userRouter = require('./routes/userRoutes');
 const pointRouter = require('./routes/pointRouter');
 const activityRouter = require('./routes/activityRouter');
+const rewardRouter = require('./routes/rewardRouter');
 const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorControllers');
 const { imageErrorHandler } = require('./controllers/imageController');
+
+dotenv.config({ path: `${__dirname}/.env` });
 const app = express();
 
 app.use(express.json());
@@ -27,6 +32,7 @@ app.use(hpp());
 app.use('/api/v1/users', userRouter);
 app.use('/api/v1/points', pointRouter);
 app.use('/api/v1/actvities', activityRouter);
+app.use('/api/v1/rewards', rewardRouter);
 
 app.use(imageErrorHandler);
 
@@ -37,14 +43,3 @@ app.all('*', (req, res, next) => {
 app.use(globalErrorHandler);
 
 module.exports = app;
-
-`
-{
-  "name": "TEST POINT",
-  "address": "test address",
-  "photo": "TEST STRING",
-  "availableTickets": 15,
-  "agent": "64ce50d0cc60fcb1092437b3",
-  "qrcode": "qrcode"
-}
-`;

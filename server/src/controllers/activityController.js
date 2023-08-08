@@ -13,7 +13,7 @@ const {
 
 exports.getAllActivites = getAll(Activity, 'activities');
 exports.deleteOneActivity = deleteOne(Activity);
-exports.getOneActivity = getOne(Activity, 'pointOfInterest activities');
+exports.getOneActivity = getOne(Activity, 'pointOfInterest');
 exports.updateOneActivity = updateOne(Activity);
 exports.deleteAllActivities = deleteAll(Activity);
 exports.createOneActivity = createOne(Activity);

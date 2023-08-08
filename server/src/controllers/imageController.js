@@ -73,3 +73,17 @@ exports.upload = multer({
   storage: multerStorage,
   fileFilter: multerFilter,
 });
+
+exports.setQrInDB = (req, res, next) => {
+  if (req.file) {
+    req.body.qrcode = req.file.filename;
+  }
+  next();
+};
+
+exports.setPhotoInDB = (req, res, next) => {
+  if (req.file) {
+    req.body.photo = req.file.filename;
+  }
+  next();
+};

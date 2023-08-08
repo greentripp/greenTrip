@@ -10,7 +10,7 @@ const activitySchema = new mongoose.Schema(
     },
     pointOfInterest: {
       type: mongoose.Schema.ObjectId,
-      ref: 'Point', // Make sure this is referencing the 'Point' model
+      ref: 'Point',
     },
     reservationLimit: {
       type: Number,
