@@ -35,11 +35,11 @@ const userSchema = new mongoose.Schema(
     },
     passwordConfirm: {
       type: String,
-      required: [true, 'Please confirm your password'],
+      // required: [true, 'Please confirm your password'],
       validate: {
-        // This only works on CREATE and SAVE!!!
         validator: function (el) {
-          return el === this.password;
+          // Only validate if passwordConfirm is provided (optional field)
+          return !this.isModified('password') || el === this.password;
         },
         message: 'Passwords are not the same!',
       },
@@ -53,6 +53,10 @@ const userSchema = new mongoose.Schema(
     },
     phone: Number,
     region: String,
+    points: {
+      type: Number,
+      default: 0,
+    },
   },
   {
     toJSON: { virtuals: true },

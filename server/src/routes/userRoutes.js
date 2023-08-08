@@ -19,12 +19,15 @@ const {
   getMe,
   deleteMe,
   updateUserData,
+  addPoints,
+  removePoints,
 } = require('../controllers/userControllers');
 
 // Auth
 
 // !TODO: DELTE THIS BEFORE DEPLOY
 // FOR DEV ONLY
+
 router.delete('/all', deleteAllUsers);
 router.route('/').get(getAllUsers);
 
@@ -42,4 +45,6 @@ router.route('/me').get(getMe, getUser).delete(deleteMe);
 router.route('/:id').get(getUser);
 router.patch('/updateUserData', updateUserData);
 
+router.patch('/points/add', addPoints);
+router.patch('/points/remove', removePoints);
 module.exports = router;
