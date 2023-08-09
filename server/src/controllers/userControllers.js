@@ -6,7 +6,7 @@ const { getAll, getOne, deleteAll } = require('./handleOps');
 
 exports.getAllUsers = getAll(User);
 exports.deleteAllUsers = deleteAll(User);
-exports.getUser = getOne(User, 'vouchers');
+exports.getUser = getOne(User, 'vouchers bookings');
 
 exports.getMe = (req, res, next) => {
   req.params.id = req.user.id;
@@ -61,12 +61,12 @@ exports.updatePoints = async (userId, points, sign) => {
 
 exports.addPoints = catchAsync(async (req, res, next) => {
   const points = req.body.points;
-  const user = await updatePoints(req.user._id, points, '+');
+  const user = await this.updatePoints(req.user._id, points, '+');
 
   req.user = user;
   res.status(200).json({
     status: 'success',
-    user: req.user,
+    user,
   });
 });
 
@@ -77,6 +77,6 @@ exports.removePoints = catchAsync(async (req, res, next) => {
   req.user = user;
   res.status(200).json({
     status: 'success',
-    user: req.user,
+    user,
   });
 });

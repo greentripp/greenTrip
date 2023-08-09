@@ -25,6 +25,13 @@ const pointSchema = new mongoose.Schema(
         'Please provide num of availableTickets to the Point of Interest',
       ],
     },
+    costPoints: {
+      type: String,
+      required: [
+        true,
+        'Please provide num of cost Points to the Point of Interest',
+      ],
+    },
     category: {
       type: String,
       // required: [true, 'Please provide category to the Point of Interest'],

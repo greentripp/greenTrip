@@ -13,17 +13,14 @@ const {
 } = require('../controllers/pointControllers');
 router.route('/all').delete(deleteAllPoints);
 
-router
-  .route('/')
-  .get(getAllPoints)
-  .post(
-    protect,
-    restrictTo('admin'),
-    uploadPointFiles,
-    setImagesInDB,
-    isAgent,
-    createOnePoint
-  );
+router.route('/').get(getAllPoints).post(
+  protect,
+  // restrictTo('admin'),
+  uploadPointFiles,
+  setImagesInDB,
+  isAgent,
+  createOnePoint
+);
 
 router.use(protect);
 router
