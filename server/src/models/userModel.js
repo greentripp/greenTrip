@@ -121,7 +121,7 @@ userSchema.methods.changedPasswordAfter = function (JWTTimeStamp) {
  * @returns passwordResetToken "Not hased"
  */
 userSchema.methods.createPasswordResetToken = function () {
-  const resetToken = crypto.randomBytes(6).toString('hex');
+  const resetToken = crypto.randomBytes(3).toString('hex');
   this.passwordResetToken = crypto
     .createHash('sha256')
     .update(resetToken)

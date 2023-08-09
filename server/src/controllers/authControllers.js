@@ -217,21 +217,8 @@ exports.forgotPassword = catchAsync(async (req, res, next) => {
 
 exports.resetPassword = catchAsync(async (req, res, next) => {
   // 1) Get user based on the token.
-  /**
-   * ❗NOTE
-   * passwordResetToken was hashed in out DB
-   */
-  const hashedToken = crypto
-    .createHash('sha256')
-    .update(req.params.token)
-    .digest('hex');
+  const user = await isVaildUserToken(req, res, next);
 
-  const user = await User.findOne({
-    passwordResetToken: hashedToken,
-    passwordResetExpires: { $gt: Date.now() },
-  });
-
-  // 2) Set the new password if user exists and  token has not expired
   if (!user)
     return next(new AppError('Token is invalied or has expired!', 400));
 
@@ -249,4 +236,29 @@ exports.resetPassword = catchAsync(async (req, res, next) => {
     status: 'success',
     token,
   });
+});
+
+exports.verifyToken = catchAsync(async (req, res, next) => {
+  const user = await isVaildUserToken(req, res, next);
+
+  if (!user)
+    return next(new AppError('Token is invalied or has expired!', 400));
+
+  res.status(200).json({
+    status: 'success',
+  });
+});
+
+const isVaildUserToken = catchAsync(async (req, res, next) => {
+  const hashedToken = crypto
+    .createHash('sha256')
+    .update(req.params.token)
+    .digest('hex');
+
+  const user = await User.findOne({
+    passwordResetToken: hashedToken,
+    passwordResetExpires: { $gt: Date.now() },
+  });
+
+  return user;
 });

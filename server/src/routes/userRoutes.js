@@ -2,7 +2,6 @@ const router = require('express').Router({ mergeParams: true });
 
 const {
   signup,
-  login,
   forgotPassword,
   resetPassword,
   protect,
@@ -10,6 +9,7 @@ const {
   updatePassword,
   adminLogin,
   loginUser,
+  verifyToken,
 } = require('../controllers/authControllers');
 
 const {
@@ -37,6 +37,7 @@ router.post('/adminLogin', adminLogin);
 router.get('/logout', logout);
 router.post('/forgotPassword', forgotPassword);
 router.patch('/resetPassword/:token', resetPassword);
+router.get('/resetPassword/verify/:token', verifyToken);
 
 router.use(protect);
 // router.patch('/updateUserAvatar', upload.array('avatar'), updateUserAvatar);
