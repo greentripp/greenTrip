@@ -30,7 +30,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"name\":\"agent\",\n    \"email\": \"agent1@mailsac.com\",\n    \"password\": \"123456789\",\n    \"passwordConfirm\": \"123456789\",\n    \"role\": \"agent\" // role=\"user\"\n}",
+									"raw": "{\n    \"name\":\"agent\",\n    \"email\": \"agent1@mailsac.com\",\n    \"password\": \"123456789\",\n    \"passwordConfirm\": \"123456789\",\n    \"role\": \"agent\" //or  role=\"user\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -311,7 +311,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"email\": \"john@real.com\",\n    \"password\": \"{{pass}}\"\n}",
+									"raw": "{\n    \"email\": \"mostafa@mailsac.com\",\n    \"password\": \"{{newpass}}\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -642,6 +642,99 @@
 							]
 						},
 						{
+							"name": "Verify Token",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{local}}api/v1/users/resetPassword/verify/:token",
+									"host": [
+										"{{local}}api"
+									],
+									"path": [
+										"v1",
+										"users",
+										"resetPassword",
+										"verify",
+										":token"
+									],
+									"variable": [
+										{
+											"key": "token",
+											"value": "cf9ded"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Verify Token",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{local}}api/v1/users/resetPassword/verify/:token",
+											"host": [
+												"{{local}}api"
+											],
+											"path": [
+												"v1",
+												"users",
+												"resetPassword",
+												"verify",
+												":token"
+											],
+											"variable": [
+												{
+													"key": "token",
+													"value": "cf9ded"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "20"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"14-Y53wuE/mmbSikKcT/WualL1N65U\""
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 09 Aug 2023 10:56:23 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": \"success\"\n}"
+								}
+							]
+						},
+						{
 							"name": "Reset Password",
 							"event": [
 								{
@@ -680,7 +773,7 @@
 									"variable": [
 										{
 											"key": "resetToken",
-											"value": "2ce1cbaa9efe"
+											"value": "cf9ded"
 										}
 									]
 								}
