@@ -23,6 +23,8 @@ const {
   removePoints,
 } = require('../controllers/userControllers');
 
+const { upload, setAvatarInDB } = require('../controllers/imageController');
+
 // Auth
 
 // !TODO: DELTE THIS BEFORE DEPLOY
@@ -44,7 +46,12 @@ router.use(protect);
 router.patch('/updateMyPassword', updatePassword);
 router.route('/me').get(getMe, getUser).delete(deleteMe);
 router.route('/:id').get(getUser);
-router.patch('/updateUserData', updateUserData);
+router.patch(
+  '/updateUserData',
+  upload.single('avatar'),
+  setAvatarInDB,
+  updateUserData
+);
 
 router.patch('/points/add', addPoints);
 router.patch('/points/remove', removePoints);

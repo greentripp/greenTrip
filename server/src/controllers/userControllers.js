@@ -27,6 +27,7 @@ exports.updateUserData = catchAsync(async (req, res) => {
     {
       name: req.body.name,
       email: req.body.email,
+      avatar: req.body.avatar,
     },
     { new: true, runValidators: true }
   );
