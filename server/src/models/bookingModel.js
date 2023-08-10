@@ -24,6 +24,11 @@ const bookingSchema = mongoose.Schema({
   numOfTickets: { type: Number, default: 1 },
   numOfDays: { type: Number, default: 1 },
   paid: { type: Boolean, default: false },
+  // startDate: {
+  //   type: Date,
+  //   required: [true, 'A Booking must have start Date'],
+  // },
+  // endDate: Date,
   createdAt: { type: Date, default: Date.now() },
 });
 
