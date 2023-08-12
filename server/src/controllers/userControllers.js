@@ -21,16 +21,16 @@ exports.deleteMe = catchAsync(async (req, res) => {
 });
 
 exports.updateUserData = catchAsync(async (req, res) => {
+  if (req.body.password)
+    return next(
+      new AppError('You cannot change password through this api.', 400)
+    );
+  console.log(req.body);
   // update only name and email.
-  const user = await User.findByIdAndUpdate(
-    req.user._id,
-    {
-      name: req.body.name,
-      email: req.body.email,
-      avatar: req.body.avatar,
-    },
-    { new: true, runValidators: true }
-  );
+  const user = await User.findByIdAndUpdate(req.user._id, req.body, {
+    new: true,
+    runValidators: true,
+  });
 
   res.status(200).json({
     status: 'success',

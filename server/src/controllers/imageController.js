@@ -92,6 +92,6 @@ exports.setAvatarInDB = (req, res, next) => {
   if (req.file) {
     req.body.avatar = req.file.filename;
   }
-  console.log(req.body.avatar);
+
   next();
 };
