@@ -42,13 +42,7 @@ exports.signup = catchAsync(async (req, res, next) => {
 
   if (role === 'admin') return next(new AppError('You cannot signup as admin'));
 
-  const newUser = await User.create({
-    name: req.body.name,
-    email: req.body.email,
-    password: req.body.password,
-    passwordConfirm: req.body.passwordConfirm,
-    role,
-  });
+  const newUser = await User.create(req.body);
 
   // Remove passowrd from output
   newUser.password = undefined;

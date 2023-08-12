@@ -51,7 +51,7 @@ const userSchema = new mongoose.Schema(
       type: Boolean,
       default: true,
     },
-    phone: Number,
+    phone: String,
     region: String,
     points: {
       type: Number,
