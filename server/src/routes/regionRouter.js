@@ -11,9 +11,12 @@ const {
 
 router.delete('/all', deleteAllRegion);
 
-router.use(protect);
-router.route('/').get(getAllRegion).post(restrictTo('admin'), createOneRegion);
+router
+  .route('/')
+  .get(getAllRegion)
+  .post(protect, restrictTo('admin'), createOneRegion);
 
+router.use(protect);
 router
   .route('/:id')
   .get(getOneRegion)

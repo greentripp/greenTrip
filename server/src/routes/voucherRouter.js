@@ -13,6 +13,7 @@ const { setUserId } = require('../controllers/handleOps');
 router.route('/all').delete(deleteAllVoucher);
 
 router.use(protect);
+
 router.route('/').get(getAllVoucher).post(setUserId, createOneVoucher);
 
 router

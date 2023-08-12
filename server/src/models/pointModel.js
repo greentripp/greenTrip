@@ -54,8 +54,6 @@ const pointSchema = new mongoose.Schema(
   }
 );
 
-pointSchema.index({ slug: 1 });
-
 pointSchema.pre('save', function (next) {
   this.slug = slugify(this.name, { lower: true });
   next();

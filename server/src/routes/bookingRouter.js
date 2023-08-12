@@ -12,6 +12,7 @@ const {
 router.delete('/all', deleteAllBooking);
 
 router.use(protect);
+
 router
   .route('/')
   .get(getAllBooking)
