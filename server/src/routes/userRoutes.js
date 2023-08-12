@@ -42,7 +42,6 @@ router.patch('/resetPassword/:token', resetPassword);
 router.get('/resetPassword/verify/:token', verifyToken);
 
 router.use(protect);
-// router.patch('/updateUserAvatar', upload.array('avatar'), updateUserAvatar);
 router.patch('/updateMyPassword', updatePassword);
 router.route('/me').get(getMe, getUser).delete(deleteMe);
 router.route('/:id').get(getUser);
