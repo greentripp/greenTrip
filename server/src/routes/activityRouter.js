@@ -10,12 +10,20 @@ const {
   getActivitiesByPoint,
 } = require('../controllers/activityController');
 
+const { upload, setImageInDB } = require('../controllers/imageController');
+
 router.delete('/all', deleteAllActivities);
 
 router
   .route('/')
   .get(getAllActivites)
-  .post(protect, restrictTo('admin', 'user'), createOneActivity);
+  .post(
+    protect,
+    restrictTo('admin', 'user'),
+    upload.single('photo'),
+    setImageInDB('photo'),
+    createOneActivity
+  );
 
 router.use(protect);
 router.get('/points/:pointId', getActivitiesByPoint);

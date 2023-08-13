@@ -88,10 +88,16 @@ exports.setPhotoInDB = (req, res, next) => {
   next();
 };
 
+exports.setImageInDB = (imageName) => (req, res, next) => {
+  if (req.file) {
+    req.body.imageName = req.file.filename;
+  }
+  next();
+};
+
 exports.setAvatarInDB = (req, res, next) => {
   if (req.file) {
     req.body.avatar = req.file.filename;
   }
-
   next();
 };

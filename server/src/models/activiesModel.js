@@ -25,6 +25,10 @@ const activitySchema = new mongoose.Schema(
       type: Date,
       required: [true, 'Please provide start date to the activity'],
     },
+    photo: {
+      type: String,
+      required: [true, 'Please provide Photo to the activity'],
+    },
   },
   {
     toJSON: { virtuals: true },
