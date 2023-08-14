@@ -32,8 +32,5 @@ const bookingSchema = mongoose.Schema({
   createdAt: { type: Date, default: Date.now() },
 });
 
-bookingSchema.index({ point: 1, user: 1 }, { unique: true });
-bookingSchema.index({ activity: 1, user: 1 }, { unique: true });
-
 const Booking = mongoose.model('Booking', bookingSchema);
 module.exports = Booking;

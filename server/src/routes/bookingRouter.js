@@ -19,6 +19,6 @@ router
   .route('/:id')
   .get(getOneBooking)
   .patch(updateOneBooking)
-  .delete(restrictTo('admin'), deleteOneBooking);
+  .delete(deleteOneBooking);
 
 module.exports = router;

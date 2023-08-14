@@ -9,7 +9,7 @@ const handleDuplicateFieldsDB = (err) => {
   let keys = [];
   if (err.keyPattern && err.keyValue) {
     for (const key in err.keyPattern) keys.push(key);
-    const message = `Duplicate field value.\nYou make this action before with same values ${keys}.\nPlease use another value!`;
+    const message = `Duplicate field value. You make this action before with same values ${keys}.Please use another value!`;
     return new AppError(message, 400);
   }
 

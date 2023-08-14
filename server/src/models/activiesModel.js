@@ -14,7 +14,7 @@ const activitySchema = new mongoose.Schema(
     },
     reservationLimit: {
       type: Number,
-      required: [true, 'Please provide reservation Limit!'],
+      default: 30,
     },
     description: {
       type: String,
