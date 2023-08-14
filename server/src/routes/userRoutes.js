@@ -53,6 +53,6 @@ router.patch(
   updateUserData
 );
 
-router.patch('/points/add', restrictTo('admin'), addPoints);
+router.patch('/points/add', restrictTo('admin', 'user'), addPoints);
 router.patch('/points/remove', restrictTo('admin'), removePoints);
 module.exports = router;
