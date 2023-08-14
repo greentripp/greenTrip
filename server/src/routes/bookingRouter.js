@@ -13,15 +13,12 @@ router.delete('/all', deleteAllBooking);
 
 router.use(protect);
 
-router
-  .route('/')
-  .get(getAllBooking)
-  .post(restrictTo('admin'), createOneBooking);
+router.route('/').get(getAllBooking).post(createOneBooking);
 
 router
   .route('/:id')
   .get(getOneBooking)
-  .patch(restrictTo('admin'), updateOneBooking)
+  .patch(updateOneBooking)
   .delete(restrictTo('admin'), deleteOneBooking);
 
 module.exports = router;
