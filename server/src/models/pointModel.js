@@ -20,10 +20,7 @@ const pointSchema = new mongoose.Schema(
     },
     availableTickets: {
       type: Number,
-      required: [
-        true,
-        'Please provide num of availableTickets to the Point of Interest',
-      ],
+      default: 30,
     },
     costPoints: {
       type: String,
