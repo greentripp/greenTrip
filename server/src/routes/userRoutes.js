@@ -54,5 +54,5 @@ router.patch(
 );
 
 router.patch('/points/add', restrictTo('admin', 'user'), addPoints);
-router.patch('/points/remove', restrictTo('admin'), removePoints);
+router.patch('/points/remove', restrictTo('admin', 'user'), removePoints);
 module.exports = router;
