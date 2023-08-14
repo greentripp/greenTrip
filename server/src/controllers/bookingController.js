@@ -28,7 +28,7 @@ exports.createOneBooking = catchAsync(async (req, res, next) => {
     type: req.body.type,
     user: req.body.user || req.user._id,
     numOfTickets: req.body.numOfTickets,
-    numOfPeople: req.body.numOfPeople,
+    numOfDays: req.body.numOfDays,
   };
 
   if (req.body.type === 'activity') {
