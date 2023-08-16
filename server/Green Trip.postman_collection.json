@@ -1,0 +1,4776 @@
+{
+	"info": {
+		"_postman_id": "e6d45cb1-7c0e-41f2-a781-074d093aad2d",
+		"name": "Green Trip",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19817635"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Auth",
+					"item": [
+						{
+							"name": "Signup",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.environment.set(\"jwt\", pm.response.json().token);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\":\"Green Trip Admin\",\n    \"email\": \"admin@greentrip.com\",\n    \"password\": \"123456789\",\n    \"passwordConfirm\": \"123456789\",\n    \"role\": \"agent\", //or  role=\"user\",\n    \"phone\": \"01220528754\",\n    \"region\": \"lisboa\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}api/v1/users/signup",
+									"host": [
+										"{{local}}api"
+									],
+									"path": [
+										"v1",
+										"users",
+										"signup"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Signup",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\":\"Mosatafa Gomaa\",\n    \"email\":\"mostafa@mailsac.com\",\n    \"password\": \"123456789\",\n    \"passwordConfirm\": \"123456789\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{URL}}api/v1/users/signup",
+											"host": [
+												"{{URL}}api"
+											],
+											"path": [
+												"v1",
+												"users",
+												"signup"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Sat, 01 Jul 2023 11:43:06 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "445"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Set-Cookie",
+											"value": "AWSALBTG=gUQoirzEnqw7kzaSmQyABtbJUx3IJNwHLB6ox/+L6WqbsnFcDG3RxM6YwT2vXxl2rFcTS5NDYiA4qkbd3YbiOVtO6tlf8r2AVShPpcwNAGbqgZpC9QV5BuS1ZnxtCQ+q3HyN1Pz1qmSHBm2Ht/oiFGrKmCNbv7CKSWU1cgn4nL2t1cuR0DY=; Expires=Sat, 08 Jul 2023 11:43:06 GMT; Path=/"
+										},
+										{
+											"key": "Set-Cookie",
+											"value": "AWSALBTGCORS=gUQoirzEnqw7kzaSmQyABtbJUx3IJNwHLB6ox/+L6WqbsnFcDG3RxM6YwT2vXxl2rFcTS5NDYiA4qkbd3YbiOVtO6tlf8r2AVShPpcwNAGbqgZpC9QV5BuS1ZnxtCQ+q3HyN1Pz1qmSHBm2Ht/oiFGrKmCNbv7CKSWU1cgn4nL2t1cuR0DY=; Expires=Sat, 08 Jul 2023 11:43:06 GMT; Path=/; SameSite=None"
+										},
+										{
+											"key": "Set-Cookie",
+											"value": "jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YTAxMTRhNWYyOTU5YTFlMDAxMWQzZSIsImlhdCI6MTY4ODIxMTc4NiwiZXhwIjoxNjk1OTg3Nzg2fQ.hRhqHssQbty1D1-K7rhWoK3yLWP1wPjS1DM3kddotuQ; Path=/; Expires=Fri, 29 Sep 2023 11:43:06 GMT; SameSite=None"
+										},
+										{
+											"key": "Server",
+											"value": "nginx"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Security-Policy",
+											"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+										},
+										{
+											"key": "Cross-Origin-Resource-Policy",
+											"value": "same-origin"
+										},
+										{
+											"key": "Origin-Agent-Cluster",
+											"value": "?1"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "no-referrer"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=15552000; includeSubDomains"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-DNS-Prefetch-Control",
+											"value": "off"
+										},
+										{
+											"key": "X-Download-Options",
+											"value": "noopen"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "X-Permitted-Cross-Domain-Policies",
+											"value": "none"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "0"
+										},
+										{
+											"key": "Access-Control-Allow-Credentials",
+											"value": "true"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"1bd-+9aadoTW4sx3aIaAuPRj/aBPc5k\""
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": \"success\",\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YTAxMTRhNWYyOTU5YTFlMDAxMWQzZSIsImlhdCI6MTY4ODIxMTc4NiwiZXhwIjoxNjk1OTg3Nzg2fQ.hRhqHssQbty1D1-K7rhWoK3yLWP1wPjS1DM3kddotuQ\",\n    \"data\": {\n        \"user\": {\n            \"name\": \"mosatafa gomaa\",\n            \"email\": \"mostafa@mailsac.com\",\n            \"photo\": \"https://mostafa-dev-gp.s3.amazonaws.com/avatars/default.jpg\",\n            \"role\": \"user\",\n            \"active\": true,\n            \"_id\": \"64a0114a5f2959a1e0011d3e\",\n            \"__v\": 0,\n            \"id\": \"64a0114a5f2959a1e0011d3e\"\n        }\n    }\n}"
+								},
+								{
+									"name": "Signup || Dup email",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\":\"Mosatafa Gomaa\",\n    \"email\":\"mostafa@mailsac.com\",\n    \"password\": \"123456789\",\n    \"passwordConfirm\": \"123456789\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{URL}}api/v1/users/signup",
+											"host": [
+												"{{URL}}api"
+											],
+											"path": [
+												"v1",
+												"users",
+												"signup"
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Sat, 01 Jul 2023 11:57:57 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "1239"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Set-Cookie",
+											"value": "AWSALBTG=OtoHdIV4Jfz1S3DqsrPMr0gtbO1Xacq1eDjoS7r6Ly+TVx4/T01juwGJl8VbrxxeILpkS163N3NEO+h58ZywEVgNRi6e2EEcWADpj5e5P3wQtWIRF1U8Eh67guhNrgvbeCkIVb8k/elAsvsKnXOEb8P/lfrH/ExVcvJls7mZ1GP7Bvp8OlM=; Expires=Sat, 08 Jul 2023 11:57:57 GMT; Path=/"
+										},
+										{
+											"key": "Set-Cookie",
+											"value": "AWSALBTGCORS=OtoHdIV4Jfz1S3DqsrPMr0gtbO1Xacq1eDjoS7r6Ly+TVx4/T01juwGJl8VbrxxeILpkS163N3NEO+h58ZywEVgNRi6e2EEcWADpj5e5P3wQtWIRF1U8Eh67guhNrgvbeCkIVb8k/elAsvsKnXOEb8P/lfrH/ExVcvJls7mZ1GP7Bvp8OlM=; Expires=Sat, 08 Jul 2023 11:57:57 GMT; Path=/; SameSite=None"
+										},
+										{
+											"key": "Server",
+											"value": "nginx"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Security-Policy",
+											"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+										},
+										{
+											"key": "Cross-Origin-Resource-Policy",
+											"value": "same-origin"
+										},
+										{
+											"key": "Origin-Agent-Cluster",
+											"value": "?1"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "no-referrer"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=15552000; includeSubDomains"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-DNS-Prefetch-Control",
+											"value": "off"
+										},
+										{
+											"key": "X-Download-Options",
+											"value": "noopen"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "X-Permitted-Cross-Domain-Policies",
+											"value": "none"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "0"
+										},
+										{
+											"key": "Access-Control-Allow-Credentials",
+											"value": "true"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"4d7-F9Yv6Dw8V2q5cDGn3Vpc7Z1cjvc\""
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": \"error\",\n    \"error\": {\n        \"index\": 0,\n        \"code\": 11000,\n        \"keyPattern\": {\n            \"email\": 1\n        },\n        \"keyValue\": {\n            \"email\": \"mostafa@mailsac.com\"\n        },\n        \"statusCode\": 500,\n        \"status\": \"error\"\n    },\n    \"message\": \"E11000 duplicate key error collection: bakar.users index: email_1 dup key: { email: \\\"mostafa@mailsac.com\\\" }\",\n    \"stack\": \"MongoServerError: E11000 duplicate key error collection: bakar.users index: email_1 dup key: { email: \\\"mostafa@mailsac.com\\\" }\\n    at /var/app/current/node_modules/mongodb/lib/operations/insert.js:53:33\\n    at /var/app/current/node_modules/mongodb/lib/cmap/connection_pool.js:333:25\\n    at /var/app/current/node_modules/mongodb/lib/sdam/server.js:210:17\\n    at handleOperationResult (/var/app/current/node_modules/mongodb/lib/sdam/server.js:326:20)\\n    at Connection.onMessage (/var/app/current/node_modules/mongodb/lib/cmap/connection.js:243:9)\\n    at MessageStream.<anonymous> (/var/app/current/node_modules/mongodb/lib/cmap/connection.js:61:60)\\n    at MessageStream.emit (node:events:513:28)\\n    at MessageStream.emit (node:domain:489:12)\\n    at processIncomingData (/var/app/current/node_modules/mongodb/lib/cmap/message_stream.js:125:16)\\n    at MessageStream._write (/var/app/current/node_modules/mongodb/lib/cmap/message_stream.js:33:9)\"\n}"
+								}
+							]
+						},
+						{
+							"name": "User Login",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"",
+											"pm.environment.set(\"jwt\", pm.response.json().token);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"mostafa1@mailsac.com\",\n    \"password\": \"{{pass}}\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}api/v1/users/login",
+									"host": [
+										"{{local}}api"
+									],
+									"path": [
+										"v1",
+										"users",
+										"login"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "User Login",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\": \"john@real.com\",\n    \"password\": \"{{pass}}\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{local}}api/v1/users/login",
+											"host": [
+												"{{local}}api"
+											],
+											"path": [
+												"v1",
+												"users",
+												"login"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Set-Cookie",
+											"value": "jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0Y2I2MzkxMzY3OGFhZWFmOTdhMjY1MyIsImlhdCI6MTY5MTIzNzc1OSwiZXhwIjoxNjk5MDEzNzU5fQ.UriYb0hE8x40utlFT3vIWT1tX4JwB2kwgtYnM0h82HI; Path=/; Expires=Fri, 03 Nov 2023 12:15:59 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "385"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"181-U/nFTjlgbqFXazmAmwWteoDloec\""
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 05 Aug 2023 12:15:59 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": \"success\",\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0Y2I2MzkxMzY3OGFhZWFmOTdhMjY1MyIsImlhdCI6MTY5MTIzNzc1OSwiZXhwIjoxNjk5MDEzNzU5fQ.UriYb0hE8x40utlFT3vIWT1tX4JwB2kwgtYnM0h82HI\",\n    \"data\": {\n        \"user\": {\n            \"_id\": \"64cb63913678aaeaf97a2653\",\n            \"name\": \"mostafa\",\n            \"email\": \"john@real.com\",\n            \"photo\": \"default.jpg\",\n            \"role\": \"user\",\n            \"active\": false,\n            \"__v\": 0,\n            \"id\": \"64cb63913678aaeaf97a2653\"\n        }\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Admin Login",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"admin@mailsac.com\",\n    \"password\": \"{{pass}}\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}api/v1/users/adminLogin",
+									"host": [
+										"{{local}}api"
+									],
+									"path": [
+										"v1",
+										"users",
+										"adminLogin"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Admin Login",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\": \"admin@mailsac.com\",\n    \"password\": \"{{pass}}\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{local}}api/v1/users/adminLogin",
+											"host": [
+												"{{local}}api"
+											],
+											"path": [
+												"v1",
+												"users",
+												"adminLogin"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Set-Cookie",
+											"value": "jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0Y2UzY2NjODFmODE3MzkyNTE4MTA1MSIsImlhdCI6MTY5MTIzNzcxMiwiZXhwIjoxNjk5MDEzNzEyfQ.mgskQQ43cFHy6JZe_wFBOEsqsTFN9DOmJYBbAG8Jvno; Path=/; Expires=Fri, 03 Nov 2023 12:15:12 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "395"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"18b-mJyEe0TGNWs9uAj6CgJm33Sjb/E\""
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 05 Aug 2023 12:15:12 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": \"success\",\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0Y2UzY2NjODFmODE3MzkyNTE4MTA1MSIsImlhdCI6MTY5MTIzNzcxMiwiZXhwIjoxNjk5MDEzNzEyfQ.mgskQQ43cFHy6JZe_wFBOEsqsTFN9DOmJYBbAG8Jvno\",\n    \"data\": {\n        \"user\": {\n            \"_id\": \"64ce3ccc81f8173925181051\",\n            \"name\": \"admin holland\",\n            \"email\": \"admin@mailsac.com\",\n            \"photo\": \"default.jpg\",\n            \"role\": \"admin\",\n            \"active\": true,\n            \"__v\": 0,\n            \"id\": \"64ce3ccc81f8173925181051\"\n        }\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "ForgetPassword",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"mostafa@mailsac.com\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}api/v1/users/forgotPassword",
+									"host": [
+										"{{local}}api"
+									],
+									"path": [
+										"v1",
+										"users",
+										"forgotPassword"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "ForgetPassword",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\": \"mostafa@mailsac.com\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{LOCAL}}api/v1/users/forgotPassword",
+											"host": [
+												"{{LOCAL}}api"
+											],
+											"path": [
+												"v1",
+												"users",
+												"forgotPassword"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Security-Policy",
+											"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+										},
+										{
+											"key": "Cross-Origin-Resource-Policy",
+											"value": "same-origin"
+										},
+										{
+											"key": "X-DNS-Prefetch-Control",
+											"value": "off"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=15552000; includeSubDomains"
+										},
+										{
+											"key": "X-Download-Options",
+											"value": "noopen"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "Origin-Agent-Cluster",
+											"value": "?1"
+										},
+										{
+											"key": "X-Permitted-Cross-Domain-Policies",
+											"value": "none"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "no-referrer"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "0"
+										},
+										{
+											"key": "Access-Control-Allow-Credentials",
+											"value": "true"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "53"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"35-7vJh+jMVY1tC+XB9d74hwdymChI\""
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 01 Jul 2023 12:38:20 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": \"success\",\n    \"message\": \"Token sent to email!\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Verify Token",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{local}}api/v1/users/resetPassword/verify/:token",
+									"host": [
+										"{{local}}api"
+									],
+									"path": [
+										"v1",
+										"users",
+										"resetPassword",
+										"verify",
+										":token"
+									],
+									"variable": [
+										{
+											"key": "token",
+											"value": "cf9ded"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Verify Token",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{local}}api/v1/users/resetPassword/verify/:token",
+											"host": [
+												"{{local}}api"
+											],
+											"path": [
+												"v1",
+												"users",
+												"resetPassword",
+												"verify",
+												":token"
+											],
+											"variable": [
+												{
+													"key": "token",
+													"value": "cf9ded"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "20"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"14-Y53wuE/mmbSikKcT/WualL1N65U\""
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 09 Aug 2023 10:56:23 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": \"success\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Reset Password",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.environment.set(\"jwt\", pm.response.json().token);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"password\": \"{{newpass}}\",\n    \"passwordConfirm\": \"{{newpass}}\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}api/v1/users/resetPassword/:resetToken",
+									"host": [
+										"{{local}}api"
+									],
+									"path": [
+										"v1",
+										"users",
+										"resetPassword",
+										":resetToken"
+									],
+									"variable": [
+										{
+											"key": "resetToken",
+											"value": "cf9ded"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Reset Password",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"password\": \"{{newpass}}\",\n    \"passwordConfirm\": \"{{newpass}}\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{URL}}api/v1/users/resetPassword/:resetToken",
+											"host": [
+												"{{URL}}api"
+											],
+											"path": [
+												"v1",
+												"users",
+												"resetPassword",
+												":resetToken"
+											],
+											"variable": [
+												{
+													"key": "resetToken",
+													"value": "fe3159da0036"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Sat, 01 Jul 2023 12:39:41 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "202"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Set-Cookie",
+											"value": "AWSALBTG=TABaZr/yKShPF6GLw2+wkDaWl67hdqL78qiFlaYjKl5lFnAhOB+HVmZ1RGGfsI3jPrPfKyJ4hirmtsaT6PSrCGHxaFo1zWOuAJLXSgwGIc4o8SHfizPw5NEP3WBx1kt5ogHp4sYLKGCfHxQqD+8yVDlOtnBY3ZtfdRZfN9MH15iPwD41AQI=; Expires=Sat, 08 Jul 2023 12:39:40 GMT; Path=/"
+										},
+										{
+											"key": "Set-Cookie",
+											"value": "AWSALBTGCORS=TABaZr/yKShPF6GLw2+wkDaWl67hdqL78qiFlaYjKl5lFnAhOB+HVmZ1RGGfsI3jPrPfKyJ4hirmtsaT6PSrCGHxaFo1zWOuAJLXSgwGIc4o8SHfizPw5NEP3WBx1kt5ogHp4sYLKGCfHxQqD+8yVDlOtnBY3ZtfdRZfN9MH15iPwD41AQI=; Expires=Sat, 08 Jul 2023 12:39:40 GMT; Path=/; SameSite=None"
+										},
+										{
+											"key": "Server",
+											"value": "nginx"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Security-Policy",
+											"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+										},
+										{
+											"key": "Cross-Origin-Resource-Policy",
+											"value": "same-origin"
+										},
+										{
+											"key": "Origin-Agent-Cluster",
+											"value": "?1"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "no-referrer"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=15552000; includeSubDomains"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-DNS-Prefetch-Control",
+											"value": "off"
+										},
+										{
+											"key": "X-Download-Options",
+											"value": "noopen"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "X-Permitted-Cross-Domain-Policies",
+											"value": "none"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "0"
+										},
+										{
+											"key": "Access-Control-Allow-Credentials",
+											"value": "true"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"ca-dgvk1qlT4r7aeR6SuEtiyxEF4eM\""
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": \"success\",\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YTAxZGFjZTM2YTQwZWNiZWFkOGE2NyIsImlhdCI6MTY4ODIxNTE4MSwiZXhwIjoxNjk1OTkxMTgxfQ.ogCLhPFTPwDI_XwGy9HwXSUN52JGJDyU771jkszMXHk\"\n}"
+								},
+								{
+									"name": "Reset Password | use token twice",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"password\": \"{{newpass}}\",\n    \"passwordConfirm\": \"{{newpass}}\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{URL}}api/v1/users/resetPassword/:resetToken",
+											"host": [
+												"{{URL}}api"
+											],
+											"path": [
+												"v1",
+												"users",
+												"resetPassword",
+												":resetToken"
+											],
+											"variable": [
+												{
+													"key": "resetToken",
+													"value": "fe3159da0036"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Sat, 01 Jul 2023 12:39:57 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "328"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Set-Cookie",
+											"value": "AWSALBTG=LgEHicViNHnp6fCXYHSVGum9LsbmjD+Ytsu72tbSP8bSJr6+vo1U/RysHe59UgDAk290a1GuDzpinm+7kOSZ+YG8ijOypepI1d29SDsYhddv1itQLQkGPC0jEpp7D/f/2J6fSB/kn80RXjElibpsXDaAHItFAMTsd9VvHNtZtc3Mkp9JAJs=; Expires=Sat, 08 Jul 2023 12:39:57 GMT; Path=/"
+										},
+										{
+											"key": "Set-Cookie",
+											"value": "AWSALBTGCORS=LgEHicViNHnp6fCXYHSVGum9LsbmjD+Ytsu72tbSP8bSJr6+vo1U/RysHe59UgDAk290a1GuDzpinm+7kOSZ+YG8ijOypepI1d29SDsYhddv1itQLQkGPC0jEpp7D/f/2J6fSB/kn80RXjElibpsXDaAHItFAMTsd9VvHNtZtc3Mkp9JAJs=; Expires=Sat, 08 Jul 2023 12:39:57 GMT; Path=/; SameSite=None"
+										},
+										{
+											"key": "Server",
+											"value": "nginx"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Security-Policy",
+											"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+										},
+										{
+											"key": "Cross-Origin-Resource-Policy",
+											"value": "same-origin"
+										},
+										{
+											"key": "Origin-Agent-Cluster",
+											"value": "?1"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "no-referrer"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=15552000; includeSubDomains"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-DNS-Prefetch-Control",
+											"value": "off"
+										},
+										{
+											"key": "X-Download-Options",
+											"value": "noopen"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "X-Permitted-Cross-Domain-Policies",
+											"value": "none"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "0"
+										},
+										{
+											"key": "Access-Control-Allow-Credentials",
+											"value": "true"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"148-KwmV59kr333CtfYMm5nCs4jXb7A\""
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": \"fail\",\n    \"error\": {\n        \"statusCode\": 400,\n        \"status\": \"fail\",\n        \"isOperational\": true\n    },\n    \"message\": \"Token is invalied or has expired!\",\n    \"stack\": \"Error: Token is invalied or has expired!\\n    at /var/app/current/src/controllers/authControllers.js:220:17\\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Logout",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{local}}api/v1/users/logout",
+									"host": [
+										"{{local}}api"
+									],
+									"path": [
+										"v1",
+										"users",
+										"logout"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Logout",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{URL}}api/v1/users/logout",
+											"host": [
+												"{{URL}}api"
+											],
+											"path": [
+												"v1",
+												"users",
+												"logout"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Sat, 01 Jul 2023 11:56:59 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "20"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Set-Cookie",
+											"value": "AWSALBTG=BX8ZnDB3zkuVY/RPhZvTnEkqiXgo62g8lLyK2KyMQt61rmn2l1AoO727bvFFQzWkPNld0UQsLjajALsj+MTPIcah37MFgBi/sEG0H58T2Xwj+jZxeQ6RY0PEfauEZcBTFQBRWs5ciD6u8GtsaxWNFcHWvK6VXXs8EbafDe9+f8BHDGJCjWQ=; Expires=Sat, 08 Jul 2023 11:56:59 GMT; Path=/"
+										},
+										{
+											"key": "Set-Cookie",
+											"value": "AWSALBTGCORS=BX8ZnDB3zkuVY/RPhZvTnEkqiXgo62g8lLyK2KyMQt61rmn2l1AoO727bvFFQzWkPNld0UQsLjajALsj+MTPIcah37MFgBi/sEG0H58T2Xwj+jZxeQ6RY0PEfauEZcBTFQBRWs5ciD6u8GtsaxWNFcHWvK6VXXs8EbafDe9+f8BHDGJCjWQ=; Expires=Sat, 08 Jul 2023 11:56:59 GMT; Path=/; SameSite=None"
+										},
+										{
+											"key": "Set-Cookie",
+											"value": "jwt=logout; Path=/; Expires=Sat, 01 Jul 2023 11:57:09 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "nginx"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Security-Policy",
+											"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+										},
+										{
+											"key": "Cross-Origin-Resource-Policy",
+											"value": "same-origin"
+										},
+										{
+											"key": "Origin-Agent-Cluster",
+											"value": "?1"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "no-referrer"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=15552000; includeSubDomains"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-DNS-Prefetch-Control",
+											"value": "off"
+										},
+										{
+											"key": "X-Download-Options",
+											"value": "noopen"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "X-Permitted-Cross-Domain-Policies",
+											"value": "none"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "0"
+										},
+										{
+											"key": "Access-Control-Allow-Credentials",
+											"value": "true"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"14-Y53wuE/mmbSikKcT/WualL1N65U\""
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": \"success\"\n}"
+								}
+							]
+						},
+						{
+							"name": "UpdateMyPassword",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"currentPassword\": \"{{pass}}\",\n    \"newPassword\": \"{{newpass}}\",\n    \"newPasswordConfirm\": \"{{newpass}}\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}api/v1/users/updateMyPassword",
+									"host": [
+										"{{URL}}api"
+									],
+									"path": [
+										"v1",
+										"users",
+										"updateMyPassword"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "CRUD",
+					"item": [
+						{
+							"name": "Get All  Users",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{local}}api/v1/users/",
+									"host": [
+										"{{local}}api"
+									],
+									"path": [
+										"v1",
+										"users",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Get All  Users || Err JWT",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{URL}}api/v1/users/",
+											"host": [
+												"{{URL}}api"
+											],
+											"path": [
+												"v1",
+												"users",
+												""
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Sat, 01 Jul 2023 11:58:44 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "854"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Set-Cookie",
+											"value": "AWSALBTG=Pz8/FQf3z2RaI1y7wcUZDJ8hBbzgm7vnNL0x9WGPirco+R0HnukLiko9zVKjk7x5At0UXuQW4BvKMSJb6jQYxkTE5CESYlhJZs6NrPl1Byw0Nd7Ikgyp5pQB3pF5bU0HBoYlVzbC+5cyuGCfqq7Xy1IqDr2WvCe8CBho/zb1FIdU7dbW6/0=; Expires=Sat, 08 Jul 2023 11:58:44 GMT; Path=/"
+										},
+										{
+											"key": "Set-Cookie",
+											"value": "AWSALBTGCORS=Pz8/FQf3z2RaI1y7wcUZDJ8hBbzgm7vnNL0x9WGPirco+R0HnukLiko9zVKjk7x5At0UXuQW4BvKMSJb6jQYxkTE5CESYlhJZs6NrPl1Byw0Nd7Ikgyp5pQB3pF5bU0HBoYlVzbC+5cyuGCfqq7Xy1IqDr2WvCe8CBho/zb1FIdU7dbW6/0=; Expires=Sat, 08 Jul 2023 11:58:44 GMT; Path=/; SameSite=None"
+										},
+										{
+											"key": "Server",
+											"value": "nginx"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Security-Policy",
+											"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+										},
+										{
+											"key": "Cross-Origin-Resource-Policy",
+											"value": "same-origin"
+										},
+										{
+											"key": "Origin-Agent-Cluster",
+											"value": "?1"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "no-referrer"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=15552000; includeSubDomains"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-DNS-Prefetch-Control",
+											"value": "off"
+										},
+										{
+											"key": "X-Download-Options",
+											"value": "noopen"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "X-Permitted-Cross-Domain-Policies",
+											"value": "none"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "0"
+										},
+										{
+											"key": "Access-Control-Allow-Credentials",
+											"value": "true"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"356-Rhu3W650+ZroQEUnRi40UzPYWY0\""
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": \"error\",\n    \"error\": {\n        \"name\": \"JsonWebTokenError\",\n        \"message\": \"jwt malformed\",\n        \"statusCode\": 500,\n        \"status\": \"error\"\n    },\n    \"message\": \"jwt malformed\",\n    \"stack\": \"JsonWebTokenError: jwt malformed\\n    at module.exports (/var/app/current/node_modules/jsonwebtoken/verify.js:63:17)\\n    at node:internal/util:375:7\\n    at new Promise (<anonymous>)\\n    at node:internal/util:361:12\\n    at /var/app/current/src/controllers/authControllers.js:127:46\\n    at /var/app/current/src/utils/catchAsync.js:3:12\\n    at Layer.handle [as handle_request] (/var/app/current/node_modules/express/lib/router/layer.js:95:5)\\n    at trim_prefix (/var/app/current/node_modules/express/lib/router/index.js:328:13)\\n    at /var/app/current/node_modules/express/lib/router/index.js:286:9\\n    at Function.process_params (/var/app/current/node_modules/express/lib/router/index.js:346:12)\"\n}"
+								},
+								{
+									"name": "Get All  Users || Authrentication",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{URL}}api/v1/users/",
+											"host": [
+												"{{URL}}api"
+											],
+											"path": [
+												"v1",
+												"users",
+												""
+											]
+										}
+									},
+									"status": "Forbidden",
+									"code": 403,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Sat, 01 Jul 2023 11:59:11 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "1024"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Set-Cookie",
+											"value": "AWSALBTG=qjbtnNGtI3KiKBrssMygfdP+o4Nt9qbX1cAcaf9n9YgDBU+DsG7lHHD9mgC34aZga+tsLyfqPKUOcRya7wxvnQd4mOHVHIvGX3xBHmAZ3cGegQRYoLk/1D8nMKIvpM9DZ1wcEfhmV/6W+FBSEkWbSnmPH9hGC4NT0DZwQ+Rri1AGQkD8kuc=; Expires=Sat, 08 Jul 2023 11:59:11 GMT; Path=/"
+										},
+										{
+											"key": "Set-Cookie",
+											"value": "AWSALBTGCORS=qjbtnNGtI3KiKBrssMygfdP+o4Nt9qbX1cAcaf9n9YgDBU+DsG7lHHD9mgC34aZga+tsLyfqPKUOcRya7wxvnQd4mOHVHIvGX3xBHmAZ3cGegQRYoLk/1D8nMKIvpM9DZ1wcEfhmV/6W+FBSEkWbSnmPH9hGC4NT0DZwQ+Rri1AGQkD8kuc=; Expires=Sat, 08 Jul 2023 11:59:11 GMT; Path=/; SameSite=None"
+										},
+										{
+											"key": "Server",
+											"value": "nginx"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Security-Policy",
+											"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+										},
+										{
+											"key": "Cross-Origin-Resource-Policy",
+											"value": "same-origin"
+										},
+										{
+											"key": "Origin-Agent-Cluster",
+											"value": "?1"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "no-referrer"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=15552000; includeSubDomains"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-DNS-Prefetch-Control",
+											"value": "off"
+										},
+										{
+											"key": "X-Download-Options",
+											"value": "noopen"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "X-Permitted-Cross-Domain-Policies",
+											"value": "none"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "0"
+										},
+										{
+											"key": "Access-Control-Allow-Credentials",
+											"value": "true"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"400-BuqgDuUjLu671psGubiIUXn3z2U\""
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": \"fail\",\n    \"error\": {\n        \"statusCode\": 403,\n        \"status\": \"fail\",\n        \"isOperational\": true\n    },\n    \"message\": \"You can't do this action as user\",\n    \"stack\": \"Error: You can't do this action as user\\n    at /var/app/current/src/controllers/authControllers.js:157:9\\n    at Layer.handle [as handle_request] (/var/app/current/node_modules/express/lib/router/layer.js:95:5)\\n    at next (/var/app/current/node_modules/express/lib/router/route.js:144:13)\\n    at Route.dispatch (/var/app/current/node_modules/express/lib/router/route.js:114:3)\\n    at Layer.handle [as handle_request] (/var/app/current/node_modules/express/lib/router/layer.js:95:5)\\n    at /var/app/current/node_modules/express/lib/router/index.js:284:15\\n    at Function.process_params (/var/app/current/node_modules/express/lib/router/index.js:346:12)\\n    at next (/var/app/current/node_modules/express/lib/router/index.js:280:10)\\n    at /var/app/current/src/controllers/authControllers.js:146:3\\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Get User",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{local}}api/v1/users/:id",
+									"host": [
+										"{{local}}api"
+									],
+									"path": [
+										"v1",
+										"users",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "64ce3ccc81f8173925181051",
+											"description": "userId"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Get User",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{URL}}api/v1/users/:id",
+											"host": [
+												"{{URL}}api"
+											],
+											"path": [
+												"v1",
+												"users",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "64550abc3f550fd75c7d938a",
+													"description": "userId"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Sat, 01 Jul 2023 11:58:36 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "325"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Set-Cookie",
+											"value": "AWSALBTG=ztKb6e91Qt9gqmgblsgQ6JMW0xNGDwEDJum5h11u46whyPcqWb0p34GxN3B0i7xUkbIXbn/BjLjZDM988N3KPrU50WEGqaem07+q9mrtam4wnB/e8kqzKaTToaEuiBpv7EEG169RasY5pQVMrLIvghKQXzXV7/MCVDxubNFY97yxYjRIBeA=; Expires=Sat, 08 Jul 2023 11:58:36 GMT; Path=/"
+										},
+										{
+											"key": "Set-Cookie",
+											"value": "AWSALBTGCORS=ztKb6e91Qt9gqmgblsgQ6JMW0xNGDwEDJum5h11u46whyPcqWb0p34GxN3B0i7xUkbIXbn/BjLjZDM988N3KPrU50WEGqaem07+q9mrtam4wnB/e8kqzKaTToaEuiBpv7EEG169RasY5pQVMrLIvghKQXzXV7/MCVDxubNFY97yxYjRIBeA=; Expires=Sat, 08 Jul 2023 11:58:36 GMT; Path=/; SameSite=None"
+										},
+										{
+											"key": "Server",
+											"value": "nginx"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Security-Policy",
+											"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+										},
+										{
+											"key": "Cross-Origin-Resource-Policy",
+											"value": "same-origin"
+										},
+										{
+											"key": "Origin-Agent-Cluster",
+											"value": "?1"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "no-referrer"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=15552000; includeSubDomains"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-DNS-Prefetch-Control",
+											"value": "off"
+										},
+										{
+											"key": "X-Download-Options",
+											"value": "noopen"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "X-Permitted-Cross-Domain-Policies",
+											"value": "none"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "0"
+										},
+										{
+											"key": "Access-Control-Allow-Credentials",
+											"value": "true"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"145-qtBahffC0L4Yo/3syX3rJeNOxMA\""
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": \"fail\",\n    \"error\": {\n        \"statusCode\": 404,\n        \"status\": \"fail\",\n        \"isOperational\": true\n    },\n    \"message\": \"Cannot find any result with this ID\",\n    \"stack\": \"Error: Cannot find any result with this ID\\n    at /var/app/current/src/controllers/handleOps.js:37:19\\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Update User Data",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "Mostafa",
+											"type": "text"
+										},
+										{
+											"key": "avatar",
+											"type": "file",
+											"src": "/mnt/01D734A9C4C17890/F3KFFHjXMAAL2Hy.jpeg"
+										},
+										{
+											"key": "phone",
+											"value": "0126548",
+											"type": "text"
+										},
+										{
+											"key": "region",
+											"value": "kaftEldwar",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{local}}api/v1/users/updateUserData",
+									"host": [
+										"{{local}}api"
+									],
+									"path": [
+										"v1",
+										"users",
+										"updateUserData"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Update User Data",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "name",
+													"value": "Mostafa",
+													"type": "text"
+												},
+												{
+													"key": "avatar",
+													"type": "file",
+													"src": "/home/mostafa/Downloads/Img/7seba'sBrothers.jpg"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{local}}api/v1/users/updateUserData",
+											"host": [
+												"{{local}}api"
+											],
+											"path": [
+												"v1",
+												"users",
+												"updateUserData"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "234"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"ea-zY7sAy6DWy81gEG7BxRKKOCcKBU\""
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 09 Aug 2023 13:09:23 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"user\": {\n            \"_id\": \"64d38ffa2be93a990a62110b\",\n            \"name\": \"mostafa\",\n            \"email\": \"mostafa@mailsac.com\",\n            \"avatar\": \"avatar-1691586563819.jpeg\",\n            \"role\": \"user\",\n            \"active\": true,\n            \"points\": 0,\n            \"__v\": 0,\n            \"id\": \"64d38ffa2be93a990a62110b\"\n        }\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "DELETE ALL USERS",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{local}}api/v1/users/all",
+									"host": [
+										"{{local}}api"
+									],
+									"path": [
+										"v1",
+										"users",
+										"all"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Me",
+					"item": [
+						{
+							"name": "GetMe",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{local}}api/v1/users/me",
+									"host": [
+										"{{local}}api"
+									],
+									"path": [
+										"v1",
+										"users",
+										"me"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "GetMe",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{local}}api/v1/users/me",
+											"host": [
+												"{{local}}api"
+											],
+											"path": [
+												"v1",
+												"users",
+												"me"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "764"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"2fc-qe8GhqNTlccdBb8KG53uAv1iOu8\""
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 09 Aug 2023 12:44:38 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"data\": {\n            \"_id\": \"64cb6487e6f8e012912db9c3\",\n            \"name\": \"john holland\",\n            \"email\": \"mostafa@mailsac.com\",\n            \"photo\": \"default.jpg\",\n            \"role\": \"user\",\n            \"active\": true,\n            \"__v\": 0,\n            \"passwordChangedAt\": \"2023-08-09T10:56:58.285Z\",\n            \"points\": 850,\n            \"bookings\": [\n                {\n                    \"_id\": \"64d38890c28cb861dc9f5fd5\",\n                    \"type\": \"point\",\n                    \"point\": \"64d3852c84b5522cb1bfe559\",\n                    \"user\": \"64cb6487e6f8e012912db9c3\",\n                    \"status\": \"pending\",\n                    \"numOfTickets\": 15,\n                    \"numOfDays\": 1,\n                    \"paid\": true,\n                    \"createdAt\": \"2023-08-09T12:37:14.163Z\",\n                    \"__v\": 0\n                },\n                {\n                    \"_id\": \"64d38951e5a06bec4c7d90e9\",\n                    \"type\": \"activity\",\n                    \"activity\": \"64cf811ab8844bba277430d5\",\n                    \"user\": \"64cb6487e6f8e012912db9c3\",\n                    \"status\": \"pending\",\n                    \"numOfTickets\": 15,\n                    \"numOfDays\": 1,\n                    \"paid\": true,\n                    \"createdAt\": \"2023-08-09T12:40:08.768Z\",\n                    \"__v\": 0\n                }\n            ],\n            \"vouchers\": [],\n            \"id\": \"64cb6487e6f8e012912db9c3\"\n        }\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Delete User",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{local}}api/v1/users/me",
+									"host": [
+										"{{local}}api"
+									],
+									"path": [
+										"v1",
+										"users",
+										"me"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Delete User",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{URL}}api/v1/users/me",
+											"host": [
+												"{{URL}}api"
+											],
+											"path": [
+												"v1",
+												"users",
+												"me"
+											]
+										}
+									},
+									"status": "No Content",
+									"code": 204,
+									"_postman_previewlanguage": "plain",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Sat, 01 Jul 2023 12:02:16 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Set-Cookie",
+											"value": "AWSALBTG=QOwcly5uKuvHg5tJX01JDjdANJJvp9LCj7h/dM0VsL7b3IhmUSorK4Pil0vBCYS4kCO60vQobgZVKsAOMkkZLesaDza89LLUF1UCSXmsm/ewtRf9JvIZ+FQu3oTvn0S5HF/Pt7r2LqgaCey1/AlKhxS1nADkyIoewbc8jpnjSZz0BatCAqw=; Expires=Sat, 08 Jul 2023 12:02:16 GMT; Path=/"
+										},
+										{
+											"key": "Set-Cookie",
+											"value": "AWSALBTGCORS=QOwcly5uKuvHg5tJX01JDjdANJJvp9LCj7h/dM0VsL7b3IhmUSorK4Pil0vBCYS4kCO60vQobgZVKsAOMkkZLesaDza89LLUF1UCSXmsm/ewtRf9JvIZ+FQu3oTvn0S5HF/Pt7r2LqgaCey1/AlKhxS1nADkyIoewbc8jpnjSZz0BatCAqw=; Expires=Sat, 08 Jul 2023 12:02:16 GMT; Path=/; SameSite=None"
+										},
+										{
+											"key": "Server",
+											"value": "nginx"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Security-Policy",
+											"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+										},
+										{
+											"key": "Cross-Origin-Resource-Policy",
+											"value": "same-origin"
+										},
+										{
+											"key": "Origin-Agent-Cluster",
+											"value": "?1"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "no-referrer"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=15552000; includeSubDomains"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-DNS-Prefetch-Control",
+											"value": "off"
+										},
+										{
+											"key": "X-Download-Options",
+											"value": "noopen"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "X-Permitted-Cross-Domain-Policies",
+											"value": "none"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "0"
+										},
+										{
+											"key": "Access-Control-Allow-Credentials",
+											"value": "true"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"14-Y53wuE/mmbSikKcT/WualL1N65U\""
+										}
+									],
+									"cookie": [],
+									"body": null
+								}
+							]
+						},
+						{
+							"name": "Add Points",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"points\": 1000\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}api/v1/users/points/add",
+									"host": [
+										"{{local}}api"
+									],
+									"path": [
+										"v1",
+										"users",
+										"points",
+										"add"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Remove points",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"points\": 10\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}api/v1/users/points/remove/",
+									"host": [
+										"{{local}}api"
+									],
+									"path": [
+										"v1",
+										"users",
+										"points",
+										"remove",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Activities",
+			"item": [
+				{
+					"name": "Get All  Activities",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local}}api/v1/actvities/",
+							"host": [
+								"{{local}}api"
+							],
+							"path": [
+								"v1",
+								"actvities",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Activity",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Swimming Party",
+									"type": "text"
+								},
+								{
+									"key": "pointOfInterest",
+									"value": "64d922891bd7ddc6e5dc1682",
+									"type": "text"
+								},
+								{
+									"key": "reservationLimit",
+									"value": "35",
+									"type": "text"
+								},
+								{
+									"key": "startAt",
+									"value": "1691315635345",
+									"type": "text"
+								},
+								{
+									"key": "photo",
+									"type": "file",
+									"src": "/home/mostafa/Downloads/ana/SSDProject/greenTrip/public/img/pointImg/paint.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{local}}api/v1/actvities/",
+							"host": [
+								"{{local}}api"
+							],
+							"path": [
+								"v1",
+								"actvities",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Activity",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local}}api/v1/actvities/:id",
+							"host": [
+								"{{local}}api"
+							],
+							"path": [
+								"v1",
+								"actvities",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "64d38cc267805d34a30bb415"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Points",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{local}}api/v1/actvities/:id",
+									"host": [
+										"{{local}}api"
+									],
+									"path": [
+										"v1",
+										"actvities",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "64cf727a083c4e0cb8268a66"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1171"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"493-c8dtugABZ/hccbKOVq6Nvzy5hgM\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 06 Aug 2023 10:15:04 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"data\": {\n            \"_id\": \"64cf727a083c4e0cb8268a66\",\n            \"name\": \"pool party\",\n            \"pointOfInterest\": {\n                \"_id\": \"64ce978af6c36dbf17948fd1\",\n                \"name\": \"test\",\n                \"address\": \"test add\",\n                \"photo\": \"mostafa-1691260810648.jpeg\",\n                \"availableTickets\": 50,\n                \"activites\": [],\n                \"agent\": {\n                    \"_id\": \"64ce50d0cc60fcb1092437b3\",\n                    \"name\": \"agent holland\",\n                    \"email\": \"agent@mailsac.com\",\n                    \"id\": \"64ce50d0cc60fcb1092437b3\"\n                },\n                \"qrcode\": \"mostafa-1691260810650.jpeg\",\n                \"slug\": \"test\",\n                \"__v\": 0,\n                \"id\": \"64ce978af6c36dbf17948fd1\"\n            },\n            \"reservationLimit\": 50,\n            \"description\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas at dolor et quam hendrerit ultrices. In laoreet dignissim nisi, eu porttitor ipsum pellentesque ut. Nullam dui nibh, auctor eu sapien sed, aliquet consectetur dui. Donec maximus feugiat tellus, porta imperdiet magna. Sed massa magna, semper nec lobortis quis, consectetur in ex. Praesent venenatis feugiat consequat. Nam imperdiet eget nibh ut imperdiet. In aliquam ante dui, et vestibulum nunc ullamcorper a. Vestibulum bibendum et nisl in convallis. Nullam sit amet mauris semper, volutpat elit vel, scelerisque leo.\",\n            \"startAt\": \"2023-08-06T09:53:55.345Z\",\n            \"__v\": 0,\n            \"id\": \"64cf727a083c4e0cb8268a66\"\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Activities By Point",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local}}api/v1/actvities/points/:pointId",
+							"host": [
+								"{{local}}api"
+							],
+							"path": [
+								"v1",
+								"actvities",
+								"points",
+								":pointId"
+							],
+							"variable": [
+								{
+									"key": "pointId",
+									"value": "64cf810cb8844bba277430d1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Activities By Point",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{local}}api/v1/actvities/points/:pointId",
+									"host": [
+										"{{local}}api"
+									],
+									"path": [
+										"v1",
+										"actvities",
+										"points",
+										":pointId"
+									],
+									"variable": [
+										{
+											"key": "pointId",
+											"value": "64cf810cb8844bba277430d1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "2274"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"8e2-U96JaEaijf0JdtTOmNSKNzWyJZk\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 06 Aug 2023 11:46:37 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"result\": 2,\n    \"data\": [\n        {\n            \"_id\": \"64cf811ab8844bba277430d5\",\n            \"name\": \"pool party\",\n            \"pointOfInterest\": {\n                \"_id\": \"64cf810cb8844bba277430d1\",\n                \"name\": \"test 15\",\n                \"address\": \"test add\",\n                \"photo\": \"photo-1691320588752.jpeg\",\n                \"availableTickets\": 50,\n                \"agent\": {\n                    \"_id\": \"64ce50d0cc60fcb1092437b3\",\n                    \"name\": \"agent holland\",\n                    \"email\": \"agent@mailsac.com\",\n                    \"id\": \"64ce50d0cc60fcb1092437b3\"\n                },\n                \"qrcode\": \"qrcode-1691320588753.jpeg\",\n                \"slug\": \"test-15\",\n                \"id\": \"64cf810cb8844bba277430d1\"\n            },\n            \"reservationLimit\": 50,\n            \"description\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas at dolor et quam hendrerit ultrices. In laoreet dignissim nisi, eu porttitor ipsum pellentesque ut. Nullam dui nibh, auctor eu sapien sed, aliquet consectetur dui. Donec maximus feugiat tellus, porta imperdiet magna. Sed massa magna, semper nec lobortis quis, consectetur in ex. Praesent venenatis feugiat consequat. Nam imperdiet eget nibh ut imperdiet. In aliquam ante dui, et vestibulum nunc ullamcorper a. Vestibulum bibendum et nisl in convallis. Nullam sit amet mauris semper, volutpat elit vel, scelerisque leo.\",\n            \"startAt\": \"2023-08-06T09:53:55.345Z\",\n            \"__v\": 0,\n            \"id\": \"64cf811ab8844bba277430d5\"\n        },\n        {\n            \"_id\": \"64cf88184e08b845f6b5343f\",\n            \"name\": \"swimming party\",\n            \"pointOfInterest\": {\n                \"_id\": \"64cf810cb8844bba277430d1\",\n                \"name\": \"test 15\",\n                \"address\": \"test add\",\n                \"photo\": \"photo-1691320588752.jpeg\",\n                \"availableTickets\": 50,\n                \"agent\": {\n                    \"_id\": \"64ce50d0cc60fcb1092437b3\",\n                    \"name\": \"agent holland\",\n                    \"email\": \"agent@mailsac.com\",\n                    \"id\": \"64ce50d0cc60fcb1092437b3\"\n                },\n                \"qrcode\": \"qrcode-1691320588753.jpeg\",\n                \"slug\": \"test-15\",\n                \"id\": \"64cf810cb8844bba277430d1\"\n            },\n            \"reservationLimit\": 50,\n            \"description\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas at dolor et quam hendrerit ultrices. In laoreet dignissim nisi, eu porttitor ipsum pellentesque ut. Nullam dui nibh, auctor eu sapien sed, aliquet consectetur dui. Donec maximus feugiat tellus, porta imperdiet magna. Sed massa magna, semper nec lobortis quis, consectetur in ex. Praesent venenatis feugiat consequat. Nam imperdiet eget nibh ut imperdiet. In aliquam ante dui, et vestibulum nunc ullamcorper a. Vestibulum bibendum et nisl in convallis. Nullam sit amet mauris semper, volutpat elit vel, scelerisque leo.\",\n            \"startAt\": \"2023-08-06T09:53:55.345Z\",\n            \"__v\": 0,\n            \"id\": \"64cf88184e08b845f6b5343f\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Activity",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Swimming Party\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}api/v1/actvities/:id",
+							"host": [
+								"{{local}}api"
+							],
+							"path": [
+								"v1",
+								"actvities",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "64cf727a083c4e0cb8268a66"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE Activity",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{local}}api/v1/actvities/:id",
+							"host": [
+								"{{local}}api"
+							],
+							"path": [
+								"v1",
+								"actvities",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "64d922f91bd7ddc6e5dc168c"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete All actvities",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{local}}api/v1/actvities/all",
+							"host": [
+								"{{local}}api"
+							],
+							"path": [
+								"v1",
+								"actvities",
+								"all"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Points",
+			"item": [
+				{
+					"name": "Get All  Points",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local}}api/v1/points/",
+							"host": [
+								"{{local}}api"
+							],
+							"path": [
+								"v1",
+								"points",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get All  Points",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{local}}api/v1/points/",
+									"host": [
+										"{{local}}api"
+									],
+									"path": [
+										"v1",
+										"points",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "400"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"190-nffkctZ+hBRoGicoVvMXN/YNsV4\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 09 Aug 2023 12:23:18 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"result\": 1,\n    \"data\": [\n        {\n            \"_id\": \"64d3852c84b5522cb1bfe559\",\n            \"name\": \"test 15\",\n            \"address\": \"test add\",\n            \"photo\": \"photo-1691583787914.jpeg\",\n            \"availableTickets\": 50,\n            \"costPoints\": \"50\",\n            \"agent\": {\n                \"_id\": \"64ce50d0cc60fcb1092437b3\",\n                \"name\": \"agent holland\",\n                \"email\": \"agent@mailsac.com\",\n                \"id\": \"64ce50d0cc60fcb1092437b3\"\n            },\n            \"qrcode\": \"qrcode-1691583787915.jpeg\",\n            \"slug\": \"test-15\",\n            \"id\": \"64d3852c84b5522cb1bfe559\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Create Point",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Hotel Grão Vasco",
+									"type": "text"
+								},
+								{
+									"key": "address",
+									"value": "Q.ta do Bosque, 3510-020 Viseu",
+									"type": "text"
+								},
+								{
+									"key": "photo",
+									"type": "file",
+									"src": "/home/mostafa/Downloads/ana/SSDProject/greenTrip/public/img/pointImg/HotelGrãoVasco.jpg"
+								},
+								{
+									"key": "availableTickets",
+									"value": "30",
+									"type": "text"
+								},
+								{
+									"key": "agent",
+									"value": "64d920dfca14c0ca45bb3c52",
+									"type": "text"
+								},
+								{
+									"key": "qrcode",
+									"type": "file",
+									"src": "/home/mostafa/Downloads/ana/SSDProject/greenTrip/public/img/qr/qr.png"
+								},
+								{
+									"key": "costPoints",
+									"value": "50",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{local}}api/v1/points/",
+							"host": [
+								"{{local}}api"
+							],
+							"path": [
+								"v1",
+								"points",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Points",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local}}api/v1/points/:id",
+							"host": [
+								"{{local}}api"
+							],
+							"path": [
+								"v1",
+								"points",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "64d922891bd7ddc6e5dc1682"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Points",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{local}}api/v1/points/:id",
+									"host": [
+										"{{local}}api"
+									],
+									"path": [
+										"v1",
+										"points",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "64cf810cb8844bba277430d1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1334"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"536-oDcG7Dz8Ty6ABg4cjBLtck9HtZM\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 06 Aug 2023 11:23:29 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"data\": {\n            \"_id\": \"64cf810cb8844bba277430d1\",\n            \"name\": \"test 15\",\n            \"address\": \"test add\",\n            \"photo\": \"photo-1691320588752.jpeg\",\n            \"availableTickets\": 50,\n            \"agent\": \"64ce50d0cc60fcb1092437b3\",\n            \"qrcode\": \"qrcode-1691320588753.jpeg\",\n            \"slug\": \"test-15\",\n            \"__v\": 0,\n            \"activities\": [\n                {\n                    \"_id\": \"64cf811ab8844bba277430d5\",\n                    \"name\": \"pool party\",\n                    \"pointOfInterest\": {\n                        \"_id\": \"64cf810cb8844bba277430d1\",\n                        \"name\": \"test 15\",\n                        \"address\": \"test add\",\n                        \"photo\": \"photo-1691320588752.jpeg\",\n                        \"availableTickets\": 50,\n                        \"agent\": \"64ce50d0cc60fcb1092437b3\",\n                        \"qrcode\": \"qrcode-1691320588753.jpeg\",\n                        \"slug\": \"test-15\",\n                        \"id\": \"64cf810cb8844bba277430d1\"\n                    },\n                    \"reservationLimit\": 50,\n                    \"description\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas at dolor et quam hendrerit ultrices. In laoreet dignissim nisi, eu porttitor ipsum pellentesque ut. Nullam dui nibh, auctor eu sapien sed, aliquet consectetur dui. Donec maximus feugiat tellus, porta imperdiet magna. Sed massa magna, semper nec lobortis quis, consectetur in ex. Praesent venenatis feugiat consequat. Nam imperdiet eget nibh ut imperdiet. In aliquam ante dui, et vestibulum nunc ullamcorper a. Vestibulum bibendum et nisl in convallis. Nullam sit amet mauris semper, volutpat elit vel, scelerisque leo.\",\n                    \"startAt\": \"2023-08-06T09:53:55.345Z\",\n                    \"__v\": 0,\n                    \"id\": \"64cf811ab8844bba277430d5\"\n                }\n            ],\n            \"id\": \"64cf810cb8844bba277430d1\"\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Point",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "test 36",
+									"type": "text"
+								},
+								{
+									"key": "phtoto",
+									"type": "file",
+									"src": "/home/mostafa/Downloads/Img/tomClown.jpg"
+								},
+								{
+									"key": "qrcode",
+									"type": "file",
+									"src": "/home/mostafa/Downloads/Img/tomClown.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{local}}api/v1/points/:id",
+							"host": [
+								"{{local}}api"
+							],
+							"path": [
+								"v1",
+								"points",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "64ce9cc3ce3b9c755633f163"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE Point",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{local}}api/v1/points/:id",
+							"host": [
+								"{{local}}api"
+							],
+							"path": [
+								"v1",
+								"points",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete All points",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{local}}api/v1/points/all",
+							"host": [
+								"{{local}}api"
+							],
+							"path": [
+								"v1",
+								"points",
+								"all"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Regions",
+			"item": [
+				{
+					"name": "Get All  regions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local}}api/v1/regions/",
+							"host": [
+								"{{local}}api"
+							],
+							"path": [
+								"v1",
+								"regions",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get All  rewards",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{local}}api/v1/rewards/",
+									"host": [
+										"{{local}}api"
+									],
+									"path": [
+										"v1",
+										"rewards",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "290"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"122-dltclTmkRpzCDAQXKGf70dvEdtU\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 08 Aug 2023 10:24:09 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"result\": 1,\n    \"data\": [\n        {\n            \"_id\": \"64d215f7b09a2c02e4881ef4\",\n            \"title\": \"test reward\",\n            \"description\": \"Exchange points to receive this voucher \",\n            \"costPoints\": 50,\n            \"expireDate\": \"2023-08-08T10:09:34.659Z\",\n            \"region\": \"lisbon\",\n            \"address\": \"test address\",\n            \"qrcode\": \"qrcode-1691489783902.jpeg\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Create Region",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"lisbon\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}api/v1/regions/",
+							"host": [
+								"{{local}}api"
+							],
+							"path": [
+								"v1",
+								"regions",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create Region",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\":\"lisbon\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}api/v1/regions/",
+									"host": [
+										"{{local}}api"
+									],
+									"path": [
+										"v1",
+										"regions",
+										""
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "86"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"56-7pktKJyT8NnVkP8DN5+87uH2/Iw\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 08 Aug 2023 11:08:48 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"name\": \"lisbon\",\n        \"_id\": \"64d2224090410c7b6cb53231\",\n        \"__v\": 0\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Get region",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local}}api/v1/regions/:id",
+							"host": [
+								"{{local}}api"
+							],
+							"path": [
+								"v1",
+								"regions",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "64d2224090410c7b6cb53231"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Reward",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{local}}api/v1/regions/:id",
+									"host": [
+										"{{local}}api"
+									],
+									"path": [
+										"v1",
+										"regions",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "64d2224090410c7b6cb53231"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "95"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"5f-n2opDRu7L6xX0TPjbufFuCbbMeU\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 08 Aug 2023 11:09:06 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"data\": {\n            \"_id\": \"64d2224090410c7b6cb53231\",\n            \"name\": \"lisbon\",\n            \"__v\": 0\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update regions",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Alexandria\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}api/v1/regions/:id",
+							"host": [
+								"{{local}}api"
+							],
+							"path": [
+								"v1",
+								"regions",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "64d2224090410c7b6cb53231"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update Reward",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title",
+											"value": "Updated title",
+											"type": "text"
+										},
+										{
+											"key": "qrcode",
+											"type": "file",
+											"src": "/home/mostafa/Downloads/Img/sleeping_monkey.jpg"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{local}}api/v1/rewards/:id",
+									"host": [
+										"{{local}}api"
+									],
+									"path": [
+										"v1",
+										"rewards",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "64d215f7b09a2c02e4881ef4"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "285"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"11d-vHBPiONtkWZBYcVpG/l/giB7fTg\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 08 Aug 2023 10:26:14 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"_id\": \"64d215f7b09a2c02e4881ef4\",\n        \"title\": \"test reward\",\n        \"description\": \"Exchange points to receive this voucher \",\n        \"costPoints\": 50,\n        \"expireDate\": \"2023-08-08T10:09:34.659Z\",\n        \"region\": \"lisbon\",\n        \"address\": \"test address\",\n        \"qrcode\": \"qrcode-1691489783902.jpeg\",\n        \"__v\": 0\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete regions",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{local}}api/v1/rewards/:id",
+							"host": [
+								"{{local}}api"
+							],
+							"path": [
+								"v1",
+								"rewards",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete All regions",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{local}}api/v1/rewards/all",
+							"host": [
+								"{{local}}api"
+							],
+							"path": [
+								"v1",
+								"rewards",
+								"all"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete All points",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{local}}api/v1/rewards/all",
+									"host": [
+										"{{local}}api"
+									],
+									"path": [
+										"v1",
+										"rewards",
+										"all"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"14-Y53wuE/mmbSikKcT/WualL1N65U\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 08 Aug 2023 10:33:03 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Rewards",
+			"item": [
+				{
+					"name": "Get All  Rewards",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local}}api/v1/rewards/",
+							"host": [
+								"{{local}}api"
+							],
+							"path": [
+								"v1",
+								"rewards",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get All  rewards",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{local}}api/v1/rewards/",
+									"host": [
+										"{{local}}api"
+									],
+									"path": [
+										"v1",
+										"rewards",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "290"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"122-dltclTmkRpzCDAQXKGf70dvEdtU\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 08 Aug 2023 10:24:09 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"result\": 1,\n    \"data\": [\n        {\n            \"_id\": \"64d215f7b09a2c02e4881ef4\",\n            \"title\": \"test reward\",\n            \"description\": \"Exchange points to receive this voucher \",\n            \"costPoints\": 50,\n            \"expireDate\": \"2023-08-08T10:09:34.659Z\",\n            \"region\": \"lisbon\",\n            \"address\": \"test address\",\n            \"qrcode\": \"qrcode-1691489783902.jpeg\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Create Reward",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "1 Meal atat  Grão Vasco",
+									"type": "text"
+								},
+								{
+									"key": "costPoints",
+									"value": "150",
+									"type": "text"
+								},
+								{
+									"key": "expireDate",
+									"value": "1691489374659",
+									"type": "text"
+								},
+								{
+									"key": "address",
+									"value": "Q.ta do Bosque, 3510-020 Viseu.",
+									"type": "text"
+								},
+								{
+									"key": "region",
+									"value": "lisbon",
+									"type": "text"
+								},
+								{
+									"key": "qrcode",
+									"type": "file",
+									"src": "/home/mostafa/Downloads/ana/SSDProject/greenTrip/public/img/qr/qr.png"
+								},
+								{
+									"key": "pointOfInterest",
+									"value": "64d922891bd7ddc6e5dc1682",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{local}}api/v1/rewards/",
+							"host": [
+								"{{local}}api"
+							],
+							"path": [
+								"v1",
+								"rewards",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create Reward",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title",
+											"value": "test reward",
+											"type": "text"
+										},
+										{
+											"key": "costPoints",
+											"value": "50",
+											"type": "text"
+										},
+										{
+											"key": "expireDate",
+											"value": "1691489374659",
+											"type": "text"
+										},
+										{
+											"key": "address",
+											"value": "test address",
+											"type": "text"
+										},
+										{
+											"key": "region",
+											"value": "lisbon",
+											"type": "text"
+										},
+										{
+											"key": "qrcode",
+											"type": "file",
+											"src": "/home/mostafa/Downloads/Img/sleeping_monkey.jpg"
+										},
+										{
+											"key": "pointOfInterest",
+											"value": "64cf810cb8844bba277430d1",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{local}}api/v1/rewards/",
+									"host": [
+										"{{local}}api"
+									],
+									"path": [
+										"v1",
+										"rewards",
+										""
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "293"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"125-r4Z20Juq/CoWmeN660vwI5i3NsI\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 08 Aug 2023 13:14:21 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"title\": \"test reward\",\n        \"description\": \"Exchange points to receive this voucher \",\n        \"pointOfInterest\": \"64cf810cb8844bba277430d1\",\n        \"costPoints\": 50,\n        \"expireDate\": \"2023-08-08T10:09:34.659Z\",\n        \"region\": \"lisbon\",\n        \"address\": \"test address\",\n        \"_id\": \"64d23fad67db7f5252d6ae15\",\n        \"__v\": 0\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Reward",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local}}api/v1/rewards/:id",
+							"host": [
+								"{{local}}api"
+							],
+							"path": [
+								"v1",
+								"rewards",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "64d23fad67db7f5252d6ae15"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Reward",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{local}}api/v1/rewards/:id",
+									"host": [
+										"{{local}}api"
+									],
+									"path": [
+										"v1",
+										"rewards",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "64d23fad67db7f5252d6ae15"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "625"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"271-WsQ2NJnzB93H70/tk4Qw5itpvvc\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 08 Aug 2023 13:14:54 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"data\": {\n            \"_id\": \"64d23fad67db7f5252d6ae15\",\n            \"title\": \"test reward\",\n            \"description\": \"Exchange points to receive this voucher \",\n            \"pointOfInterest\": {\n                \"_id\": \"64cf810cb8844bba277430d1\",\n                \"name\": \"test 15\",\n                \"address\": \"test add\",\n                \"photo\": \"photo-1691320588752.jpeg\",\n                \"availableTickets\": 50,\n                \"agent\": {\n                    \"_id\": \"64ce50d0cc60fcb1092437b3\",\n                    \"name\": \"agent holland\",\n                    \"email\": \"agent@mailsac.com\",\n                    \"id\": \"64ce50d0cc60fcb1092437b3\"\n                },\n                \"qrcode\": \"qrcode-1691320588753.jpeg\",\n                \"slug\": \"test-15\",\n                \"__v\": 0,\n                \"id\": \"64cf810cb8844bba277430d1\"\n            },\n            \"costPoints\": 50,\n            \"expireDate\": \"2023-08-08T10:09:34.659Z\",\n            \"region\": \"lisbon\",\n            \"address\": \"test address\",\n            \"__v\": 0\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Reward",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "Updated title",
+									"type": "text"
+								},
+								{
+									"key": "qrcode",
+									"type": "file",
+									"src": "/home/mostafa/Downloads/Img/sleeping_monkey.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{local}}api/v1/rewards/:id",
+							"host": [
+								"{{local}}api"
+							],
+							"path": [
+								"v1",
+								"rewards",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "64d215f7b09a2c02e4881ef4"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update Reward",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title",
+											"value": "Updated title",
+											"type": "text"
+										},
+										{
+											"key": "qrcode",
+											"type": "file",
+											"src": "/home/mostafa/Downloads/Img/sleeping_monkey.jpg"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{local}}api/v1/rewards/:id",
+									"host": [
+										"{{local}}api"
+									],
+									"path": [
+										"v1",
+										"rewards",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "64d215f7b09a2c02e4881ef4"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "285"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"11d-vHBPiONtkWZBYcVpG/l/giB7fTg\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 08 Aug 2023 10:26:14 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"_id\": \"64d215f7b09a2c02e4881ef4\",\n        \"title\": \"test reward\",\n        \"description\": \"Exchange points to receive this voucher \",\n        \"costPoints\": 50,\n        \"expireDate\": \"2023-08-08T10:09:34.659Z\",\n        \"region\": \"lisbon\",\n        \"address\": \"test address\",\n        \"qrcode\": \"qrcode-1691489783902.jpeg\",\n        \"__v\": 0\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Reward",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{local}}api/v1/rewards/:id",
+							"host": [
+								"{{local}}api"
+							],
+							"path": [
+								"v1",
+								"rewards",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete All points",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{local}}api/v1/rewards/all",
+							"host": [
+								"{{local}}api"
+							],
+							"path": [
+								"v1",
+								"rewards",
+								"all"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete All points",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{local}}api/v1/rewards/all",
+									"host": [
+										"{{local}}api"
+									],
+									"path": [
+										"v1",
+										"rewards",
+										"all"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"14-Y53wuE/mmbSikKcT/WualL1N65U\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 08 Aug 2023 10:33:03 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Vocuhers",
+			"item": [
+				{
+					"name": "Get All  Vouchers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local}}api/v1/vouchers/",
+							"host": [
+								"{{local}}api"
+							],
+							"path": [
+								"v1",
+								"vouchers",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get All  Rewards",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{local}}api/v1/vouchers/",
+									"host": [
+										"{{local}}api"
+									],
+									"path": [
+										"v1",
+										"vouchers",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "197"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"c5-BygZjEKiXIC5NR7X5ARetpsto5c\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 08 Aug 2023 13:35:44 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"result\": 1,\n    \"data\": [\n        {\n            \"_id\": \"64d244a7fcd265945e1892e2\",\n            \"user\": \"64cb63913678aaeaf97a2653\",\n            \"reward\": \"64d23fad67db7f5252d6ae15\",\n            \"paid\": false,\n            \"createdAt\": \"2023-08-08T13:35:33.576Z\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Create Voucher",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"reward\": \"64d23fad67db7f5252d6ae15\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}api/v1/vouchers/",
+							"host": [
+								"{{local}}api"
+							],
+							"path": [
+								"v1",
+								"vouchers",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create Voucher",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"reward\": \"64d23fad67db7f5252d6ae15\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}api/v1/vouchers/",
+									"host": [
+										"{{local}}api"
+									],
+									"path": [
+										"v1",
+										"vouchers",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "203"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"cb-6WGmakqjO9UrGLIJEmWzMM6bMPY\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 08 Aug 2023 17:20:15 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"voucher\": {\n            \"user\": \"64cb63913678aaeaf97a2653\",\n            \"reward\": \"64d23fad67db7f5252d6ae15\",\n            \"paid\": true,\n            \"createdAt\": \"2023-08-08T17:20:07.152Z\",\n            \"_id\": \"64d2794f38d0ee279396f93c\",\n            \"__v\": 0\n        }\n    }\n}"
+						},
+						{
+							"name": "Create Voucher DUP error",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    // Same user buy same reward twice\n    \"reward\": \"64d23fad67db7f5252d6ae15\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}api/v1/vouchers/",
+									"host": [
+										"{{local}}api"
+									],
+									"path": [
+										"v1",
+										"vouchers",
+										""
+									],
+									"query": [
+										{
+											"key": null,
+											"value": null,
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "139"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"8b-MaNtZKuxJ6RWOArCVL7V35XhsdY\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 08 Aug 2023 17:40:04 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"fail\",\n    \"message\": \"Duplicate field value.\\n You make this action before with same values reward,user.\\nPlease use another value!\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Voucher",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local}}api/v1/vouchers/:id",
+							"host": [
+								"{{local}}api"
+							],
+							"path": [
+								"v1",
+								"vouchers",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "64d2798638d0ee279396f94e"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Voucher",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{local}}api/v1/vouchers/:id",
+									"host": [
+										"{{local}}api"
+									],
+									"path": [
+										"v1",
+										"vouchers",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "64d257efc30950c08126a4cb"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "341"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"155-pXA9eqN/PBw6ABczX784xFxz0yQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 08 Aug 2023 14:57:58 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"data\": {\n            \"_id\": \"64d257efc30950c08126a4cb\",\n            \"user\": \"64cb63913678aaeaf97a2653\",\n            \"reward\": {\n                \"_id\": \"64d257e2c30950c08126a4c8\",\n                \"title\": \"test reward\",\n                \"description\": \"Exchange points to receive this voucher \",\n                \"costPoints\": 50,\n                \"qrcode\": \"qrcode-1691506658586.jpeg\"\n            },\n            \"paid\": false,\n            \"createdAt\": \"2023-08-08T14:57:23.447Z\",\n            \"__v\": 0\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Voucher",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}api/v1/vouchers/:id",
+							"host": [
+								"{{local}}api"
+							],
+							"path": [
+								"v1",
+								"vouchers",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "64d215f7b09a2c02e4881ef4"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Voucher",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{local}}api/v1/vouchers/:id",
+							"host": [
+								"{{local}}api"
+							],
+							"path": [
+								"v1",
+								"vouchers",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete All Vouchers",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{local}}api/v1/vouchers/all",
+							"host": [
+								"{{local}}api"
+							],
+							"path": [
+								"v1",
+								"vouchers",
+								"all"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete All points",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{local}}api/v1/rewards/all",
+									"host": [
+										"{{local}}api"
+									],
+									"path": [
+										"v1",
+										"rewards",
+										"all"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"14-Y53wuE/mmbSikKcT/WualL1N65U\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 08 Aug 2023 10:33:03 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Booking",
+			"item": [
+				{
+					"name": "Get All  Bookings",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local}}api/v1/bookings/",
+							"host": [
+								"{{local}}api"
+							],
+							"path": [
+								"v1",
+								"bookings",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get All  bookings",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{local}}api/v1/bookings/",
+									"host": [
+										"{{local}}api"
+									],
+									"path": [
+										"v1",
+										"bookings",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "488"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1e8-EdZR/Wvgv9Ayo3HkPP4Av1iyrIg\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 09 Aug 2023 12:44:51 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"result\": 2,\n    \"data\": [\n        {\n            \"_id\": \"64d38890c28cb861dc9f5fd5\",\n            \"type\": \"point\",\n            \"point\": \"64d3852c84b5522cb1bfe559\",\n            \"user\": \"64cb6487e6f8e012912db9c3\",\n            \"status\": \"pending\",\n            \"numOfTickets\": 15,\n            \"numOfDays\": 1,\n            \"paid\": true,\n            \"createdAt\": \"2023-08-09T12:37:14.163Z\"\n        },\n        {\n            \"_id\": \"64d38951e5a06bec4c7d90e9\",\n            \"type\": \"activity\",\n            \"activity\": \"64cf811ab8844bba277430d5\",\n            \"user\": \"64cb6487e6f8e012912db9c3\",\n            \"status\": \"pending\",\n            \"numOfTickets\": 15,\n            \"numOfDays\": 1,\n            \"paid\": true,\n            \"createdAt\": \"2023-08-09T12:40:08.768Z\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Create Booking",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    // \"type\": \"point\",\n    \"type\": \"activity\",\n    \"numOfTickets\": 5,\n    \"numOfDays\": 3,\n    // \"point\": \"64d9224c1bd7ddc6e5dc167e\"\n    // ,\n    \"activity\": \"64d92663aaf9a1d483f78698\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}api/v1/bookings/",
+							"host": [
+								"{{local}}api"
+							],
+							"path": [
+								"v1",
+								"bookings",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create Booking point",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"type\": \"point\",\n    \"numOfTickets\": 15,\n    \"numOfDays\": 1,\n    \"point\": \"64d3852c84b5522cb1bfe559\"\n    // ,\n    // \"activity\": \"64cf811ab8844bba277430d5\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}api/v1/bookings/",
+									"host": [
+										"{{local}}api"
+									],
+									"path": [
+										"v1",
+										"bookings",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "228"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"e4-VIp/Tm8fqSUBarCpRF3tr6kCvpA\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 09 Aug 2023 12:37:36 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"type\": \"point\",\n    \"point\": \"64d3852c84b5522cb1bfe559\",\n    \"user\": \"64cb6487e6f8e012912db9c3\",\n    \"status\": \"pending\",\n    \"numOfTickets\": 15,\n    \"numOfDays\": 1,\n    \"paid\": true,\n    \"createdAt\": \"2023-08-09T12:37:14.163Z\",\n    \"_id\": \"64d38890c28cb861dc9f5fd5\",\n    \"__v\": 0\n}"
+						},
+						{
+							"name": "Create Region activity",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    // \"type\": \"point\",\n    \"type\": \"activity\",\n    \"numOfTickets\": 15,\n    \"numOfDays\": 1,\n    // \"point\": \"64d3852c84b5522cb1bfe559\"\n    // ,\n    \"activity\": \"64d38cc267805d34a30bb415\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}api/v1/bookings/",
+									"host": [
+										"{{local}}api"
+									],
+									"path": [
+										"v1",
+										"bookings",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "234"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"ea-BN5fCIi1TmLt0sa5gppTMNCZSLc\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 09 Aug 2023 12:55:58 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"type\": \"activity\",\n    \"activity\": \"64d38cc267805d34a30bb415\",\n    \"user\": \"64cb6487e6f8e012912db9c3\",\n    \"status\": \"pending\",\n    \"numOfTickets\": 15,\n    \"numOfDays\": 1,\n    \"paid\": true,\n    \"createdAt\": \"2023-08-09T12:54:57.003Z\",\n    \"_id\": \"64d38cde67805d34a30bb420\",\n    \"__v\": 0\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Booking",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local}}api/v1/bookings/:id",
+							"host": [
+								"{{local}}api"
+							],
+							"path": [
+								"v1",
+								"bookings",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "64d38951e5a06bec4c7d90e9"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Booking point",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{local}}api/v1/bookings/:id",
+									"host": [
+										"{{local}}api"
+									],
+									"path": [
+										"v1",
+										"bookings",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "64d38890c28cb861dc9f5fd5"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "712"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2c8-GJqtHCRR8ODYN8x8/6+DNoldbWw\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 09 Aug 2023 12:47:39 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"data\": {\n            \"_id\": \"64d38890c28cb861dc9f5fd5\",\n            \"type\": \"point\",\n            \"point\": {\n                \"_id\": \"64d3852c84b5522cb1bfe559\",\n                \"name\": \"test 15\",\n                \"address\": \"test add\",\n                \"photo\": \"photo-1691583787914.jpeg\",\n                \"availableTickets\": 18,\n                \"costPoints\": \"50\",\n                \"agent\": {\n                    \"_id\": \"64ce50d0cc60fcb1092437b3\",\n                    \"name\": \"agent holland\",\n                    \"email\": \"agent@mailsac.com\",\n                    \"id\": \"64ce50d0cc60fcb1092437b3\"\n                },\n                \"qrcode\": \"qrcode-1691583787915.jpeg\",\n                \"slug\": \"test-15\",\n                \"id\": \"64d3852c84b5522cb1bfe559\"\n            },\n            \"user\": {\n                \"_id\": \"64cb6487e6f8e012912db9c3\",\n                \"name\": \"john holland\",\n                \"email\": \"mostafa@mailsac.com\",\n                \"photo\": \"default.jpg\",\n                \"id\": \"64cb6487e6f8e012912db9c3\"\n            },\n            \"status\": \"pending\",\n            \"numOfTickets\": 15,\n            \"numOfDays\": 1,\n            \"paid\": true,\n            \"createdAt\": \"2023-08-09T12:37:14.163Z\",\n            \"__v\": 0\n        }\n    }\n}"
+						},
+						{
+							"name": "Get Booking activity",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{local}}api/v1/bookings/:id",
+									"host": [
+										"{{local}}api"
+									],
+									"path": [
+										"v1",
+										"bookings",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "64d38951e5a06bec4c7d90e9"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1128"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"468-/tY8t0B6lYw84qW1GpNT4c1p3oo\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 09 Aug 2023 12:49:05 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"data\": {\n            \"_id\": \"64d38951e5a06bec4c7d90e9\",\n            \"type\": \"activity\",\n            \"activity\": {\n                \"_id\": \"64cf811ab8844bba277430d5\",\n                \"name\": \"pool party\",\n                \"pointOfInterest\": null,\n                \"reservationLimit\": 50,\n                \"description\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas at dolor et quam hendrerit ultrices. In laoreet dignissim nisi, eu porttitor ipsum pellentesque ut. Nullam dui nibh, auctor eu sapien sed, aliquet consectetur dui. Donec maximus feugiat tellus, porta imperdiet magna. Sed massa magna, semper nec lobortis quis, consectetur in ex. Praesent venenatis feugiat consequat. Nam imperdiet eget nibh ut imperdiet. In aliquam ante dui, et vestibulum nunc ullamcorper a. Vestibulum bibendum et nisl in convallis. Nullam sit amet mauris semper, volutpat elit vel, scelerisque leo.\",\n                \"startAt\": \"2023-08-06T09:53:55.345Z\",\n                \"id\": \"64cf811ab8844bba277430d5\"\n            },\n            \"user\": {\n                \"_id\": \"64cb6487e6f8e012912db9c3\",\n                \"name\": \"john holland\",\n                \"email\": \"mostafa@mailsac.com\",\n                \"photo\": \"default.jpg\",\n                \"id\": \"64cb6487e6f8e012912db9c3\"\n            },\n            \"status\": \"pending\",\n            \"numOfTickets\": 15,\n            \"numOfDays\": 1,\n            \"paid\": true,\n            \"createdAt\": \"2023-08-09T12:40:08.768Z\",\n            \"__v\": 0\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Booking",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"status\" : \"active\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}api/v1/bookings/:id",
+							"host": [
+								"{{local}}api"
+							],
+							"path": [
+								"v1",
+								"bookings",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "64d38890c28cb861dc9f5fd5"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update Reward",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title",
+											"value": "Updated title",
+											"type": "text"
+										},
+										{
+											"key": "qrcode",
+											"type": "file",
+											"src": "/home/mostafa/Downloads/Img/sleeping_monkey.jpg"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{local}}api/v1/rewards/:id",
+									"host": [
+										"{{local}}api"
+									],
+									"path": [
+										"v1",
+										"rewards",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "64d215f7b09a2c02e4881ef4"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "285"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"11d-vHBPiONtkWZBYcVpG/l/giB7fTg\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 08 Aug 2023 10:26:14 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"_id\": \"64d215f7b09a2c02e4881ef4\",\n        \"title\": \"test reward\",\n        \"description\": \"Exchange points to receive this voucher \",\n        \"costPoints\": 50,\n        \"expireDate\": \"2023-08-08T10:09:34.659Z\",\n        \"region\": \"lisbon\",\n        \"address\": \"test address\",\n        \"qrcode\": \"qrcode-1691489783902.jpeg\",\n        \"__v\": 0\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Booking",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{local}}api/v1/bookings/:id",
+							"host": [
+								"{{local}}api"
+							],
+							"path": [
+								"v1",
+								"bookings",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "64d388b7c28cb861dc9f5fd8"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete Booking",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{local}}api/v1/bookings/:id",
+									"host": [
+										"{{local}}api"
+									],
+									"path": [
+										"v1",
+										"bookings",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "64d3866e103571b73e84f672"
+										}
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3a-AOMZfyT4MWqQHPE+uQxMOGSqW5g\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 09 Aug 2023 12:31:49 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Delete All Bookings",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{local}}api/v1/bookings/all",
+							"host": [
+								"{{local}}api"
+							],
+							"path": [
+								"v1",
+								"bookings",
+								"all"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete All points",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{local}}api/v1/rewards/all",
+									"host": [
+										"{{local}}api"
+									],
+									"path": [
+										"v1",
+										"rewards",
+										"all"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"14-Y53wuE/mmbSikKcT/WualL1N65U\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 08 Aug 2023 10:33:03 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		}
+	]
+}
