@@ -9,7 +9,7 @@ const {
 } = require('./handleOps');
 
 exports.getAllReward = getAll(Reward);
-exports.getOneReward = getOne(Reward, 'pointOfInterest');
+exports.getOneReward = getOne(Reward);
 exports.createOneReward = createOne(Reward);
 exports.deleteOneReward = deleteOne(Reward);
 exports.updateOneReward = updateOne(Reward);

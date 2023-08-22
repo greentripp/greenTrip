@@ -30,10 +30,10 @@ const rewardSchema = mongoose.Schema({
   },
 });
 
-rewardSchema.pre(/^findO/, function (next) {
+rewardSchema.pre(/^find/, function (next) {
   this.populate({
     path: 'pointOfInterest',
-    select: '-category -agent -slug -__v',
+    select: '-agent -slug -__v',
   });
   next();
 });

@@ -30,7 +30,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"name\":\"Green Trip Admin\",\n    \"email\": \"admin@greentrip.com\",\n    \"password\": \"123456789\",\n    \"passwordConfirm\": \"123456789\",\n    \"role\": \"agent\", //or  role=\"user\",\n    \"phone\": \"01220528754\",\n    \"region\": \"lisboa\"\n}",
+									"raw": "{\n    \"name\":\"Green Trip Admin\",\n    \"email\": \"admin@greentrip.com\",\n    \"password\": \"123456789\",\n    \"passwordConfirm\": \"123456789\",\n    \"role\": \"admin\", //or  role=\"user\",\n    \"phone\": \"01220528754\",\n    \"region\": \"lisboa\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -410,7 +410,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"email\": \"admin@mailsac.com\",\n    \"password\": \"{{pass}}\"\n}",
+									"raw": "{\n    \"email\": \"jcristo@gmail.com\",\n    \"password\": \"{{pass}}\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1191,6 +1191,68 @@
 								}
 							},
 							"response": []
+						},
+						{
+							"name": "Add Admin",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\":\"Green Trip Admin\",\n    \"email\": \"admin1@greentrip.com\",\n    \"password\": \"123456789\",\n    \"passwordConfirm\": \"123456789\",\n    \"role\": \"admin\", \n    \"phone\": \"01220528754\",\n    \"region\": \"lisboa\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}api/v1/users/admin/add",
+									"host": [
+										"{{local}}api"
+									],
+									"path": [
+										"v1",
+										"users",
+										"admin",
+										"add"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Add Admin",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\":\"Green Trip Admin\",\n    \"email\": \"admin@greentrip.com\",\n    \"password\": \"123456789\",\n    \"passwordConfirm\": \"123456789\",\n    \"role\": \"admin\", \n    \"phone\": \"01220528754\",\n    \"region\": \"lisboa\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{local}}api/v1/users/admin/add",
+											"host": [
+												"{{local}}api"
+											],
+											"path": [
+												"v1",
+												"users",
+												"admin",
+												"add"
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": null
+								}
+							]
 						}
 					]
 				},
@@ -3128,7 +3190,7 @@
 					},
 					"response": [
 						{
-							"name": "Get All  rewards",
+							"name": "Get All  Rewards",
 							"originalRequest": {
 								"method": "GET",
 								"header": [],
@@ -3162,15 +3224,15 @@
 								},
 								{
 									"key": "Content-Length",
-									"value": "290"
+									"value": "2524"
 								},
 								{
 									"key": "ETag",
-									"value": "W/\"122-dltclTmkRpzCDAQXKGf70dvEdtU\""
+									"value": "W/\"9dc-YYI5vkUi09zUg/9yaO/F8/crC1M\""
 								},
 								{
 									"key": "Date",
-									"value": "Tue, 08 Aug 2023 10:24:09 GMT"
+									"value": "Tue, 22 Aug 2023 14:24:00 GMT"
 								},
 								{
 									"key": "Connection",
@@ -3182,7 +3244,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"status\": \"success\",\n    \"result\": 1,\n    \"data\": [\n        {\n            \"_id\": \"64d215f7b09a2c02e4881ef4\",\n            \"title\": \"test reward\",\n            \"description\": \"Exchange points to receive this voucher \",\n            \"costPoints\": 50,\n            \"expireDate\": \"2023-08-08T10:09:34.659Z\",\n            \"region\": \"lisbon\",\n            \"address\": \"test address\",\n            \"qrcode\": \"qrcode-1691489783902.jpeg\"\n        }\n    ]\n}"
+							"body": "{\n    \"status\": \"success\",\n    \"result\": 2,\n    \"data\": [\n        {\n            \"_id\": \"64d9239e1bd7ddc6e5dc169b\",\n            \"title\": \"2 coffees at  grão vasco\",\n            \"description\": \"Exchange points to receive this voucher \",\n            \"pointOfInterest\": {\n                \"_id\": \"64d922891bd7ddc6e5dc1682\",\n                \"name\": \"hotel grão vasco\",\n                \"address\": \"Q.ta do Bosque\\\\n 3510-020 Viseu\",\n                \"photo\": \"photo-1691951753792.jpeg\",\n                \"availableTickets\": 18,\n                \"costPoints\": \"50\",\n                \"agent\": {\n                    \"_id\": \"64d920dfca14c0ca45bb3c52\",\n                    \"name\": \"green trip agent\",\n                    \"email\": \"agent@greentrip.com\",\n                    \"phone\": \"01220528754\",\n                    \"id\": \"64d920dfca14c0ca45bb3c52\"\n                },\n                \"qrcode\": \"qrcode-1691951753793.png\",\n                \"description\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas at dolor et quam hendrerit ultrices. In laoreet dignissim nisi, eu porttitor ipsum pellentesque ut. Nullam dui nibh, auctor eu sapien sed, aliquet consectetur dui. Donec maximus feugiat tellus, porta imperdiet magna. Sed massa magna, semper nec lobortis quis, consectetur in ex. Praesent venenatis feugiat consequat. Nam imperdiet eget nibh ut imperdiet. In aliquam ante dui, et vestibulum nunc ullamcorper a. Vestibulum bibendum et nisl in convallis. Nullam sit amet mauris semper, volutpat elit vel, scelerisque leo.\",\n                \"id\": \"64d922891bd7ddc6e5dc1682\"\n            },\n            \"costPoints\": 75,\n            \"expireDate\": \"2023-08-08T10:09:34.659Z\",\n            \"qrcode\": \"qrcode-1691952030780.png\"\n        },\n        {\n            \"_id\": \"64d923bd1bd7ddc6e5dc16a0\",\n            \"title\": \"1 meal atat  grão vasco\",\n            \"description\": \"Exchange points to receive this voucher \",\n            \"pointOfInterest\": {\n                \"_id\": \"64d922891bd7ddc6e5dc1682\",\n                \"name\": \"hotel grão vasco\",\n                \"address\": \"Q.ta do Bosque\\\\n 3510-020 Viseu\",\n                \"photo\": \"photo-1691951753792.jpeg\",\n                \"availableTickets\": 18,\n                \"costPoints\": \"50\",\n                \"agent\": {\n                    \"_id\": \"64d920dfca14c0ca45bb3c52\",\n                    \"name\": \"green trip agent\",\n                    \"email\": \"agent@greentrip.com\",\n                    \"phone\": \"01220528754\",\n                    \"id\": \"64d920dfca14c0ca45bb3c52\"\n                },\n                \"qrcode\": \"qrcode-1691951753793.png\",\n                \"description\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas at dolor et quam hendrerit ultrices. In laoreet dignissim nisi, eu porttitor ipsum pellentesque ut. Nullam dui nibh, auctor eu sapien sed, aliquet consectetur dui. Donec maximus feugiat tellus, porta imperdiet magna. Sed massa magna, semper nec lobortis quis, consectetur in ex. Praesent venenatis feugiat consequat. Nam imperdiet eget nibh ut imperdiet. In aliquam ante dui, et vestibulum nunc ullamcorper a. Vestibulum bibendum et nisl in convallis. Nullam sit amet mauris semper, volutpat elit vel, scelerisque leo.\",\n                \"id\": \"64d922891bd7ddc6e5dc1682\"\n            },\n            \"costPoints\": 150,\n            \"expireDate\": \"2023-08-08T10:09:34.659Z\",\n            \"qrcode\": \"qrcode-1691952061786.png\"\n        }\n    ]\n}"
 						}
 					]
 				},
@@ -3361,7 +3423,7 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": "64d23fad67db7f5252d6ae15"
+									"value": "64d9239e1bd7ddc6e5dc169b"
 								}
 							]
 						}
@@ -4136,7 +4198,7 @@
 					},
 					"response": [
 						{
-							"name": "Get All  bookings",
+							"name": "Get All  Bookings",
 							"originalRequest": {
 								"method": "GET",
 								"header": [],
@@ -4170,15 +4232,15 @@
 								},
 								{
 									"key": "Content-Length",
-									"value": "488"
+									"value": "13349"
 								},
 								{
 									"key": "ETag",
-									"value": "W/\"1e8-EdZR/Wvgv9Ayo3HkPP4Av1iyrIg\""
+									"value": "W/\"3425-6UtqTVzpQeN0bdWJqH57oWfVJMc\""
 								},
 								{
 									"key": "Date",
-									"value": "Wed, 09 Aug 2023 12:44:51 GMT"
+									"value": "Tue, 22 Aug 2023 14:18:26 GMT"
 								},
 								{
 									"key": "Connection",
@@ -4190,7 +4252,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"status\": \"success\",\n    \"result\": 2,\n    \"data\": [\n        {\n            \"_id\": \"64d38890c28cb861dc9f5fd5\",\n            \"type\": \"point\",\n            \"point\": \"64d3852c84b5522cb1bfe559\",\n            \"user\": \"64cb6487e6f8e012912db9c3\",\n            \"status\": \"pending\",\n            \"numOfTickets\": 15,\n            \"numOfDays\": 1,\n            \"paid\": true,\n            \"createdAt\": \"2023-08-09T12:37:14.163Z\"\n        },\n        {\n            \"_id\": \"64d38951e5a06bec4c7d90e9\",\n            \"type\": \"activity\",\n            \"activity\": \"64cf811ab8844bba277430d5\",\n            \"user\": \"64cb6487e6f8e012912db9c3\",\n            \"status\": \"pending\",\n            \"numOfTickets\": 15,\n            \"numOfDays\": 1,\n            \"paid\": true,\n            \"createdAt\": \"2023-08-09T12:40:08.768Z\"\n        }\n    ]\n}"
+							"body": "{\n    \"status\": \"success\",\n    \"result\": 7,\n    \"data\": [\n        {\n            \"_id\": \"64da8ce23c1a2017033163ba\",\n            \"type\": \"point\",\n            \"point\": {\n                \"_id\": \"64d9224c1bd7ddc6e5dc167e\",\n                \"name\": \"test 36\",\n                \"address\": \"Q.ta do Bosque\\\\n 3510-020 Viseu\",\n                \"photo\": \"photo-1691951692736.jpeg\",\n                \"availableTickets\": 22,\n                \"costPoints\": \"50\",\n                \"agent\": {\n                    \"_id\": \"64d920dfca14c0ca45bb3c52\",\n                    \"name\": \"green trip agent\",\n                    \"email\": \"agent@greentrip.com\",\n                    \"phone\": \"01220528754\",\n                    \"id\": \"64d920dfca14c0ca45bb3c52\"\n                },\n                \"qrcode\": \"qrcode-1691951692739.png\",\n                \"slug\": \"montebelo-viseu-hotel\",\n                \"description\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas at dolor et quam hendrerit ultrices. In laoreet dignissim nisi, eu porttitor ipsum pellentesque ut. Nullam dui nibh, auctor eu sapien sed, aliquet consectetur dui. Donec maximus feugiat tellus, porta imperdiet magna. Sed massa magna, semper nec lobortis quis, consectetur in ex. Praesent venenatis feugiat consequat. Nam imperdiet eget nibh ut imperdiet. In aliquam ante dui, et vestibulum nunc ullamcorper a. Vestibulum bibendum et nisl in convallis. Nullam sit amet mauris semper, volutpat elit vel, scelerisque leo.\",\n                \"category\": \"hotels\",\n                \"region\": \"ay7aga\",\n                \"id\": \"64d9224c1bd7ddc6e5dc167e\"\n            },\n            \"user\": {\n                \"_id\": \"64d9222f1bd7ddc6e5dc167a\",\n                \"name\": \"josefino\",\n                \"email\": \"jcristo@gmail.com\",\n                \"avatar\": \"default.jpg\",\n                \"phone\": \"973274392\",\n                \"region\": \"lisboa\",\n                \"id\": \"64d9222f1bd7ddc6e5dc167a\"\n            },\n            \"status\": \"active\",\n            \"numOfTickets\": 5,\n            \"numOfDays\": 3,\n            \"paid\": true,\n            \"createdAt\": \"2023-08-14T20:21:20.567Z\",\n            \"id\": \"64da8ce23c1a2017033163ba\"\n        },\n        {\n            \"_id\": \"64da8f04c3744dd6190b97a1\",\n            \"type\": \"activity\",\n            \"activity\": {\n                \"_id\": \"64d92663aaf9a1d483f78698\",\n                \"name\": \"swimming party\",\n                \"pointOfInterest\": {\n                    \"_id\": \"64d9224c1bd7ddc6e5dc167e\",\n                    \"name\": \"test 36\",\n                    \"address\": \"Q.ta do Bosque\\\\n 3510-020 Viseu\",\n                    \"photo\": \"photo-1691951692736.jpeg\",\n                    \"availableTickets\": 22,\n                    \"costPoints\": \"50\",\n                    \"agent\": {\n                        \"_id\": \"64d920dfca14c0ca45bb3c52\",\n                        \"name\": \"green trip agent\",\n                        \"email\": \"agent@greentrip.com\",\n                        \"phone\": \"01220528754\",\n                        \"id\": \"64d920dfca14c0ca45bb3c52\"\n                    },\n                    \"qrcode\": \"qrcode-1691951692739.png\",\n                    \"slug\": \"montebelo-viseu-hotel\",\n                    \"description\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas at dolor et quam hendrerit ultrices. In laoreet dignissim nisi, eu porttitor ipsum pellentesque ut. Nullam dui nibh, auctor eu sapien sed, aliquet consectetur dui. Donec maximus feugiat tellus, porta imperdiet magna. Sed massa magna, semper nec lobortis quis, consectetur in ex. Praesent venenatis feugiat consequat. Nam imperdiet eget nibh ut imperdiet. In aliquam ante dui, et vestibulum nunc ullamcorper a. Vestibulum bibendum et nisl in convallis. Nullam sit amet mauris semper, volutpat elit vel, scelerisque leo.\",\n                    \"category\": \"hotels\",\n                    \"region\": \"ay7aga\",\n                    \"id\": \"64d9224c1bd7ddc6e5dc167e\"\n                },\n                \"reservationLimit\": 25,\n                \"description\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas at dolor et quam hendrerit ultrices. In laoreet dignissim nisi, eu porttitor ipsum pellentesque ut. Nullam dui nibh, auctor eu sapien sed, aliquet consectetur dui. Donec maximus feugiat tellus, porta imperdiet magna. Sed massa magna, semper nec lobortis quis, consectetur in ex. Praesent venenatis feugiat consequat. Nam imperdiet eget nibh ut imperdiet. In aliquam ante dui, et vestibulum nunc ullamcorper a. Vestibulum bibendum et nisl in convallis. Nullam sit amet mauris semper, volutpat elit vel, scelerisque leo.\",\n                \"startAt\": \"2023-08-06T09:53:55.345Z\",\n                \"photo\": \"photo-1691952739409.jpeg\",\n                \"id\": \"64d92663aaf9a1d483f78698\"\n            },\n            \"user\": {\n                \"_id\": \"64d9222f1bd7ddc6e5dc167a\",\n                \"name\": \"josefino\",\n                \"email\": \"jcristo@gmail.com\",\n                \"avatar\": \"default.jpg\",\n                \"phone\": \"973274392\",\n                \"region\": \"lisboa\",\n                \"id\": \"64d9222f1bd7ddc6e5dc167a\"\n            },\n            \"status\": \"pending\",\n            \"numOfTickets\": 5,\n            \"numOfDays\": 3,\n            \"paid\": true,\n            \"createdAt\": \"2023-08-14T20:28:53.022Z\",\n            \"id\": \"64da8f04c3744dd6190b97a1\"\n        },\n        {\n            \"_id\": \"64dc4f4da9b150ba600a3466\",\n            \"type\": \"activity\",\n            \"activity\": {\n                \"_id\": \"64d926a43b6e4dfe021b1684\",\n                \"name\": \"swimming party\",\n                \"pointOfInterest\": {\n                    \"_id\": \"64d922891bd7ddc6e5dc1682\",\n                    \"name\": \"hotel grão vasco\",\n                    \"address\": \"Q.ta do Bosque\\\\n 3510-020 Viseu\",\n                    \"photo\": \"photo-1691951753792.jpeg\",\n                    \"availableTickets\": 18,\n                    \"costPoints\": \"50\",\n                    \"agent\": {\n                        \"_id\": \"64d920dfca14c0ca45bb3c52\",\n                        \"name\": \"green trip agent\",\n                        \"email\": \"agent@greentrip.com\",\n                        \"phone\": \"01220528754\",\n                        \"id\": \"64d920dfca14c0ca45bb3c52\"\n                    },\n                    \"qrcode\": \"qrcode-1691951753793.png\",\n                    \"slug\": \"hotel-grao-vasco\",\n                    \"description\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas at dolor et quam hendrerit ultrices. In laoreet dignissim nisi, eu porttitor ipsum pellentesque ut. Nullam dui nibh, auctor eu sapien sed, aliquet consectetur dui. Donec maximus feugiat tellus, porta imperdiet magna. Sed massa magna, semper nec lobortis quis, consectetur in ex. Praesent venenatis feugiat consequat. Nam imperdiet eget nibh ut imperdiet. In aliquam ante dui, et vestibulum nunc ullamcorper a. Vestibulum bibendum et nisl in convallis. Nullam sit amet mauris semper, volutpat elit vel, scelerisque leo.\",\n                    \"id\": \"64d922891bd7ddc6e5dc1682\"\n                },\n                \"reservationLimit\": 28,\n                \"description\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas at dolor et quam hendrerit ultrices. In laoreet dignissim nisi, eu porttitor ipsum pellentesque ut. Nullam dui nibh, auctor eu sapien sed, aliquet consectetur dui. Donec maximus feugiat tellus, porta imperdiet magna. Sed massa magna, semper nec lobortis quis, consectetur in ex. Praesent venenatis feugiat consequat. Nam imperdiet eget nibh ut imperdiet. In aliquam ante dui, et vestibulum nunc ullamcorper a. Vestibulum bibendum et nisl in convallis. Nullam sit amet mauris semper, volutpat elit vel, scelerisque leo.\",\n                \"startAt\": \"2023-08-06T09:53:55.345Z\",\n                \"photo\": \"photo-1691952804183.jpeg\",\n                \"id\": \"64d926a43b6e4dfe021b1684\"\n            },\n            \"user\": {\n                \"_id\": \"64d78ba0f530215f9a3cd414\",\n                \"name\": \"youssef maged\",\n                \"email\": \"yoer766@gmail.com\",\n                \"avatar\": \"avatar-1692658360550.jpeg\",\n                \"phone\": \"01204528455\",\n                \"region\": \"kaftEldwar\",\n                \"id\": \"64d78ba0f530215f9a3cd414\"\n            },\n            \"status\": \"pending\",\n            \"numOfTickets\": 2,\n            \"numOfDays\": 1,\n            \"paid\": true,\n            \"createdAt\": \"2023-08-16T04:07:33.345Z\",\n            \"id\": \"64dc4f4da9b150ba600a3466\"\n        },\n        {\n            \"_id\": \"64dc508ba9b150ba600a347b\",\n            \"type\": \"point\",\n            \"point\": {\n                \"_id\": \"64d922891bd7ddc6e5dc1682\",\n                \"name\": \"hotel grão vasco\",\n                \"address\": \"Q.ta do Bosque\\\\n 3510-020 Viseu\",\n                \"photo\": \"photo-1691951753792.jpeg\",\n                \"availableTickets\": 18,\n                \"costPoints\": \"50\",\n                \"agent\": {\n                    \"_id\": \"64d920dfca14c0ca45bb3c52\",\n                    \"name\": \"green trip agent\",\n                    \"email\": \"agent@greentrip.com\",\n                    \"phone\": \"01220528754\",\n                    \"id\": \"64d920dfca14c0ca45bb3c52\"\n                },\n                \"qrcode\": \"qrcode-1691951753793.png\",\n                \"slug\": \"hotel-grao-vasco\",\n                \"description\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas at dolor et quam hendrerit ultrices. In laoreet dignissim nisi, eu porttitor ipsum pellentesque ut. Nullam dui nibh, auctor eu sapien sed, aliquet consectetur dui. Donec maximus feugiat tellus, porta imperdiet magna. Sed massa magna, semper nec lobortis quis, consectetur in ex. Praesent venenatis feugiat consequat. Nam imperdiet eget nibh ut imperdiet. In aliquam ante dui, et vestibulum nunc ullamcorper a. Vestibulum bibendum et nisl in convallis. Nullam sit amet mauris semper, volutpat elit vel, scelerisque leo.\",\n                \"id\": \"64d922891bd7ddc6e5dc1682\"\n            },\n            \"user\": {\n                \"_id\": \"64d78ba0f530215f9a3cd414\",\n                \"name\": \"youssef maged\",\n                \"email\": \"yoer766@gmail.com\",\n                \"avatar\": \"avatar-1692658360550.jpeg\",\n                \"phone\": \"01204528455\",\n                \"region\": \"kaftEldwar\",\n                \"id\": \"64d78ba0f530215f9a3cd414\"\n            },\n            \"status\": \"pending\",\n            \"numOfTickets\": 2,\n            \"numOfDays\": 6,\n            \"paid\": true,\n            \"createdAt\": \"2023-08-16T04:07:33.345Z\",\n            \"id\": \"64dc508ba9b150ba600a347b\"\n        },\n        {\n            \"_id\": \"64e3ea87d446ce9f7d84be14\",\n            \"type\": \"point\",\n            \"point\": {\n                \"_id\": \"64d9224c1bd7ddc6e5dc167e\",\n                \"name\": \"test 36\",\n                \"address\": \"Q.ta do Bosque\\\\n 3510-020 Viseu\",\n                \"photo\": \"photo-1691951692736.jpeg\",\n                \"availableTickets\": 22,\n                \"costPoints\": \"50\",\n                \"agent\": {\n                    \"_id\": \"64d920dfca14c0ca45bb3c52\",\n                    \"name\": \"green trip agent\",\n                    \"email\": \"agent@greentrip.com\",\n                    \"phone\": \"01220528754\",\n                    \"id\": \"64d920dfca14c0ca45bb3c52\"\n                },\n                \"qrcode\": \"qrcode-1691951692739.png\",\n                \"slug\": \"montebelo-viseu-hotel\",\n                \"description\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas at dolor et quam hendrerit ultrices. In laoreet dignissim nisi, eu porttitor ipsum pellentesque ut. Nullam dui nibh, auctor eu sapien sed, aliquet consectetur dui. Donec maximus feugiat tellus, porta imperdiet magna. Sed massa magna, semper nec lobortis quis, consectetur in ex. Praesent venenatis feugiat consequat. Nam imperdiet eget nibh ut imperdiet. In aliquam ante dui, et vestibulum nunc ullamcorper a. Vestibulum bibendum et nisl in convallis. Nullam sit amet mauris semper, volutpat elit vel, scelerisque leo.\",\n                \"category\": \"hotels\",\n                \"region\": \"ay7aga\",\n                \"id\": \"64d9224c1bd7ddc6e5dc167e\"\n            },\n            \"user\": {\n                \"_id\": \"64d78ba0f530215f9a3cd414\",\n                \"name\": \"youssef maged\",\n                \"email\": \"yoer766@gmail.com\",\n                \"avatar\": \"avatar-1692658360550.jpeg\",\n                \"phone\": \"01204528455\",\n                \"region\": \"kaftEldwar\",\n                \"id\": \"64d78ba0f530215f9a3cd414\"\n            },\n            \"status\": \"active\",\n            \"numOfTickets\": 3,\n            \"numOfDays\": 2,\n            \"paid\": true,\n            \"createdAt\": \"2023-08-21T18:30:54.925Z\",\n            \"id\": \"64e3ea87d446ce9f7d84be14\"\n        },\n        {\n            \"_id\": \"64e4ba554a5f65a852a149a7\",\n            \"type\": \"activity\",\n            \"activity\": {\n                \"_id\": \"64dd50dcd0137097aa4001ab\",\n                \"name\": \"swimming party\",\n                \"pointOfInterest\": {\n                    \"_id\": \"64d922891bd7ddc6e5dc1682\",\n                    \"name\": \"hotel grão vasco\",\n                    \"address\": \"Q.ta do Bosque\\\\n 3510-020 Viseu\",\n                    \"photo\": \"photo-1691951753792.jpeg\",\n                    \"availableTickets\": 18,\n                    \"costPoints\": \"50\",\n                    \"agent\": {\n                        \"_id\": \"64d920dfca14c0ca45bb3c52\",\n                        \"name\": \"green trip agent\",\n                        \"email\": \"agent@greentrip.com\",\n                        \"phone\": \"01220528754\",\n                        \"id\": \"64d920dfca14c0ca45bb3c52\"\n                    },\n                    \"qrcode\": \"qrcode-1691951753793.png\",\n                    \"slug\": \"hotel-grao-vasco\",\n                    \"description\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas at dolor et quam hendrerit ultrices. In laoreet dignissim nisi, eu porttitor ipsum pellentesque ut. Nullam dui nibh, auctor eu sapien sed, aliquet consectetur dui. Donec maximus feugiat tellus, porta imperdiet magna. Sed massa magna, semper nec lobortis quis, consectetur in ex. Praesent venenatis feugiat consequat. Nam imperdiet eget nibh ut imperdiet. In aliquam ante dui, et vestibulum nunc ullamcorper a. Vestibulum bibendum et nisl in convallis. Nullam sit amet mauris semper, volutpat elit vel, scelerisque leo.\",\n                    \"id\": \"64d922891bd7ddc6e5dc1682\"\n                },\n                \"reservationLimit\": 32,\n                \"description\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas at dolor et quam hendrerit ultrices. In laoreet dignissim nisi, eu porttitor ipsum pellentesque ut. Nullam dui nibh, auctor eu sapien sed, aliquet consectetur dui. Donec maximus feugiat tellus, porta imperdiet magna. Sed massa magna, semper nec lobortis quis, consectetur in ex. Praesent venenatis feugiat consequat. Nam imperdiet eget nibh ut imperdiet. In aliquam ante dui, et vestibulum nunc ullamcorper a. Vestibulum bibendum et nisl in convallis. Nullam sit amet mauris semper, volutpat elit vel, scelerisque leo.\",\n                \"startAt\": \"2023-08-12T20:33:00.000Z\",\n                \"photo\": \"photo-1692225756590.jpeg\",\n                \"id\": \"64dd50dcd0137097aa4001ab\"\n            },\n            \"user\": {\n                \"_id\": \"64d78ba0f530215f9a3cd414\",\n                \"name\": \"youssef maged\",\n                \"email\": \"yoer766@gmail.com\",\n                \"avatar\": \"avatar-1692658360550.jpeg\",\n                \"phone\": \"01204528455\",\n                \"region\": \"kaftEldwar\",\n                \"id\": \"64d78ba0f530215f9a3cd414\"\n            },\n            \"status\": \"pending\",\n            \"numOfTickets\": 3,\n            \"numOfDays\": 1,\n            \"paid\": true,\n            \"createdAt\": \"2023-08-22T12:23:26.828Z\",\n            \"id\": \"64e4ba554a5f65a852a149a7\"\n        },\n        {\n            \"_id\": \"64e4bab54a5f65a852a149d1\",\n            \"type\": \"activity\",\n            \"activity\": {\n                \"_id\": \"64d92663aaf9a1d483f78698\",\n                \"name\": \"swimming party\",\n                \"pointOfInterest\": {\n                    \"_id\": \"64d9224c1bd7ddc6e5dc167e\",\n                    \"name\": \"test 36\",\n                    \"address\": \"Q.ta do Bosque\\\\n 3510-020 Viseu\",\n                    \"photo\": \"photo-1691951692736.jpeg\",\n                    \"availableTickets\": 22,\n                    \"costPoints\": \"50\",\n                    \"agent\": {\n                        \"_id\": \"64d920dfca14c0ca45bb3c52\",\n                        \"name\": \"green trip agent\",\n                        \"email\": \"agent@greentrip.com\",\n                        \"phone\": \"01220528754\",\n                        \"id\": \"64d920dfca14c0ca45bb3c52\"\n                    },\n                    \"qrcode\": \"qrcode-1691951692739.png\",\n                    \"slug\": \"montebelo-viseu-hotel\",\n                    \"description\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas at dolor et quam hendrerit ultrices. In laoreet dignissim nisi, eu porttitor ipsum pellentesque ut. Nullam dui nibh, auctor eu sapien sed, aliquet consectetur dui. Donec maximus feugiat tellus, porta imperdiet magna. Sed massa magna, semper nec lobortis quis, consectetur in ex. Praesent venenatis feugiat consequat. Nam imperdiet eget nibh ut imperdiet. In aliquam ante dui, et vestibulum nunc ullamcorper a. Vestibulum bibendum et nisl in convallis. Nullam sit amet mauris semper, volutpat elit vel, scelerisque leo.\",\n                    \"category\": \"hotels\",\n                    \"region\": \"ay7aga\",\n                    \"id\": \"64d9224c1bd7ddc6e5dc167e\"\n                },\n                \"reservationLimit\": 25,\n                \"description\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas at dolor et quam hendrerit ultrices. In laoreet dignissim nisi, eu porttitor ipsum pellentesque ut. Nullam dui nibh, auctor eu sapien sed, aliquet consectetur dui. Donec maximus feugiat tellus, porta imperdiet magna. Sed massa magna, semper nec lobortis quis, consectetur in ex. Praesent venenatis feugiat consequat. Nam imperdiet eget nibh ut imperdiet. In aliquam ante dui, et vestibulum nunc ullamcorper a. Vestibulum bibendum et nisl in convallis. Nullam sit amet mauris semper, volutpat elit vel, scelerisque leo.\",\n                \"startAt\": \"2023-08-06T09:53:55.345Z\",\n                \"photo\": \"photo-1691952739409.jpeg\",\n                \"id\": \"64d92663aaf9a1d483f78698\"\n            },\n            \"user\": {\n                \"_id\": \"64d78ba0f530215f9a3cd414\",\n                \"name\": \"youssef maged\",\n                \"email\": \"yoer766@gmail.com\",\n                \"avatar\": \"avatar-1692658360550.jpeg\",\n                \"phone\": \"01204528455\",\n                \"region\": \"kaftEldwar\",\n                \"id\": \"64d78ba0f530215f9a3cd414\"\n            },\n            \"status\": \"pending\",\n            \"numOfTickets\": 5,\n            \"numOfDays\": 1,\n            \"paid\": true,\n            \"createdAt\": \"2023-08-22T12:23:26.828Z\",\n            \"id\": \"64e4bab54a5f65a852a149d1\"\n        }\n    ]\n}"
 						}
 					]
 				},
@@ -4373,7 +4435,7 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": "64d38951e5a06bec4c7d90e9"
+									"value": "64da8ce23c1a2017033163ba"
 								}
 							]
 						}
