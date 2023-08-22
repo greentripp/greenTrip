@@ -2,7 +2,7 @@ const User = require('../models/userModel');
 const AppError = require('../utils/appError');
 const catchAsync = require('../utils/catchAsync');
 
-const { getAll, getOne, deleteAll } = require('./handleOps');
+const { getAll, getOne, deleteAll, updateOne } = require('./handleOps');
 
 exports.getAllUsers = getAll(User);
 exports.deleteAllUsers = deleteAll(User);
@@ -78,3 +78,5 @@ exports.removePoints = catchAsync(async (req, res, next) => {
     user,
   });
 });
+
+exports.updateUser = updateOne(User);

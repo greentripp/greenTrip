@@ -23,6 +23,7 @@ const {
   updateUserData,
   addPoints,
   removePoints,
+  updateUser,
 } = require('../controllers/userControllers');
 
 const { upload, setAvatarInDB } = require('../controllers/imageController');
@@ -57,5 +58,12 @@ router.patch(
 router.patch('/points/add', restrictTo('admin', 'user'), addPoints);
 router.patch('/points/remove', restrictTo('admin', 'user'), removePoints);
 
-router.post('/admin/add', restrictTo('admin'), addAdmin);
+restrictTo('admin');
+router.post('/admin/add', addAdmin);
+router.patch(
+  '/admin/update/:id',
+  upload.single('avatar'),
+  setAvatarInDB,
+  updateUser
+);
 module.exports = router;
