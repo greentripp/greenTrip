@@ -59,7 +59,7 @@ router.patch('/points/add', restrictTo('admin', 'user'), addPoints);
 router.patch('/points/remove', restrictTo('admin', 'user'), removePoints);
 
 restrictTo('admin');
-router.post('/admin/add', addAdmin);
+router.post('/admin/add', upload.single('avatar'), setAvatarInDB, addAdmin);
 router.patch(
   '/admin/update/:id',
   upload.single('avatar'),
