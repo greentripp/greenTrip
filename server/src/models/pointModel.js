@@ -32,7 +32,7 @@ const pointSchema = new mongoose.Schema(
     category: {
       type: String,
       // required: [true, 'Please provide category to the Point of Interest'],
-      enum: ['hotels', 'restruent'],
+      enum: ['hotel', 'restruent'],
     },
     agent: {
       type: mongoose.Schema.ObjectId,

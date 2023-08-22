@@ -25,7 +25,7 @@ exports.updateUserData = catchAsync(async (req, res) => {
     return next(
       new AppError('You cannot change password through this api.', 400)
     );
-  console.log(req.body);
+
   // update only name and email.
   const user = await User.findByIdAndUpdate(req.user._id, req.body, {
     new: true,
@@ -43,16 +43,13 @@ exports.updateUserData = catchAsync(async (req, res) => {
 exports.updatePoints = async (userId, points, sign) => {
   const user = await User.findById(userId);
 
-  if (!user) {
-    throw new AppError('Cannot find user with this ID', 404);
-  }
+  if (!user) throw new AppError('Cannot find user with this ID', 404);
 
-  if (sign === '+') {
-    user.points += points;
-  } else if (sign === '-') {
-    if (user.points < points) {
+  if (sign === '+') user.points += points;
+  else if (sign === '-') {
+    if (user.points < points)
       throw new AppError('User does not have enough points', 400);
-    }
+
     user.points -= points;
   }
 
@@ -73,7 +70,7 @@ exports.addPoints = catchAsync(async (req, res, next) => {
 
 exports.removePoints = catchAsync(async (req, res, next) => {
   const points = req.body.points;
-  const user = await updatePoints(req.user._id, points, '-');
+  const user = await this.updatePoints(req.user._id, points, '-');
 
   req.user = user;
   res.status(200).json({

@@ -40,7 +40,22 @@ const createSendToken = (user, statusCode, res) => {
 exports.signup = catchAsync(async (req, res, next) => {
   const role = req.body.role;
 
-  if (role === 'admin') return next(new AppError('You cannot signup as admin'));
+  if (role === 'admin')
+    return next(new AppError('You cannot signup as admin', 401));
+
+  const newUser = await User.create(req.body);
+
+  // Remove passowrd from output
+  newUser.password = undefined;
+
+  new Email(newUser, ``).sendWelcomeProd();
+
+  createSendToken(newUser, 201, res);
+});
+
+exports.addAdmin = catchAsync(async (req, res, next) => {
+  if (req.body.role !== 'admin')
+    return next(new AppError(`You cannot signup as ${req.body.role}`, 401));
 
   const newUser = await User.create(req.body);
 

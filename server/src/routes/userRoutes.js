@@ -11,6 +11,7 @@ const {
   loginUser,
   verifyToken,
   restrictTo,
+  addAdmin,
 } = require('../controllers/authControllers');
 
 const {
@@ -55,4 +56,6 @@ router.patch(
 
 router.patch('/points/add', restrictTo('admin', 'user'), addPoints);
 router.patch('/points/remove', restrictTo('admin', 'user'), removePoints);
+
+router.post('/admin/add', restrictTo('admin'), addAdmin);
 module.exports = router;

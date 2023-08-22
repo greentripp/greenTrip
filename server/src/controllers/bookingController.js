@@ -6,7 +6,6 @@ const Activity = require('../models/activiesModel');
 const AppError = require('../utils/appError');
 const catchAsync = require('../utils/catchAsync');
 const {
-  createOne,
   deleteAll,
   deleteOne,
   getAll,
@@ -17,10 +16,7 @@ const {
 exports.deleteAllBooking = deleteAll(Booking);
 exports.deleteOneBooking = deleteOne(Booking);
 exports.getAllBooking = getAll(Booking);
-exports.getOneBooking = getOne(Booking, {
-  path: 'user point activity',
-  select: '-role -active -passwordChangedAt -points -__v ',
-});
+exports.getOneBooking = getOne(Booking);
 exports.updateOneBooking = updateOne(Booking);
 
 exports.createOneBooking = catchAsync(async (req, res, next) => {
