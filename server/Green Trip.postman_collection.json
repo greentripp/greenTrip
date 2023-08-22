@@ -1778,6 +1778,58 @@
 								}
 							},
 							"response": []
+						},
+						{
+							"name": "Admin: update user data",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "ahmed",
+											"type": "text"
+										},
+										{
+											"key": "avatar",
+											"type": "file",
+											"src": "/home/mostafa/Downloads/Img/cat.jpg"
+										},
+										{
+											"key": "phone",
+											"value": "012597461616",
+											"type": "text"
+										},
+										{
+											"key": "points",
+											"value": "50",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{local}}api/v1/users/admin/update/:id",
+									"host": [
+										"{{local}}api"
+									],
+									"path": [
+										"v1",
+										"users",
+										"admin",
+										"update",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "64d788cb52639e70ab3ecdd4"
+										}
+									]
+								}
+							},
+							"response": []
 						}
 					]
 				},
