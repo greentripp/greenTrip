@@ -78,9 +78,8 @@ exports.deleteOne = (Model) =>
     if (!data)
       return next(new AppError(`Cannot find any result with this ID`, 404));
 
-    res.status(204).json({
+    res.status(200).json({
       status: 'success',
-      message: 'point deleted successfully',
     });
   });
 
