@@ -1,6 +1,11 @@
+const cloudinary = require('cloudinary').v2;
 const multer = require('multer');
-const AppError = require('../utils/appError');
+const { CloudinaryStorage } = require('multer-storage-cloudinary');
 const path = require('path');
+const dotenv = require('dotenv');
+const AppError = require('../utils/appError');
+
+dotenv.config({ path: `${__dirname}/../.env` });
 
 exports.imageErrorHandler = (error, req, res, next) => {
   if (error instanceof multer.MulterError) {
@@ -25,41 +30,13 @@ exports.imageErrorHandler = (error, req, res, next) => {
   next(error);
 };
 
-const multerStorage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    let uploadDir = '';
-
-    if (file.fieldname === 'photo') {
-      uploadDir = 'pointImg';
-    } else if (file.fieldname === 'qrcode') {
-      uploadDir = 'qr';
-    } else if (file.fieldname === 'avatar') {
-      uploadDir = 'avatars';
-    } else {
-      return cb(new AppError('Invalid fieldname for file upload', 400));
-    }
-
-    cb(
-      null,
-      path.join(__dirname, '..', '..', '..', 'public', 'img', uploadDir)
-    );
-  },
-
-  filename: (req, file, cb) => {
-    const ext = file.mimetype.split('/')[1];
-    const filename = `${file.fieldname}-${Date.now()}.${ext}`;
-
-    if (file.fieldname === 'photo') {
-      req.body.photo = filename;
-    } else if (file.fieldname === 'qrcode') {
-      req.body.qrcode = filename;
-    } else if (file.fieldname === 'avatar') {
-      req.body.avatar = filename;
-    }
-
-    cb(null, filename);
-  },
+cloudinary.config({
+  cloud_name: 'dm9uqoio5',
+  api_key: process.env.CLOUDINARY_KEY,
+  api_secret: process.env.CLOUDINARY_SECRET,
 });
+
+const multerStorage = multer.memoryStorage();
 
 const multerFilter = (req, file, cb) => {
   if (file.mimetype.startsWith('image')) {
@@ -74,30 +51,64 @@ exports.upload = multer({
   fileFilter: multerFilter,
 });
 
-exports.setQrInDB = (req, res, next) => {
+exports.uploadToCloudinary = (file) => {
+  return new Promise((resolve, reject) => {
+    if (!file) {
+      reject(new AppError('No file provided', 400));
+    }
+
+    cloudinary.uploader
+      .upload_stream({ resource_type: 'auto' }, (error, result) => {
+        if (error) {
+          reject(error);
+        } else {
+          resolve(result.secure_url);
+        }
+      })
+      .end(file.buffer);
+  });
+};
+
+exports.setImageInDB = (imageName) => async (req, res, next) => {
   if (req.file) {
-    req.body.qrcode = req.file.filename;
+    try {
+      req.body.imageName = await exports.uploadToCloudinary(req.file);
+    } catch (error) {
+      return next(error);
+    }
   }
   next();
 };
 
-exports.setPhotoInDB = (req, res, next) => {
+exports.setQrInDB = async (req, res, next) => {
   if (req.file) {
-    req.body.photo = req.file.filename;
+    try {
+      req.body.qrcode = await exports.uploadToCloudinary(req.file);
+    } catch (error) {
+      return next(error);
+    }
   }
   next();
 };
 
-exports.setImageInDB = (imageName) => (req, res, next) => {
+exports.setPhotoInDB = async (req, res, next) => {
   if (req.file) {
-    req.body.imageName = req.file.filename;
+    try {
+      req.body.photo = await exports.uploadToCloudinary(req.file);
+    } catch (error) {
+      return next(error);
+    }
   }
   next();
 };
 
-exports.setAvatarInDB = (req, res, next) => {
+exports.setAvatarInDB = async (req, res, next) => {
   if (req.file) {
-    req.body.avatar = req.file.filename;
+    try {
+      req.body.avatar = await exports.uploadToCloudinary(req.file);
+    } catch (error) {
+      return next(error);
+    }
   }
   next();
 };

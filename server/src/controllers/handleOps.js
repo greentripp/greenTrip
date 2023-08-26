@@ -80,7 +80,7 @@ exports.deleteOne = (Model) =>
 
     res.status(204).json({
       status: 'success',
-      message: 'tour deleted successfully',
+      message: 'point deleted successfully',
     });
   });
 
