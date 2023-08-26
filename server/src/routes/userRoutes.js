@@ -26,6 +26,7 @@ const {
 } = require('../controllers/userControllers');
 
 const { upload, setAvatarInDB } = require('../controllers/imageController');
+const catchAsync = require('../utils/catchAsync');
 
 // Auth
 

@@ -39,7 +39,6 @@ cloudinary.config({
 const multerStorage = multer.memoryStorage();
 
 const multerFilter = (req, file, cb) => {
-  console.log(file.mimetype);
   if (file.mimetype.startsWith('image')) {
     cb(null, true);
   } else {
@@ -73,6 +72,16 @@ exports.uploadToCloudinary = (file) => {
 exports.setQrInDB = async (req, res, next) => {
   if (req.file) {
     try {
+      req.body.qrcode = await this.uploadToCloudinary(req.files['qrcode'][0]);
+    } catch (error) {
+      return next(error);
+    }
+  }
+  next();
+};
+exports.setQrInDB0 = async (req, res, next) => {
+  if (req.file) {
+    try {
       req.body.qrcode = await this.uploadToCloudinary(req.file);
     } catch (error) {
       return next(error);
@@ -84,7 +93,7 @@ exports.setQrInDB = async (req, res, next) => {
 exports.setPhotoInDB = async (req, res, next) => {
   if (req.file) {
     try {
-      req.body.photo = await this.uploadToCloudinary(req.file);
+      req.body.photo = await this.uploadToCloudinary(req.files['photo'][0]);
     } catch (error) {
       return next(error);
     }

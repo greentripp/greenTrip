@@ -7,7 +7,7 @@ const {
 } = require('../controllers/rewardController');
 
 const { protect, restrictTo } = require('../controllers/authControllers');
-const { upload, setQrInDB } = require('../controllers/imageController');
+const { upload, setQrInDB0 } = require('../controllers/imageController');
 
 const router = require('express').Router();
 
@@ -19,7 +19,7 @@ router
   .post(
     restrictTo('admin'),
     upload.single('qrcode'),
-    setQrInDB,
+    setQrInDB0,
     createOneReward
   );
 router
