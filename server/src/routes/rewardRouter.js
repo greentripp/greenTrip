@@ -25,7 +25,12 @@ router
 router
   .route('/:id')
   .get(getOneReward)
-  .patch(restrictTo('admin'), updateOneReward)
+  .patch(
+    restrictTo('admin'),
+    upload.single('qrcode'),
+    setQrInDB0,
+    updateOneReward
+  )
   .delete(restrictTo('admin'), deleteOneReward);
 
 module.exports = router;
