@@ -33,6 +33,9 @@ app.use(dataSanitize());
 app.use(xss());
 app.use(hpp());
 
+app.get('/', (req, res) => {
+  res.status(200).send('Hi');
+});
 app.use('/api/v1/users', userRouter);
 app.use('/api/v1/points', pointRouter);
 app.use('/api/v1/actvities', activityRouter);
