@@ -29,8 +29,6 @@ const { upload, setAvatarInDB } = require('../controllers/imageController');
 
 // Auth
 
-router.route('/').get(restrictTo('admin'), getAllUsers);
-
 router.post('/signup', signup);
 router.post('/login', loginUser);
 router.post('/adminLogin', adminLogin);
@@ -40,6 +38,7 @@ router.patch('/resetPassword/:token', resetPassword);
 router.get('/resetPassword/verify/:token', verifyToken);
 
 router.use(protect);
+router.route('/').get(restrictTo('admin'), getAllUsers);
 router.patch('/updateMyPassword', updatePassword);
 router.route('/me').get(getMe, getUser).delete(deleteMe);
 router.route('/:id').get(getUser);
