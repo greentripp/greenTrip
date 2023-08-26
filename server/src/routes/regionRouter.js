@@ -3,13 +3,10 @@ const { protect, restrictTo } = require('../controllers/authControllers');
 const {
   getAllRegion,
   createOneRegion,
-  deleteAllRegion,
   getOneRegion,
   updateOneRegion,
   deleteOneRegion,
 } = require('../controllers/regionController');
-
-router.delete('/all', deleteAllRegion);
 
 router
   .route('/')

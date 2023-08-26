@@ -3,20 +3,13 @@ const Reward = require('../models/rewardModel');
 const AppError = require('../utils/appError');
 
 const catchAsync = require('../utils/catchAsync');
-const {
-  getAll,
-  getOne,
-  deleteOne,
-  updateOne,
-  deleteAll,
-} = require('./handleOps');
+const { getAll, getOne, deleteOne, updateOne } = require('./handleOps');
 const User = require('../models/userModel');
 
 exports.getAllVoucher = getAll(Voucher);
 exports.getOneVoucher = getOne(Voucher, 'reward');
 exports.deleteOneVoucher = deleteOne(Voucher);
 exports.updateOneVoucher = updateOne(Voucher);
-exports.deleteAllVoucher = deleteAll(Voucher);
 
 exports.createOneVoucher = catchAsync(async (req, res, next) => {
   // GET the voucher

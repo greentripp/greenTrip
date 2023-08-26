@@ -8,7 +8,6 @@ const {
   getAll,
   getOne,
   updateOne,
-  deleteAll,
 } = require('./handleOps');
 const { upload } = require('./imageController');
 
@@ -17,7 +16,6 @@ exports.getOnePoint = getOne(Point, 'activities');
 exports.createOnePoint = createOne(Point);
 exports.deleteOnePoint = deleteOne(Point);
 exports.updateOnePoint = updateOne(Point);
-exports.deleteAllPoints = deleteAll(Point);
 
 exports.isAgent = catchAsync(async (req, res, next) => {
   const agentId = req.body.agent;

@@ -8,14 +8,12 @@ const {
   getAll,
   getOne,
   updateOne,
-  deleteAll,
 } = require('./handleOps');
 
 exports.getAllActivites = getAll(Activity, 'activities');
 exports.deleteOneActivity = deleteOne(Activity);
 exports.getOneActivity = getOne(Activity, 'pointOfInterest');
 exports.updateOneActivity = updateOne(Activity);
-exports.deleteAllActivities = deleteAll(Activity);
 exports.createOneActivity = createOne(Activity);
 
 exports.getActivitiesByPoint = catchAsync(async (req, res, next) => {

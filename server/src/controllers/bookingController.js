@@ -5,15 +5,8 @@ const Activity = require('../models/activiesModel');
 
 const AppError = require('../utils/appError');
 const catchAsync = require('../utils/catchAsync');
-const {
-  deleteAll,
-  deleteOne,
-  getAll,
-  getOne,
-  updateOne,
-} = require('./handleOps');
+const { deleteOne, getAll, getOne, updateOne } = require('./handleOps');
 
-exports.deleteAllBooking = deleteAll(Booking);
 exports.deleteOneBooking = deleteOne(Booking);
 exports.getAllBooking = getAll(Booking);
 exports.getOneBooking = getOne(Booking);

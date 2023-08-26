@@ -1,7 +1,6 @@
 const router = require('express').Router();
 const { protect, restrictTo } = require('../controllers/authControllers');
 const {
-  deleteAllVoucher,
   getAllVoucher,
   createOneVoucher,
   getOneVoucher,
@@ -9,8 +8,6 @@ const {
   deleteOneVoucher,
 } = require('../controllers/voucherController');
 const { setUserId } = require('../controllers/handleOps');
-
-router.route('/all').delete(deleteAllVoucher);
 
 router.use(protect);
 

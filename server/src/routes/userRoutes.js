@@ -15,7 +15,6 @@ const {
 } = require('../controllers/authControllers');
 
 const {
-  deleteAllUsers,
   getAllUsers,
   getUser,
   getMe,
@@ -30,11 +29,7 @@ const { upload, setAvatarInDB } = require('../controllers/imageController');
 
 // Auth
 
-// !TODO: DELTE THIS BEFORE DEPLOY
-// FOR DEV ONLY
-
-router.delete('/all', deleteAllUsers);
-router.route('/').get(getAllUsers);
+router.route('/').get(restrictTo('admin'), getAllUsers);
 
 router.post('/signup', signup);
 router.post('/login', loginUser);

@@ -8,10 +8,8 @@ const {
   deleteOnePoint,
   updateOnePoint,
   isAgent,
-  deleteAllPoints,
   setImagesInDB,
 } = require('../controllers/pointControllers');
-router.route('/all').delete(deleteAllPoints);
 
 router
   .route('/')

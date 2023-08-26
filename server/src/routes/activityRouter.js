@@ -6,13 +6,10 @@ const {
   getAllActivites,
   getOneActivity,
   updateOneActivity,
-  deleteAllActivities,
   getActivitiesByPoint,
 } = require('../controllers/activityController');
 
 const { upload, setImageInDB } = require('../controllers/imageController');
-
-router.delete('/all', deleteAllActivities);
 
 router
   .route('/')

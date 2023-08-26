@@ -2,10 +2,9 @@ const User = require('../models/userModel');
 const AppError = require('../utils/appError');
 const catchAsync = require('../utils/catchAsync');
 
-const { getAll, getOne, deleteAll, updateOne } = require('./handleOps');
+const { getAll, getOne, updateOne } = require('./handleOps');
 
 exports.getAllUsers = getAll(User);
-exports.deleteAllUsers = deleteAll(User);
 exports.getUser = getOne(User, 'vouchers bookings');
 
 exports.getMe = (req, res, next) => {
