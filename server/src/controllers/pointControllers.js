@@ -9,7 +9,12 @@ const {
   getOne,
   updateOne,
 } = require('./handleOps');
-const { upload } = require('./imageController');
+const {
+  upload,
+  uploadToCloudinary,
+  setQrInDB,
+  setPhotoInDB,
+} = require('./imageController');
 
 exports.getAllPoints = getAll(Point);
 exports.getOnePoint = getOne(Point, 'activities');
@@ -27,10 +32,14 @@ exports.isAgent = catchAsync(async (req, res, next) => {
   next();
 });
 
-exports.setImagesInDB = (req, res, next) => {
-  if (req.file) {
-    req.body.photo = req.file.filename;
-    req.body.qrcode = req.file.filename;
+exports.setImagesInDB = async (req, res, next) => {
+  if (req.files) {
+    try {
+      req.body.photo = await uploadToCloudinary(req.files['photo'][0]);
+      req.body.qrcode = await uploadToCloudinary(req.files['qrcode'][0]);
+    } catch (error) {
+      return next(error);
+    }
   }
   next();
 };

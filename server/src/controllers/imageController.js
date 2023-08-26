@@ -1,6 +1,5 @@
 const cloudinary = require('cloudinary').v2;
 const multer = require('multer');
-const { CloudinaryStorage } = require('multer-storage-cloudinary');
 const path = require('path');
 const dotenv = require('dotenv');
 const AppError = require('../utils/appError');
@@ -22,6 +21,7 @@ exports.imageErrorHandler = (error, req, res, next) => {
     }
 
     if (error.code === 'LIMIT_UNEXPECTED_FILE') {
+      console.log(error);
       return res.status(400).json({
         message: 'File must be an image',
       });
@@ -39,6 +39,7 @@ cloudinary.config({
 const multerStorage = multer.memoryStorage();
 
 const multerFilter = (req, file, cb) => {
+  console.log(file.mimetype);
   if (file.mimetype.startsWith('image')) {
     cb(null, true);
   } else {
@@ -69,21 +70,10 @@ exports.uploadToCloudinary = (file) => {
   });
 };
 
-exports.setImageInDB = (imageName) => async (req, res, next) => {
-  if (req.file) {
-    try {
-      req.body.imageName = await exports.uploadToCloudinary(req.file);
-    } catch (error) {
-      return next(error);
-    }
-  }
-  next();
-};
-
 exports.setQrInDB = async (req, res, next) => {
   if (req.file) {
     try {
-      req.body.qrcode = await exports.uploadToCloudinary(req.file);
+      req.body.qrcode = await this.uploadToCloudinary(req.file);
     } catch (error) {
       return next(error);
     }
@@ -94,7 +84,7 @@ exports.setQrInDB = async (req, res, next) => {
 exports.setPhotoInDB = async (req, res, next) => {
   if (req.file) {
     try {
-      req.body.photo = await exports.uploadToCloudinary(req.file);
+      req.body.photo = await this.uploadToCloudinary(req.file);
     } catch (error) {
       return next(error);
     }
@@ -105,7 +95,19 @@ exports.setPhotoInDB = async (req, res, next) => {
 exports.setAvatarInDB = async (req, res, next) => {
   if (req.file) {
     try {
-      req.body.avatar = await exports.uploadToCloudinary(req.file);
+      req.body.avatar = await this.uploadToCloudinary(req.file);
+    } catch (error) {
+      return next(error);
+    }
+  }
+  next();
+};
+
+exports.setImagesInDB = async (req, res, next) => {
+  if (req.file) {
+    try {
+      await setQrInDB(req, res, next);
+      await setPhotoInDB(req, res, next);
     } catch (error) {
       return next(error);
     }

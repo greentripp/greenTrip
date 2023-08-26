@@ -1,6 +1,5 @@
 const router = require('express').Router();
 const { protect, restrictTo } = require('../controllers/authControllers');
-const { uploadPointFiles } = require('../controllers/pointControllers');
 const {
   getAllPoints,
   getOnePoint,
@@ -9,6 +8,7 @@ const {
   updateOnePoint,
   isAgent,
   setImagesInDB,
+  uploadPointFiles,
 } = require('../controllers/pointControllers');
 
 router
