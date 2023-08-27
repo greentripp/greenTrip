@@ -61,7 +61,10 @@ exports.addAdmin = catchAsync(async (req, res, next) => {
 
   new Email(newUser, ``).sendWelcomeProd();
 
-  createSendToken(newUser, 201, res);
+  res.status(200).send({
+    status: 'success',
+    data: newUser,
+  });
 });
 
 const login = (...role) => {
