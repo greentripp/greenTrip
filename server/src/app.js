@@ -18,6 +18,7 @@ const bookingRouter = require('./routes/bookingRouter');
 const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorControllers');
 const { imageErrorHandler } = require('./controllers/imageController');
+const { getStatistics } = require('./controllers/statisticsController');
 
 dotenv.config({ path: `${__dirname}/.env` });
 const app = express();
@@ -36,6 +37,8 @@ app.use(hpp());
 app.get('/', (req, res) => {
   res.status(200).send('Hi');
 });
+
+app.get('/api/v1/stats', getStatistics);
 app.use('/api/v1/users', userRouter);
 app.use('/api/v1/points', pointRouter);
 app.use('/api/v1/actvities', activityRouter);

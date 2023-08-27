@@ -30,7 +30,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"name\":\"Green Trip Admin\",\n    \"email\": \"admin@greentrip.com\",\n    \"password\": \"123456789\",\n    \"passwordConfirm\": \"123456789\",\n    \"role\": \"admin\", //or  role=\"user\",\n    \"phone\": \"01220528754\",\n    \"region\": \"lisboa\"\n}",
+									"raw": "{\n    \"name\":\"Green Trip Admin\",\n    \"email\": \"admin@greentrip.com\",\n    \"password\": \"123456789\",\n    \"passwordConfirm\": \"123456789\",\n    \"role\": \"user\", //or  role=\"user\",\n    \"phone\": \"01220528754\",\n    \"region\": \"lisboa\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -311,7 +311,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"email\": \"mostafa1@mailsac.com\",\n    \"password\": \"{{pass}}\"\n}",
+									"raw": "{\n    \"email\": \"mostafa@mailsac.com\",\n    \"password\": \"{{pass}}\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -410,7 +410,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"email\": \"jcristo@gmail.com\",\n    \"password\": \"{{pass}}\"\n}",
+									"raw": "{\n    \"email\": \"mostafa1@mailsac.com\",\n    \"password\": \"{{pass}}\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1193,18 +1193,44 @@
 							"response": []
 						},
 						{
-							"name": "Add Admin",
+							"name": "Admin: Add Admin",
 							"request": {
 								"method": "POST",
 								"header": [],
 								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"name\":\"Green Trip Admin\",\n    \"email\": \"admin1@greentrip.com\",\n    \"password\": \"123456789\",\n    \"passwordConfirm\": \"123456789\",\n    \"role\": \"admin\", \n    \"phone\": \"01220528754\",\n    \"region\": \"lisboa\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "testFormData",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "addADmdins@gmial.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "{{pass}}",
+											"type": "text"
+										},
+										{
+											"key": "passwordConfirm",
+											"value": "{{pass}}",
+											"type": "text"
+										},
+										{
+											"key": "role",
+											"value": "admin",
+											"type": "text"
+										},
+										{
+											"key": "avatar",
+											"type": "file",
+											"src": "/home/mostafa/Pictures/6.png"
 										}
-									}
+									]
 								},
 								"url": {
 									"raw": "{{local}}api/v1/users/admin/add",
@@ -1659,7 +1685,7 @@
 										{
 											"key": "avatar",
 											"type": "file",
-											"src": "/mnt/01D734A9C4C17890/F3KFFHjXMAAL2Hy.jpeg"
+											"src": "/home/mostafa/Downloads/Img/dog.jpg"
 										},
 										{
 											"key": "phone",
@@ -1702,7 +1728,17 @@
 												{
 													"key": "avatar",
 													"type": "file",
-													"src": "/home/mostafa/Downloads/Img/7seba'sBrothers.jpg"
+													"src": "/home/mostafa/Downloads/Img/dog.jpg"
+												},
+												{
+													"key": "phone",
+													"value": "0126548",
+													"type": "text"
+												},
+												{
+													"key": "region",
+													"value": "kaftEldwar",
+													"type": "text"
 												}
 											]
 										},
@@ -1736,15 +1772,15 @@
 										},
 										{
 											"key": "Content-Length",
-											"value": "234"
+											"value": "337"
 										},
 										{
 											"key": "ETag",
-											"value": "W/\"ea-zY7sAy6DWy81gEG7BxRKKOCcKBU\""
+											"value": "W/\"151-NxnlehOi6G7VcyCa9GUGxd12MUw\""
 										},
 										{
 											"key": "Date",
-											"value": "Wed, 09 Aug 2023 13:09:23 GMT"
+											"value": "Sat, 26 Aug 2023 10:41:55 GMT"
 										},
 										{
 											"key": "Connection",
@@ -1756,7 +1792,7 @@
 										}
 									],
 									"cookie": [],
-									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"user\": {\n            \"_id\": \"64d38ffa2be93a990a62110b\",\n            \"name\": \"mostafa\",\n            \"email\": \"mostafa@mailsac.com\",\n            \"avatar\": \"avatar-1691586563819.jpeg\",\n            \"role\": \"user\",\n            \"active\": true,\n            \"points\": 0,\n            \"__v\": 0,\n            \"id\": \"64d38ffa2be93a990a62110b\"\n        }\n    }\n}"
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"user\": {\n            \"_id\": \"64e4eb7b2b1da80a5e76cdef\",\n            \"name\": \"mostafa\",\n            \"email\": \"addadmin@gmial.com\",\n            \"avatar\": \"https://res.cloudinary.com/dm9uqoio5/image/upload/v1693046515/ewh3dpm9pxddmznzhelx.jpg\",\n            \"role\": \"admin\",\n            \"active\": true,\n            \"points\": 925,\n            \"__v\": 0,\n            \"phone\": \"0126548\",\n            \"region\": \"kaftEldwar\",\n            \"id\": \"64e4eb7b2b1da80a5e76cdef\"\n        }\n    }\n}"
 								}
 							]
 						},
@@ -1795,7 +1831,7 @@
 										{
 											"key": "avatar",
 											"type": "file",
-											"src": "/home/mostafa/Downloads/Img/cat.jpg"
+											"src": "/home/mostafa/Pictures/10.png"
 										},
 										{
 											"key": "phone",
@@ -2134,7 +2170,7 @@
 								},
 								{
 									"key": "pointOfInterest",
-									"value": "64d922891bd7ddc6e5dc1682",
+									"value": "64eafac7b6072055230a4a84",
 									"type": "text"
 								},
 								{
@@ -2150,7 +2186,7 @@
 								{
 									"key": "photo",
 									"type": "file",
-									"src": "/home/mostafa/Downloads/ana/SSDProject/greenTrip/public/img/pointImg/paint.jpg"
+									"src": "/home/mostafa/Downloads/Img/2rmatClown.jpg"
 								}
 							]
 						},
@@ -2186,7 +2222,7 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": "64d38cc267805d34a30bb415"
+									"value": "64eb0a7a53cd9004999e65e7"
 								}
 							]
 						}
@@ -2529,7 +2565,7 @@
 								{
 									"key": "photo",
 									"type": "file",
-									"src": "/home/mostafa/Downloads/ana/SSDProject/greenTrip/public/img/pointImg/HotelGrãoVasco.jpg"
+									"src": "/home/mostafa/Downloads/Img/dog.jpg"
 								},
 								{
 									"key": "availableTickets",
@@ -2544,7 +2580,7 @@
 								{
 									"key": "qrcode",
 									"type": "file",
-									"src": "/home/mostafa/Downloads/ana/SSDProject/greenTrip/public/img/qr/qr.png"
+									"src": "/home/mostafa/Downloads/Img/dog.jpg"
 								},
 								{
 									"key": "costPoints",
@@ -2670,14 +2706,14 @@
 									"type": "text"
 								},
 								{
-									"key": "phtoto",
+									"key": "photo",
 									"type": "file",
-									"src": "/home/mostafa/Downloads/Img/tomClown.jpg"
+									"src": "/home/mostafa/Downloads/Img/dog.jpg"
 								},
 								{
 									"key": "qrcode",
 									"type": "file",
-									"src": "/home/mostafa/Downloads/Img/tomClown.jpg"
+									"src": "/home/mostafa/Downloads/Img/2rmatClown.jpg"
 								}
 							]
 						},
@@ -2694,7 +2730,7 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": "64ce9cc3ce3b9c755633f163"
+									"value": "64ea2441f10067a1fd455e50"
 								}
 							]
 						}
@@ -2719,7 +2755,7 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": null
+									"value": "64ea2424f10067a1fd455e49"
 								}
 							]
 						}
@@ -3336,11 +3372,11 @@
 								{
 									"key": "qrcode",
 									"type": "file",
-									"src": "/home/mostafa/Downloads/ana/SSDProject/greenTrip/public/img/qr/qr.png"
+									"src": "/home/mostafa/Pictures/7.png"
 								},
 								{
 									"key": "pointOfInterest",
-									"value": "64d922891bd7ddc6e5dc1682",
+									"value": "64ea2441f10067a1fd455e50",
 									"type": "text"
 								}
 							]
@@ -3562,7 +3598,7 @@
 								{
 									"key": "qrcode",
 									"type": "file",
-									"src": "/home/mostafa/Downloads/Img/sleeping_monkey.jpg"
+									"src": "/home/mostafa/Downloads/Img/dog.jpg"
 								}
 							]
 						},
@@ -3579,7 +3615,7 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": "64d215f7b09a2c02e4881ef4"
+									"value": "64ea3a6c152f833bc3861488"
 								}
 							]
 						}
@@ -3683,7 +3719,7 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": null
+									"value": "64ea24fe9324949f873455a4"
 								}
 							]
 						}
@@ -4315,7 +4351,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    // \"type\": \"point\",\n    \"type\": \"activity\",\n    \"numOfTickets\": 5,\n    \"numOfDays\": 3,\n    // \"point\": \"64d9224c1bd7ddc6e5dc167e\"\n    // ,\n    \"activity\": \"64d92663aaf9a1d483f78698\"\n}",
+							"raw": "{\n    // \"type\": \"point\",\n    \"type\": \"activity\",\n    \"numOfTickets\": 5,\n    \"numOfDays\": 3,\n    // \"point\": \"64eafac7b6072055230a4a84\"\n    // ,\n    \"activity\": \"64eb0a7a53cd9004999e65e7\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -4487,7 +4523,7 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": "64da8ce23c1a2017033163ba"
+									"value": "64eb06b1191ab29ccee7c754"
 								}
 							]
 						}
@@ -4628,7 +4664,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\"status\" : \"active\"\n}",
+							"raw": "{\n    \"status\": \"canceled\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -4648,7 +4684,7 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": "64d38890c28cb861dc9f5fd5"
+									"value": "64eb0be08a8b1141b82a4f11"
 								}
 							]
 						}
@@ -4885,6 +4921,24 @@
 					]
 				}
 			]
+		},
+		{
+			"name": "Get Statistics",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{local}}api/v1/stats",
+					"host": [
+						"{{local}}api"
+					],
+					"path": [
+						"v1",
+						"stats"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
