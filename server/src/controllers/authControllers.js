@@ -54,9 +54,6 @@ exports.signup = catchAsync(async (req, res, next) => {
 });
 
 exports.addAdmin = catchAsync(async (req, res, next) => {
-  if (req.body.role !== 'admin')
-    return next(new AppError(`You cannot signup as ${req.body.role}`, 401));
-
   const newUser = await User.create(req.body);
 
   // Remove passowrd from output
