@@ -10,44 +10,76 @@ const { deleteOne, getAll, getOne, updateOne } = require('./handleOps');
 exports.deleteOneBooking = deleteOne(Booking);
 exports.getAllBooking = getAll(Booking);
 exports.getOneBooking = getOne(Booking);
-exports.updateOneBooking = updateOne(Booking);
+exports.updateOneBooking = catchAsync(async (req, res, next) => {
+  let book = await Booking.findById(req.params.id);
+
+  if (!book)
+    return next(new AppError('Cannot find any result with this ID', 404));
+
+  if (req.body.status === 'canceled' && book.status !== 'canceled') {
+    if (book.point) {
+      let point = await Point.findById(book.point.id);
+      point.availableTickets += book.numOfTickets;
+      await point.save();
+    } else if (book.activity) {
+      let activity = await Activity.findById(book.activity.id);
+      activity.reservationLimit += book.numOfTickets;
+      console.log(activity);
+      await activity.save();
+    }
+  }
+  book.status = req.body.status;
+  // Update properties of the fetched book instance based on req.body
+  // for (const key in req.body) {
+  //   if (key !== 'status') {
+  //     book[key] = req.body[key];
+  //   }
+  // }
+
+  // Save the updated book instance
+  await book.save();
+
+  // SEND RESPONSE
+  res.status(200).json({
+    status: 'success',
+    data: book,
+  });
+});
 
 exports.createOneBooking = catchAsync(async (req, res, next) => {
-  // check if type match the body.
   let booking = {
     type: req.body.type,
     user: req.body.user || req.user._id,
     numOfTickets: req.body.numOfTickets,
     numOfDays: req.body.numOfDays,
   };
+
   let newBooking;
 
   if (req.body.type === 'activity') {
     if (!req.body.activity)
       return next(new AppError('Please provide activity you wanna book', 400));
 
+    //  await Activity.findByIdAndDelete(req.body.activity);
+
     booking.activity = req.body.activity;
 
     // Check if same user book same activity
-    const existingActivity = await Booking.findOne({
+    await Booking.findOneAndRemove({
       activity: booking.activity,
       user: booking.user,
     });
 
-    if (existingActivity)
-      return next(new AppError('You booked this Activity before', 400));
-
+    let availableTickets;
     const activity = await Activity.findById(booking.activity);
-    const availableTickets = activity.reservationLimit;
+    availableTickets = activity.reservationLimit;
 
     try {
       if (booking.numOfTickets > availableTickets)
         return next(new AppError('Sorry, No enought Tickets', 400));
 
       activity.reservationLimit -= booking.numOfTickets;
-
       booking.paid = true;
-
       await activity.save();
 
       newBooking = await Booking.create(booking);
@@ -69,19 +101,16 @@ exports.createOneBooking = catchAsync(async (req, res, next) => {
       return next(
         new AppError('Please provide point of interest you wanna book', 400)
       );
-
     booking.point = req.body.point;
 
     // Check if same user book same point
-    const existingPoint = await Booking.findOne({
+    await Booking.findOneAndRemove({
       point: booking.point,
       user: booking.user,
     });
 
-    if (existingPoint)
-      return next(new AppError('You booked this Point before', 400));
-
     const point = await Point.findById(req.body.point);
+    if (!point) return next(new AppError('Please Provide vaild point ID', 404));
     const pointAvailableTickets = point.availableTickets;
 
     const user = await User.findById(booking.user);

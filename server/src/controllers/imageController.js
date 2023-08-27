@@ -101,6 +101,16 @@ exports.setPhotoInDB = async (req, res, next) => {
   next();
 };
 
+exports.setPhotoInDB0 = async (req, res, next) => {
+  if (req.file) {
+    try {
+      req.body.photo = await this.uploadToCloudinary(req.file);
+    } catch (error) {
+      return next(error);
+    }
+  }
+  next();
+};
 exports.setAvatarInDB = async (req, res, next) => {
   if (req.file) {
     try {

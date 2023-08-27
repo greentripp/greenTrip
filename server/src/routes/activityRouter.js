@@ -9,7 +9,7 @@ const {
   getActivitiesByPoint,
 } = require('../controllers/activityController');
 
-const { upload, setPhotoInDB } = require('../controllers/imageController');
+const { upload, setPhotoInDB0 } = require('../controllers/imageController');
 
 router
   .route('/')
@@ -18,7 +18,7 @@ router
     protect,
     restrictTo('admin', 'user'),
     upload.single('photo'),
-    setPhotoInDB,
+    setPhotoInDB0,
     createOneActivity
   );
 
