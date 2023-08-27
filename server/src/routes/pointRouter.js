@@ -29,7 +29,7 @@ router.use(protect);
 router
   .route('/:id')
   .get(getOnePoint)
-  .patch(uploadPointFiles, setImagesInDB, updateOnePoint)
+  .patch(upload.single('photo'), setPhotoInDB0, updateOnePoint)
   .delete(deleteOnePoint);
 
 module.exports = router;
