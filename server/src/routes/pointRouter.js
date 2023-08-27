@@ -11,14 +11,16 @@ const {
   uploadPointFiles,
 } = require('../controllers/pointControllers');
 
+const { setPhotoInDB0, upload } = require('../controllers/imageController');
+
 router
   .route('/')
   .get(getAllPoints)
   .post(
     protect,
     restrictTo('admin'),
-    uploadPointFiles,
-    setImagesInDB,
+    upload.single('photo'),
+    setPhotoInDB0,
     isAgent,
     createOnePoint
   );

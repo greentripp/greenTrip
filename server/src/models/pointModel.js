@@ -23,11 +23,12 @@ const pointSchema = new mongoose.Schema(
       default: 30,
     },
     costPoints: {
-      type: String,
-      required: [
-        true,
-        'Please provide num of cost Points to the Point of Interest',
-      ],
+      type: Number,
+      // required: [
+      //   true,
+      //   'Please provide num of cost Points to the Point of Interest',
+      // ],
+      default: 30,
     },
     category: {
       type: String,
