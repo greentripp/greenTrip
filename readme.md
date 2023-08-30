@@ -50,7 +50,7 @@ Green Trip is built using a variety of technologies to ensure a seamless and sec
 
 # Frontend
 
-- Check the [Frontend Documentaion](https://github.com/MostafaMGomaa/greenTrip/blob/master/client/readme.md)
+- Check the [Frontend Documentaion](https://github.com/MostafaMGomaa/greenTrip/blob/master/client)
 
 ## Purpose and Impact
 
