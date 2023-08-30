@@ -182,6 +182,9 @@ const PointsOfInterestNew = () => {
               <option value='Historical'>Historical</option>
               <option value='Culture'>Culture</option>
               <option value='Sport'>Sport</option>
+              <option value='Beach'>Beach</option>
+              <option value='Restaurant'>Restaurant</option>
+              <option value='Hotel'>Hotel</option>
             </TextSelect>
           </div>
           <div>
